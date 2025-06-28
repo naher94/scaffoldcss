@@ -110,16 +110,8 @@ $-zf-flex-justify: -zf-flex-justify($global-text-direction);
 /// @type Number
 $global-color-pick-contrast-tolerance: 0 !default;
 
-// Internal variables used for colors
-// @include add-foundation-colors;
-
 @mixin foundation-global-styles {
   @include foundation-normalize;
-
-  // These styles are applied to a <meta> tag, which is read by the Foundation JavaScript
-  .foundation-mq {
-    font-family: '#{-zf-bp-serialize($breakpoints)}';
-  }
 
   html {
     box-sizing: border-box;
