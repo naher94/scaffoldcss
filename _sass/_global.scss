@@ -18,41 +18,9 @@ $global-font-size: 100% !default;
 /// @type Number
 $global-width: rem-calc(1200) !default;
 
-/// Global value used for margin on components.
-/// @type Number
-$global-margin: 1rem !default;
-
-/// Global value used for padding on components.
-/// @type Number
-$global-padding: 1rem !default;
-
-/// Global font weight used for normal type.
-/// @type Keyword | Number
-$global-weight-normal: normal !default;
-
-/// Global font weight used for bold type.
-/// @type Keyword | Number
-$global-weight-bold: bold !default;
-
-/// Global value used for all elements that have a border radius.
-/// @type Number
-$global-radius: 0 !default;
-
-/// Global value used for all menu styles. Can be overwritten at individual menu component level.
-/// @type Number
-$global-menu-padding: 0.7rem 1rem !default;
-
-/// Global value used for all menu styles. Nested margin for submenu.
-$global-menu-nested-margin: 1rem !default;
-
 /// Sets the text direction of the CSS. Can be either `ltr` or `rtl`.
 /// @type Keyword
 $global-text-direction: ltr !default;
-
-/// Enables flexbox for components that support it.
-/// @type Boolean
-$global-flexbox: true !default;
-
 
 // Internal variables used for text direction
 $global-left: if($global-text-direction == rtl, right, left);
@@ -60,10 +28,6 @@ $global-right: if($global-text-direction == rtl, left, right);
 
 // Internal variable that contains the flex justifying options
 $-zf-flex-justify: -zf-flex-justify($global-text-direction);
-
-/// Global tolerance for color pick contrast.
-/// @type Number
-$global-color-pick-contrast-tolerance: 0 !default;
 
 @mixin foundation-global-styles {
   // @include foundation-normalize;
