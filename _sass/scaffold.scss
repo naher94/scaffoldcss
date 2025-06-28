@@ -1,0 +1,34 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'util/util';
+@import 'xy-grid/xy-grid';
+
+// --- Dependencies ---
+// @import 'sassy-lists/helpers/missing-dependencies';
+@import 'sassy-lists/helpers/true';
+@import 'sassy-lists/functions/contain';
+@import 'sassy-lists/functions/purge';
+@import 'sassy-lists/functions/remove';
+@import 'sassy-lists/functions/replace';
+@import 'sassy-lists/functions/to-list';
+
+@include foundation-xy-grid-classes;
+
+html {
+    box-sizing: border-box;
+    font-size: $global-font-size;
+  }
+
+  // Set box-sizing globally to handle padding and border widths
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  // Default body styles
+  body {
+    margin: 0;
+    padding: 0;
+  }

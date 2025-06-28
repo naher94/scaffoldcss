@@ -2,11 +2,9 @@
   # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@import 'app';
+@import 'scaffold';
 
-// .home-playground{
-  .cell{
-    background-color: lightblue;
-    padding: 0.5em;
-  }
-// }
+.cell{
+  background-color: lightblue;
+  padding: 0.5em;
+}

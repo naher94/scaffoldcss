@@ -2,13 +2,9 @@
 // https://get.foundation
 // Licensed under MIT Open Source
 
-////
-/// @group xy-grid
-////
-
 /// Enables the XY grid.
 /// @type Boolean
-$xy-grid: true !default;
+// $xy-grid: true !default;
 
 /// The maximum width of a grid container.
 /// @type Number
@@ -39,7 +35,7 @@ $grid-container-max: $global-width !default;
 
 /// The maximum number of cells in an XY block grid.
 /// @type Number
-$xy-block-grid-max: 8 !default;
+$xy-block-grid-max: 8 !default; //TODO why does this exist?
 
 @import 'gutters';
 @import 'grid';

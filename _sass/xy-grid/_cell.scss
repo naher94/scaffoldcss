@@ -234,39 +234,3 @@
     @include xy-cell-gutters($gutters, $gutter-type, $gutter-position, $breakpoint, $vertical);
   }
 }
-
-/// Creates a single breakpoint sized grid. Used to generate our grid classes.
-///
-/// `xy-cell-static()` is deprecated and will be removed.
-/// Use `xy-cell()` instead with `$output: (size gutters)` to not generate the cell base.
-/// See migration notes at https://git.io/foundation-6-6-0
-///
-/// @deprecated v6.6.0
-///
-/// @param {Keyword|Number} $size [full] - The size of your cell. Can be `full` (100% width), `auto` (use all available space), `shrink` (use only the required space) or any fraction (`6`, `50%`, `1 of 2` or `1/2`...).
-/// @param {Boolean} $gutter-output [true] - Whether or not to output gutters. Always `true` for margin gutters.
-/// @param {Number|Map} $gutters [$grid-margin-gutters] - Map or single value for gutters.
-/// @param {Keyword} $gutter-type [margin] - Map or single value for gutters.
-/// @param {String} $breakpoint [null] - The name of the breakpoint size in your gutters map to get the size from. If using with the `breakpoint()` mixin this will be set automatically unless manually entered.
-/// @param {Boolean} $vertical [false] - Set to true to output vertical (height) styles rather than widths.
-@mixin xy-cell-static(
-  $size: full,
-  $gutter-output: true,
-  $gutters: $grid-margin-gutters,
-  $gutter-type: margin,
-  $breakpoint: $-zf-zero-breakpoint,
-  $vertical: false
-) {
-  @warn 'xy-cell-static() mixin is deprecated and will be removed. Use "xy-cell()" instead. See migration notes at https://git.io/foundation-6-6-0';
-
-  $gutter: -zf-get-bp-val($gutters, $breakpoint);
-  $gutter-position: if($vertical == true, top bottom, left right);
-
-  $-gutter-output: if($gutter-type == 'margin', true, $gutter-output);
-  $-gutter-margin: if($gutter-type == 'margin', $gutter, 0);
-
-  @include -xy-cell-properties($size, $-gutter-margin, $vertical);
-  @if ($-gutter-output) {
-    @include xy-gutters($gutter, $gutter-type, $gutter-position);
-  }
-}
