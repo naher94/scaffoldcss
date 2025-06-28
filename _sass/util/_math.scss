@@ -1,21 +1,3 @@
-// Foundation for Sites
-// https://get.foundation
-// Licensed under MIT Open Source
-
-////
-/// @group functions
-////
-
-
-/// Calculates the height as a percentage of the width for a given ratio.
-/// @param {List} $ratio - Ratio to use to calculate the height, formatted as `x by y`.
-/// @return {Number} A percentage value for the height relative to the width of a responsive container.
-@function ratio-to-percentage($ratio) {
-  $w: nth($ratio, 1);
-  $h: nth($ratio, 3);
-  @return $h / $w * 100%;
-}
-
 /// Parse the given `$fraction` to numerators and denumerators.
 ///
 /// @param {*} $fraction - Value representing a fraction to parse. It can be formatted as `50%`, `1 of 2`, `1/2` or `50` (no denominator would be returned).
