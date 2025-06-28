@@ -36,18 +36,6 @@ $black: #0a0a0a !default;
 /// @type Color
 $white: #fefefe !default;
 
-/// Background color of the body.
-/// @type Color
-$body-background: $white !default;
-
-/// Text color of the body.
-/// @type Color
-$body-font-color: $black !default;
-
-/// Font stack of the body.
-/// @type List
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
-
 /// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
 /// @type Boolean
 $body-antialiased: true !default;
@@ -129,13 +117,6 @@ $global-color-pick-contrast-tolerance: 0 !default;
   body {
     margin: 0;
     padding: 0;
-
-    background: $body-background;
-
-    font-family: $body-font-family;
-    font-weight: $global-weight-normal;
-    line-height: $global-lineheight;
-    color: $body-font-color;
 
     @if ($body-antialiased) {
       -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
