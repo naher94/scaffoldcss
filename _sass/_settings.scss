@@ -5,7 +5,6 @@
 //
 //   1. Global
 //   2. Breakpoints
-//   3. The Grid
 //  56. Xy Grid
 
 @import 'util/util';
@@ -40,19 +39,6 @@ $breakpoints-hidpi: (
 );
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
-
-// 3. The Grid
-// -----------
-
-$grid-row-width: $global-width;
-$grid-column-count: 12;
-$grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
-);
-$grid-column-align-edge: true;
-$grid-column-alias: 'columns';
-$block-grid-max: 8;
 
 // 19. Flexbox Utilities
 // ---------------------
