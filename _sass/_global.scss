@@ -26,23 +26,7 @@ $global-lineheight: 1.5 !default;
 /// @type Map
 $foundation-palette: (
   primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
 ) !default;
-
-/// Color used for light gray UI items.
-/// @type Color
-$light-gray: #e6e6e6 !default;
-
-/// Color used for medium gray UI items.
-/// @type Color
-$medium-gray: #cacaca !default;
-
-/// Color used for dark gray UI items.
-/// @type Color
-$dark-gray: #8a8a8a !default;
 
 /// Color used for black ui items.
 /// @type Color
@@ -107,10 +91,6 @@ $global-text-direction: ltr !default;
 /// @type Boolean
 $global-flexbox: true !default;
 
-/// Enabled responsive breakpoints for prototypes if applicable
-/// @type Boolean
-$global-prototype-breakpoints: false !default;
-
 /// Button cursor's value, `auto` by default
 /// @type Keyword
 $global-button-cursor: auto !default;
@@ -169,23 +149,5 @@ $global-color-pick-contrast-tolerance: 0 !default;
       -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
       -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
     }
-  }
-
-  // Make reset inherit font-family instead of settings sans-serif
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-  }
-
-  // Internal classes to show/hide elements in JavaScript
-  .is-visible {
-    display: block !important;
-  }
-
-  .is-hidden {
-    display: none !important;
   }
 }
