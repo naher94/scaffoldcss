@@ -3,18 +3,17 @@
 @import 'settings';
 
 // --- Dependencies ---
-// @import '../_vendor/sassy-lists/stylesheets/helpers/missing-dependencies';
-@import '../_vendor/sassy-lists/stylesheets/helpers/true';
-@import '../_vendor/sassy-lists/stylesheets/functions/contain';
-@import '../_vendor/sassy-lists/stylesheets/functions/purge';
-@import '../_vendor/sassy-lists/stylesheets/functions/remove';
-@import '../_vendor/sassy-lists/stylesheets/functions/replace';
-@import '../_vendor/sassy-lists/stylesheets/functions/to-list';
+// @import 'sassy-lists/helpers/missing-dependencies';
+@import 'sassy-lists/helpers/true';
+@import 'sassy-lists/functions/contain';
+@import 'sassy-lists/functions/purge';
+@import 'sassy-lists/functions/remove';
+@import 'sassy-lists/functions/replace';
+@import 'sassy-lists/functions/to-list';
 
 // --- Components ---
 @import 'util/util';
 @import 'xy-grid/xy-grid';
-
 
 @include foundation-xy-grid-classes;
 
