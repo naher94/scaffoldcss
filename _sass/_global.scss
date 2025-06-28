@@ -18,16 +18,6 @@ $global-font-size: 100% !default;
 /// @type Number
 $global-width: rem-calc(1200) !default;
 
-/// Colors used for buttons, callouts, links, etc. There must always be a color called `primary`.
-/// @type Map
-$foundation-palette: (
-  primary: #1779ba,
-) !default;
-
-/// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
-/// @type Boolean
-$body-antialiased: true !default;
-
 /// Global value used for margin on components.
 /// @type Number
 $global-margin: 1rem !default;
@@ -71,9 +61,6 @@ $global-flexbox: true !default;
 /// @type Keyword
 $global-button-cursor: auto !default;
 
-@if not map-has-key($foundation-palette, primary) {
-  @error 'In $foundation-palette, you must have a color named "primary".';
-}
 
 // Internal variables used for text direction
 $global-left: if($global-text-direction == rtl, right, left);
@@ -105,10 +92,5 @@ $global-color-pick-contrast-tolerance: 0 !default;
   body {
     margin: 0;
     padding: 0;
-
-    @if ($body-antialiased) {
-      -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-      -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-    }
   }
 }
