@@ -2,22 +2,16 @@
 layout: default
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<h1>Welcome to Scaffold CSS</h1>
+<div class="grid-x home-playground grid-margin-x grid-margin-y">
+  <div class="cell">This is a cell in a grid x</div>
+  <div class="cell medium-6">medium-6 cell</div>
+  <div class="cell medium-6">medium-6 cell</div>
+  <div class="cell medium-4">medium-4 cell</div>
+  <div class="cell medium-4">medium-4 cell</div>
+  <div class="cell medium-4">medium-4 cell</div>
+  <div class="cell auto">auto cell
+    <button class="button">Button</button>
+  </div>
+  <div class="cell shrink">shrink cell</div>
 </div>
