@@ -1,17 +1,27 @@
-//  Foundation for Sites Settings
-//  -----------------------------
-//
-//  Table of Contents:
-//
-//   1. Global
-//   2. Breakpoints
-//  56. Xy Grid
-
 @import 'util/util';
 
-// 1. Global
-// ---------
+/// Font size attribute applied to `<html>` and `<body>`. We use 100% by default so the value is inherited from the user's browser settings.
+/// @type Number
+$global-font-size: 100% !default;
 
+/// Global width of your site. Used by the grid t7o determine row width.
+/// @type Number
+$global-width: rem-calc(1200) !default;
+
+/// Sets the text direction of the CSS. Can be either `ltr` or `rtl`.
+/// @type Keyword
+$global-text-direction: ltr !default;
+
+// Internal variables used for text direction
+$global-left: if($global-text-direction == rtl, right, left);
+$global-right: if($global-text-direction == rtl, left, right);
+
+// Internal variable that contains the flex justifying options
+$-zf-flex-justify: -zf-flex-justify($global-text-direction);
+
+
+// Global
+// ---------
 $global-font-size: 100%;
 $global-width: rem-calc(1200); //TODO Update this to close Gissue #404
 $global-margin: 1rem;
@@ -20,9 +30,8 @@ $global-position: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
 
-// 2. Breakpoints
+// Breakpoints
 // --------------
-
 $breakpoints: (
   small: 0,
   medium: 640px,
@@ -40,15 +49,13 @@ $breakpoints-hidpi: (
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large);
 
-// 19. Flexbox Utilities
+// Flexbox Utilities
 // ---------------------
-
 $flex-source-ordering-count: 6;
 $flexbox-responsive-breakpoints: true;
 
-// 56. Xy Grid
+// XY Grid
 // -----------
-
 $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;

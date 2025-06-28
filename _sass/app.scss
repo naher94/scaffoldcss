@@ -3,18 +3,22 @@
 @import 'settings';
 @import 'foundation';
 
-// Global styles
-@include foundation-global-styles;
-
-// Grids (choose one)
 @include foundation-xy-grid-classes;
-// @include foundation-grid;
-// @include foundation-flex-grid;
 
-@mixin foundation-normalize() {
-  /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
-  html {
-    line-height: 1.15; // 1
-    -webkit-text-size-adjust: 100%; // 2
+html {
+    box-sizing: border-box;
+    font-size: $global-font-size;
   }
-}
+
+  // Set box-sizing globally to handle padding and border widths
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  // Default body styles
+  body {
+    margin: 0;
+    padding: 0;
+  }
