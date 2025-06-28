@@ -25,56 +25,14 @@
 @import 'util/util';
 // Global styles
 @import 'global';
-// @import 'forms/forms';
-// @import 'typography/typography';
 
 // Grids
 @import 'grid/grid';
 @import 'xy-grid/xy-grid';
-// Generic components
-// @import 'components/button';
-// @import 'components/button-group';
-// @import 'components/close-button';
-// @import 'components/label';
-// @import 'components/progress-bar';
-// @import 'components/slider';
-// @import 'components/switch';
-// @import 'components/table';
-// Basic components
-// @import 'components/badge';
-// @import 'components/breadcrumbs';
-// @import 'components/callout';
-// @import 'components/card';
-// @import 'components/dropdown';
-// @import 'components/pagination';
-// @import 'components/tooltip';
-
-// Containers
-// @import 'components/accordion';
-// @import 'components/media-object';
-// @import 'components/orbit';
-// @import 'components/responsive-embed';
-// @import 'components/tabs';
-// @import 'components/thumbnail';
-// Menu-based containers
-// @import 'components/menu';
-// @import 'components/menu-icon';
-// @import 'components/accordion-menu';
-// @import 'components/drilldown';
-// @import 'components/dropdown-menu';
-
-// Layout components
-// @import 'components/off-canvas';
-// @import 'components/reveal';
-// @import 'components/sticky';
-// @import 'components/title-bar';
-// @import 'components/top-bar';
 
 // Helpers
-// @import 'components/float';
 @import 'components/flex';
 @import 'components/visibility';
-// @import 'prototype/prototype';
 
 
 @mixin foundation-everything(
