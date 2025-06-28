@@ -22,7 +22,6 @@
 @import 'global';
 
 // Grids
-@import 'grid/grid';
 @import 'xy-grid/xy-grid';
 
 // Helpers
@@ -62,6 +61,6 @@
   // Helpers
   @include foundation-float-classes;
   @if $flex { @include foundation-flex-classes; }
-  @include foundation-visibility-classes;
-  @if $prototype { @include foundation-prototype-classes; }
+  // @include foundation-visibility-classes;
+  // @if $prototype { @include foundation-prototype-classes; }
 }
