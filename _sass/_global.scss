@@ -18,23 +18,11 @@ $global-font-size: 100% !default;
 /// @type Number
 $global-width: rem-calc(1200) !default;
 
-/// Default line height for all type. `$global-lineheight` is 24px while `$global-font-size` is 16px
-/// @type Number
-$global-lineheight: 1.5 !default;
-
 /// Colors used for buttons, callouts, links, etc. There must always be a color called `primary`.
 /// @type Map
 $foundation-palette: (
   primary: #1779ba,
 ) !default;
-
-/// Color used for black ui items.
-/// @type Color
-$black: #0a0a0a !default;
-
-/// Color used for white ui items.
-/// @type Color
-$white: #fefefe !default;
 
 /// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
 /// @type Boolean
