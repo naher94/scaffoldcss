@@ -10,3 +10,11 @@
 @include foundation-xy-grid-classes;
 // @include foundation-grid;
 // @include foundation-flex-grid;
+
+@mixin foundation-normalize() {
+  /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+  html {
+    line-height: 1.15; // 1
+    -webkit-text-size-adjust: 100%; // 2
+  }
+}

@@ -111,7 +111,7 @@ $-zf-flex-justify: -zf-flex-justify($global-text-direction);
 $global-color-pick-contrast-tolerance: 0 !default;
 
 @mixin foundation-global-styles {
-  @include foundation-normalize;
+  // @include foundation-normalize;
 
   html {
     box-sizing: border-box;
