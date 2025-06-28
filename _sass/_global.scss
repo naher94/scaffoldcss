@@ -26,10 +26,6 @@ $global-margin: 1rem !default;
 /// @type Number
 $global-padding: 1rem !default;
 
-/// Global value used for positioning on components.
-/// @type Number
-$global-position: 1rem !default;
-
 /// Global font weight used for normal type.
 /// @type Keyword | Number
 $global-weight-normal: normal !default;
@@ -56,10 +52,6 @@ $global-text-direction: ltr !default;
 /// Enables flexbox for components that support it.
 /// @type Boolean
 $global-flexbox: true !default;
-
-/// Button cursor's value, `auto` by default
-/// @type Keyword
-$global-button-cursor: auto !default;
 
 
 // Internal variables used for text direction
