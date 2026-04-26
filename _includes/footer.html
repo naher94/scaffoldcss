@@ -6,9 +6,19 @@
   </div>
   <div class="right scaffold-grid-span-half">
     <p>Quick links</p>
-    <a href="/docs">Read the Docs</a>
-    <a href="{{site.github}}">View on GitHub</a>
-    <a href="/dist/scaffold.css">Download v{{site.library-version}}</a>
+    <a href="/docs" class="scaffold-flex scaffold-justify-between">
+      <span>Read the Docs</span>
+      <span> > </span>
+    </a>
+    <a href="{{site.github}}" class="scaffold-flex scaffold-justify-between">
+      <span>View on GitHub</span>
+      <span> > </span>
+    </a>
+    <a href="/dist/scaffold.css" class="scaffold-flex scaffold-justify-between">
+      <span>Download v{{site.library-version}}</span>
+      <span> > </span>
+      <!-- TODO replace these right arrow with actual SVG icons -->
+    </a>
 
     <div class="scaffold-flex scaffold-justify-between author">
       <span>A personal project by <a href="https://rehanbutt.com">Rehan Butt</a></span>
