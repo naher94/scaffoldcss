@@ -2,14 +2,14 @@ const ScaffoldOverlay = {
   active: false,
   svg: null,
 
-  GRID_COLOR:      '#7ab830',
+  GRID_COLOR:      '#ff2d78',
   FLEX_COLOR:      '#6820c0',
   CONTAINER_COLOR: '#0098c8',
-  GRID_FILL:       'rgba(122,184,48,0.04)',
+  GRID_FILL:       'rgba(255,45,120,0.04)',
   FLEX_FILL:       'rgba(104,32,192,0.04)',
   FLEX_ITEM_FILL:  'rgba(104,32,192,0.07)',
   CONTAINER_FILL:  'rgba(0,152,200,0.04)',
-  SPAN_FILL:       'rgba(122,184,48,0.12)',
+  SPAN_FILL:       'rgba(255,45,120,0.12)',
 
   init() {
     this.svg = document.getElementById('scaffold-overlay');
