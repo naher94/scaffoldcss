@@ -80,6 +80,7 @@ $space-grotesk-weights: (
 }
 
 .button{
+  display: inline-block;
   border-radius: var(--radius);
   padding: 0.75em 1.75em;
   text-decoration: none;
