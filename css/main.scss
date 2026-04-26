@@ -147,6 +147,7 @@ header{
 
 section{
   &.features, &.fun-facts{
+    --scaffold-gap: 0;
     .section-header{
       background-color: var(--dark-creme);
       padding: var(--edge-spacing);
@@ -162,6 +163,7 @@ section{
     }
     .content-card{
       padding: var(--edge-spacing);
+      border: 1px solid var(--border-color);
       h4{
         @include syne(bold);
       }
