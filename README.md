@@ -1,4 +1,4 @@
-# jekyllSkeleton
+# Scaffold CSS
 
 Why does this repo exist?
 
