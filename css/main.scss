@@ -179,9 +179,13 @@ header{
     padding: 0.5em 1.5em;
     @include inconsolata(bold,200);
     margin-block-end: 2em;
+    @include scaffold.breakpoint(md, down){
+      font-size: 0.6em;
+      margin-block-end: 1em;
+    } 
   }
   .hero-title {
-    font-size: clamp(4rem, 10vw, 9rem);
+    font-size: clamp(3rem, 10vw, 9rem);
     font-weight: 800;
     letter-spacing: -0.05em;
     line-height: 0.85;
@@ -201,6 +205,10 @@ header{
   }
   p{
     font-size: 1.5em;
+    text-wrap: pretty;
+    @include scaffold.breakpoint(md, down){
+      font-size: 1em;
+    } 
   }
 }
 
