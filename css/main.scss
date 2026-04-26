@@ -14,8 +14,8 @@ $spacing-unit:     30px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-    "base",
-    "syntax-highlighting"
+  "base",
+  "syntax-highlighting"
 ;
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
@@ -66,14 +66,14 @@ $space-grotesk-weights: (
 
 
 :root{
-    --creme: #FAF6EC;
-    --dark-creme: #F6F0E1;
+  --creme: #FAF6EC;
+  --dark-creme: #F6F0E1;
 
-    --bamboo-black: #0F2D14;
-    --bamboo-forest: #1A4020;
-    --bamboo-green: #94CE40;
+  --bamboo-black: #0F2D14;
+  --bamboo-forest: #1A4020;
+  --bamboo-green: #94CE40;
 
-    --radius: 8px;
+  --radius: 8px;
 }
 
 .button{
@@ -90,10 +90,8 @@ $space-grotesk-weights: (
   }
 }
 
-
-
 body{
-    background-color: var(--creme);
-    @include space-grotesk();
-    color: var(--bamboo-black);
+  background-color: var(--creme);
+  @include space-grotesk();
+  color: var(--bamboo-black);
 }
