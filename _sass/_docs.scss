@@ -1,53 +1,29 @@
 // =============================================================================
 // Scaffold CSS — Docs site styles
-// Extracted from scaffold-docs.html. Only loaded on the /docs page layout.
+// Uses the main site's CSS custom properties and font mixins throughout.
 // =============================================================================
 
-// TODO will want to update this to use splash page design language
-
 :root {
-  --cream:    #faf6ec;
-  --cream-2:  #f2ead6;
-  --cream-3:  #e8dfc2;
-  --parchment:#ede4cc;
-  --forest:   #0f2d14;
-  --forest-2: #1a4020;
-  --forest-3: #246030;
-  --sage:     #4a7050;
-  --sage-2:   #6a9070;
-  --sage-3:   #9abca0;
-  --bamboo:   #7ab830;
-  --bamboo-2: #96d040;
-  --bamboo-3: #b8e870;
-  --ink:      #0a1a0c;
-  --ink-2:    #1e321e;
-  --ink-3:    #3a4e3c;
-  --ink-4:    #607060;
-  --teal:     #00a888;
-  --sky:      #0098c8;
-  --violet:   #6820c0;
-  --pink:     #c8006c;
-  --orange:   #d05000;
-  --yellow:   #c89000;
-  --rule:     rgba(15,45,20,0.1);
-  --font-display: 'Syne', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --code-bg:     #0f2d14;
-  --code-border: rgba(122,184,48,0.15);
-  --tag-grid-bg:   rgba(122,184,48,0.1);
-  --tag-grid-text: #246030;
+
+  --code-bg:     var(--bamboo-black);
+  --code-border: color-mix(in srgb, var(--bamboo-green) 15%, transparent);
+
+  --tag-grid-bg:   color-mix(in srgb, var(--bamboo-green) 10%, transparent);
+  --tag-grid-text: var(--bamboo-forest);
   --tag-flex-bg:   rgba(0,168,136,0.1);
   --tag-flex-text: #00a888;
   --tag-util-bg:   rgba(0,152,200,0.1);
   --tag-util-text: #0098c8;
   --tag-mixin-bg:  rgba(104,32,192,0.1);
   --tag-mixin-text:#6820c0;
-  --tag-align-bg:  rgba(200,0,108,0.1);
-  --tag-align-text:#c8006c;
+  --tag-align-bg:  color-mix(in srgb, var(--bamboo-green) 10%, transparent);
+  --tag-align-text:var(--bamboo-forest);
 }
 
 .docs-page * { box-sizing: border-box; }
 .docs-page { overflow-x: hidden; }
+
 
 /* ─── Layout ─────────────────────────────────────────────── */
 .docs-layout {
@@ -56,24 +32,25 @@
   min-height: 100vh;
 }
 
+
 /* ─── Sidebar ────────────────────────────────────────────── */
 .docs-nav {
-  border-right: 1px solid var(--rule);
+  border-right: var(--border);
   padding: 2rem 0;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  background: var(--parchment);
+  background: var(--dark-creme);
 
   &::-webkit-scrollbar { width: 3px; }
   &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb { background: var(--cream-3); border-radius: 2px; }
+  &::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
 }
 
 .nav-logo {
   padding: 0 1.5rem 1.75rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -87,15 +64,15 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--forest);
+  color: var(--bamboo-black);
+  @include syne(bold);
 }
 
 .nav-logo-text p {
   font-size: 11px;
-  color: var(--sage);
+  color: var(--bamboo-forest);
   font-family: var(--font-mono);
   margin: 0;
-  max-width: none;
 }
 
 .nav-section {
@@ -109,32 +86,33 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--sage);
+  color: var(--bamboo-forest);
   margin-bottom: 0.5rem;
 }
 
 .docs-nav a {
   display: block;
   font-size: 13px;
-  color: var(--sage);
+  color: var(--bamboo-forest);
   text-decoration: none;
   padding: 4px 0;
-  transition: color 0.15s;
+  transition: var(--transition-ease);
   font-family: var(--font-mono);
 
-  &:hover { color: var(--forest); }
-  &.active { color: var(--forest); font-weight: 500; }
+  &:hover { color: var(--bamboo-black); }
+  &.active { color: var(--bamboo-black); font-weight: 500; }
 }
+
 
 /* ─── Main content ───────────────────────────────────────── */
 .docs-main {
   max-width: 780px;
   padding: 3.5rem 4rem;
-  background: var(--cream);
+  background: var(--creme);
 
   p {
     font-size: 14px;
-    color: var(--ink-3);
+    color: var(--bamboo-forest);
     margin-bottom: 1rem;
     max-width: 62ch;
     line-height: 1.7;
@@ -143,10 +121,10 @@
 
   h2 {
     font-size: 26px;
-    font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: 0.5rem;
-    color: var(--forest);
+    color: var(--bamboo-black);
+    @include syne(extrabold);
   }
 
   h3 {
@@ -154,21 +132,23 @@
     font-weight: 500;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--bamboo);
+    color: var(--bamboo-green);
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
 }
 
+
 /* ─── Doc sections ───────────────────────────────────────── */
 .doc-section {
   margin-bottom: 4rem;
   padding-bottom: 4rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
 
   &:last-child { border-bottom: none; }
 }
+
 
 /* ─── Status badge ───────────────────────────────────────── */
 .status-badge {
@@ -178,13 +158,13 @@
   font-size: 11px;
   font-weight: 500;
   padding: 3px 8px;
-  border-radius: 20px;
+  border-radius: var(--radius-huge);
   margin-bottom: 1.25rem;
   font-family: var(--font-mono);
 
   &.wip {
     background: rgba(200,144,0,0.1);
-    color: var(--yellow);
+    color: #c89000;
     border: 1px solid rgba(200,144,0,0.2);
 
     &::before {
@@ -193,10 +173,11 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: var(--yellow);
+      background: currentColor;
     }
   }
 }
+
 
 /* ─── Tags ───────────────────────────────────────────────── */
 .tag {
@@ -205,7 +186,7 @@
   font-size: 10px;
   font-weight: 500;
   padding: 2px 7px;
-  border-radius: 4px;
+  border-radius: var(--radius);
   margin-right: 4px;
   vertical-align: middle;
   letter-spacing: 0.04em;
@@ -216,6 +197,7 @@
 .tag-util  { background: var(--tag-util-bg);  color: var(--tag-util-text); }
 .tag-mixin { background: var(--tag-mixin-bg); color: var(--tag-mixin-text); }
 .tag-align { background: var(--tag-align-bg); color: var(--tag-align-text); }
+
 
 /* ─── Code tabs ──────────────────────────────────────────── */
 .code-tabs { margin: 1rem 0 1.5rem; }
@@ -232,35 +214,36 @@
     padding: 5px 12px;
     border: 1px solid var(--code-border);
     border-bottom: none;
-    border-radius: 4px 4px 0 0;
-    background: var(--cream-3);
-    color: var(--sage);
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: var(--dark-creme);
+    color: var(--bamboo-forest);
     cursor: pointer;
-    transition: background 0.1s, color 0.1s;
+    transition: var(--transition-ease);
     letter-spacing: 0.04em;
 
     &.active {
       background: var(--code-bg);
-      color: var(--bamboo-3);
+      color: var(--bamboo-green);
       border-color: var(--code-border);
     }
   }
 }
 
-.code-tabs pre { margin: 0; border-radius: 0 6px 6px 6px; }
+.code-tabs pre { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
+
 
 /* ─── Code blocks ────────────────────────────────────────── */
 .docs-main pre {
   background: var(--code-bg);
   border: 1px solid var(--code-border);
-  border-radius: 6px;
+  border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.8;
   overflow-x: auto;
   margin: 1rem 0 1.5rem;
-  color: var(--bamboo-3);
+  color: var(--bamboo-green);
 }
 
 .docs-main code {
@@ -268,9 +251,9 @@
   font-size: 12px;
   background: var(--code-bg);
   border: 1px solid var(--code-border);
-  border-radius: 3px;
+  border-radius: var(--radius);
   padding: 1px 5px;
-  color: var(--bamboo-2);
+  color: var(--bamboo-green);
 }
 
 .docs-main pre code {
@@ -282,10 +265,11 @@
 }
 
 /* Code syntax colors */
-.comment { color: #4a7050; }
+.comment { color: var(--bamboo-forest); }
 .prop    { color: #7ab8ff; }
-.val     { color: var(--bamboo-2); }
+.val     { color: var(--bamboo-green); }
 .sel     { color: #d05000; }
+
 
 /* ─── Class reference table ──────────────────────────────── */
 .class-table {
@@ -301,38 +285,39 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--sage);
+    color: var(--bamboo-forest);
     padding: 0 12px 8px 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: var(--border);
   }
 
   td {
     padding: 8px 12px 8px 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: var(--border);
     vertical-align: top;
-    color: var(--ink-3);
+    color: var(--bamboo-forest);
     font-size: 12px;
 
     &:first-child {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--bamboo);
+      color: var(--bamboo-green);
       white-space: nowrap;
     }
 
     &:last-child {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--sage);
+      color: var(--bamboo-forest);
     }
   }
 }
 
+
 /* ─── Grid preview ───────────────────────────────────────── */
 .preview {
-  background: var(--parchment);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
+  background: var(--dark-creme);
+  border: var(--border);
+  border-radius: var(--radius);
   padding: 1.25rem;
   margin: 1rem 0 1.5rem;
 }
@@ -340,7 +325,7 @@
 .preview-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--sage);
+  color: var(--bamboo-forest);
   margin-bottom: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -353,41 +338,43 @@
   gap: 4px;
 
   .cell {
-    background: rgba(122,184,48,0.1);
-    border: 1px solid rgba(122,184,48,0.2);
+    background: color-mix(in srgb, var(--bamboo-green) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--bamboo-green) 20%, transparent);
     height: 28px;
     border-radius: 3px;
   }
 
-  .cell.span-half        { grid-column: span 6; background: rgba(122,184,48,0.18); }
-  .cell.span-third       { grid-column: span 4; background: rgba(122,184,48,0.18); }
-  .cell.span-two-thirds  { grid-column: span 8; background: rgba(122,184,48,0.18); }
-  .cell.span-quarter     { grid-column: span 3; background: rgba(122,184,48,0.18); }
-  .cell.span-full        { grid-column: 1 / -1; background: rgba(122,184,48,0.18); }
-  .cell.span-three-quarters { grid-column: span 9; background: rgba(122,184,48,0.18); }
+  .cell.span-half           { grid-column: span 6;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
+  .cell.span-third          { grid-column: span 4;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
+  .cell.span-two-thirds     { grid-column: span 8;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
+  .cell.span-quarter        { grid-column: span 3;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
+  .cell.span-full           { grid-column: 1 / -1;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
+  .cell.span-three-quarters { grid-column: span 9;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
 }
+
 
 /* ─── Callout ────────────────────────────────────────────── */
 .callout {
-  border-left: 2px solid var(--bamboo);
-  background: rgba(122,184,48,0.04);
-  border-radius: 0 4px 4px 0;
+  border-left: 2px solid var(--bamboo-green);
+  background: color-mix(in srgb, var(--bamboo-green) 5%, transparent);
+  border-radius: 0 var(--radius) var(--radius) 0;
   padding: 0.85rem 1.1rem;
   margin: 1.25rem 0;
   font-size: 13px;
-  color: var(--ink-3);
+  color: var(--bamboo-forest);
   font-family: var(--font-mono);
 
   strong {
     display: block;
     font-weight: 500;
-    color: var(--bamboo);
+    color: var(--bamboo-green);
     margin-bottom: 4px;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
 }
+
 
 /* ─── Todo list ──────────────────────────────────────────── */
 .todo-list {
@@ -396,7 +383,7 @@
 
   li {
     font-size: 13px;
-    color: var(--ink-3);
+    color: var(--bamboo-forest);
     padding: 5px 0;
     display: flex;
     align-items: flex-start;
@@ -405,35 +392,37 @@
 
     &::before {
       content: '◻';
-      color: var(--sage);
+      color: var(--bamboo-forest);
       flex-shrink: 0;
       margin-top: 1px;
     }
   }
 }
 
+
 /* ─── Hero ───────────────────────────────────────────────── */
 .docs-hero {
   margin-bottom: 3.5rem;
   padding-bottom: 3.5rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
 
   h1 {
     font-size: 40px;
-    font-weight: 800;
     letter-spacing: -0.04em;
     margin-bottom: 0.5rem;
     line-height: 1;
+    color: var(--bamboo-black);
+    @include syne(extrabold);
 
     em {
       font-style: normal;
-      color: var(--bamboo);
+      color: var(--bamboo-green);
     }
   }
 
   p {
     font-size: 15px;
-    color: var(--ink-3);
+    color: var(--bamboo-forest);
     max-width: 52ch;
     margin: 0.75rem 0 0;
   }
@@ -444,23 +433,25 @@
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  background: rgba(122,184,48,0.1);
-  color: var(--forest-2);
-  border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--bamboo-green) 10%, transparent);
+  color: var(--bamboo-forest);
+  border: var(--border);
   padding: 3px 10px;
-  border-radius: 20px;
+  border-radius: var(--radius-huge);
   margin-bottom: 1.25rem;
   letter-spacing: 0.04em;
 }
 
+
 /* ─── Divider ────────────────────────────────────────────── */
 hr.divider {
   border: none;
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
   margin: 2rem 0;
 }
 
+
 /* ─── Scrollbar ──────────────────────────────────────────── */
 .docs-page ::-webkit-scrollbar { width: 4px; }
-.docs-page ::-webkit-scrollbar-track { background: var(--cream); }
-.docs-page ::-webkit-scrollbar-thumb { background: var(--cream-3); border-radius: 2px; }
+.docs-page ::-webkit-scrollbar-track { background: var(--creme); }
+.docs-page ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
