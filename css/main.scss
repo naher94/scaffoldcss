@@ -160,6 +160,17 @@ section{
         margin: 0;
       }
     }
+    .content-card{
+      padding: var(--edge-spacing);
+      h4{
+        @include syne(bold);
+      }
+      .description{
+        span{
+          background-color: red;
+        }
+      }
+    }
   }
 }
 

@@ -22,3 +22,9 @@ github: https://github.com/naher94/scaffoldcss
 
 # Build settings
 markdown: kramdown
+
+collections:
+  fun-facts:
+    output: false
+  features:
+    output: false

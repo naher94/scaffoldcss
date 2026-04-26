@@ -28,5 +28,11 @@ overlay: true
     <h2>Bamboo Fun Facts</h2>
     <h3>What GOES HERE TODO</h3>
   </div>
-  <!-- TODO for loop for the features list -->
+  {%- for fact in site.fun-facts -%}
+    <div class="content-card scaffold-grid-span-third">
+      <span>{{fact.icon}}</span>
+      <h4>{{fact.title}}</h4>
+      <p class="description">{{fact.content}}</p>
+    </div>
+  {%- endfor -%}
 </section>
