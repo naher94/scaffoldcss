@@ -6,8 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Scaffold CSS · Layout Library
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -18,7 +17,15 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 site-version: 1.0.0
 library-version: 0.1.0
 
+product-name: Scaffold CSS
 github: https://github.com/naher94/scaffoldcss
 
 # Build settings
 markdown: kramdown
+
+collections:
+  fun-facts:
+    output: false
+  features:
+    output: false
+    sort_by: sort

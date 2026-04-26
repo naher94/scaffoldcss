@@ -1,32 +1,47 @@
 ---
 layout: default
+overlay: true
 ---
 
 <section class="hero">
-  <div>{{site.library-version}}</div>
-  <h1>
-    <span>Scaffold CSS.</span>
-    <span>Strong.</span>
-    <span>Flexible.</span>
+  <span class="hero-version-pill">v{{site.library-version}}</span>
+  <h1 class="hero-title">
+    <span class="htl-1">{{site.product-name}}.</span>
+    <span class="htl-2">Strong.</span>
+    <span class="htl-3">Flexible.</span>
   </h1>
   <p>The CSS layout layer that was always missing. Built on Grid and Flex.</p>
-  <a href="" class="button button-primary">Get Started</a>
-  <a href="{{site.github}}" class="button button-secondary">View on GitHub</a>
+  <div class="action-bar scaffold-flex">
+    <a href="{{ '/docs' | relative_url }}" class="button button-primary">Get Started</a>
+    <a href="{{site.github}}" class="button button-secondary">View on GitHub</a>
+  </div>
 </section>
 
-<section class="scaffold-grid">
-  Features
-  <div class="section-header">
+<section id="features" class="scaffold-grid features">
+  <div class="section-header scaffold-grid-span-full">
     <h2>Deeply rooted.</h2>
     <h3>Remarkably strong.</h3>
   </div>
-  <!-- TODO for loop for the features list -->
+  {%- for feature in site.features -%}
+    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-half lg:scaffold-grid-span-third">
+      <span class="type">// {{feature.type}}</span>
+      <h4>{{feature.title}}</h4>
+      <div class="description">{{feature.content}}</div>
+      <div class="code-snippet">{{feature.code}}</div>
+    </div>
+  {%- endfor -%}
 </section>
 
-<section class="scaffold-grid">
-  <div class="section-header">
+<section id="fun-facts" class="scaffold-grid fun-facts">
+  <div class="section-header scaffold-grid-span-full">
     <h2>Bamboo Fun Facts</h2>
-    <h3>What GOES HERE TODO</h3>
+    <h3>It grows on you.</h3>
   </div>
-  <!-- TODO for loop for the features list -->
+  {%- for fact in site.fun-facts -%}
+    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-half lg:scaffold-grid-span-third">
+      <span>{{fact.icon}}</span>
+      <h4>{{fact.title}}</h4>
+      <div class="description">{{fact.content}}</div>
+    </div>
+  {%- endfor -%}
 </section>

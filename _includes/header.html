@@ -1,11 +1,17 @@
-<header>
+<header class="scaffold-flex scaffold-justify-between scaffold-items-center">
 
-  <a href="#">Scaffold CSS</a>
-  <a href="">Features</a>
-  <a href="">Fun Facts</a>
-  <a href="">Docs</a>
-  <a href="">GitHub</a>
+  <div class="left-side scaffold-flex">
+    <a href="#" class="home-link">{{site.product-name}}</a>
+    <nav class="nav-links scaffold-flex">
+      <a href="#features">Features</a>
+      <a href="#fun-facts">Fun Facts</a>
+      <a href="{{ '/docs' | relative_url }}">Docs</a>
+      <a href="{{site.github}}">GitHub</a>
+    </nav>
+  </div>
 
-  <a href="" class="button button-primary">Get Started</a>
+  <div class="right-side nav-links">
+    <a href="{{ '/docs' | relative_url }}" class="button button-primary">Get Started</a>
+  </div>
 
 </header>

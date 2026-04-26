@@ -1,0 +1,60 @@
+@use 'scaffold/scaffold' as scaffold;
+
+#scaffold-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  display: none;
+
+  &.active { display: block; }
+}
+
+.scaffold-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  left: auto;
+
+  @include scaffold.breakpoint(md, down) {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bamboo-green);
+  color: var(--bamboo-black);
+  font-size: 1rem;
+  padding: 0.75em 1.75em;
+  @include space-grotesk();
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-huge);
+  transition: var(--transition-spring);
+
+  &:hover {
+    font-weight: bold;
+    scale: 1.1;
+  }
+
+  &.active {
+    background: var(--bamboo-black);
+    color: var(--bamboo-green);
+  }
+}
+
+.scaffold-toggle-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: scaffold-pulse 2s infinite;
+}
+
+@keyframes scaffold-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}

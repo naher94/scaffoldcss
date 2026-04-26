@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffold CSS — Take root. Build fast.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,600;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:   #faf6ec;
+  --cream-2: #f2ead6;
+  --cream-3: #e8dfc2;
+  --parchment:#ede4cc;
+  --forest:  #0f2d14;
+  --forest-2:#1a4020;
+  --forest-3:#246030;
+  --sage:    #4a7050;
+  --sage-2:  #6a9070;
+  --bamboo:  #7ab830;
+  --bamboo-2:#96d040;
+  --bamboo-3:#b8e870;
+  --lime:    #96d040;
+  --teal:    #00a888;
+  --sky:     #0098c8;
+  --violet:  #6820c0;
+  --pink:    #c8006c;
+  --orange:  #d05000;
+  --yellow:  #c89000;
+  --ink:     #0a1a0c;
+  --ink-3:   #3a4e3c;
+  --ink-4:   #607060;
+  --white:   #ffffff;
+  --rule:    rgba(15,45,20,0.1); /* divider lines on dark bg */
+  --rule-lt: rgba(15,45,20,0.12);   /* divider lines on light bg */
+  --font:    'Syne', sans-serif;
+  --serif:   'Lora', Georgia, serif;
+  --mono:    'JetBrains Mono', monospace;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:var(--font);
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* scaffold utils */
+.scaffold-grid { --scaffold-cols:repeat(12,1fr); display:grid; grid-template-columns:var(--scaffold-cols); gap:var(--scaffold-gap,1.5rem); }
+.scaffold-flex { display:flex; flex-wrap:wrap; gap:var(--scaffold-gap,1rem); }
+.scaffold-flex-col { flex-direction:column; }
+.scaffold-items-center { align-items:center; }
+.scaffold-justify-between { justify-content:space-between; }
+.scaffold-grid-span-full { grid-column:1/-1; }
+.scaffold-grid-span-half { grid-column:span 6; }
+.scaffold-grid-span-third { grid-column:span 4; }
+.scaffold-grid-span-two-thirds { grid-column:span 8; }
+.scaffold-grid-span-quarter { grid-column:span 3; }
+
+/* overlay */
+#scaffold-overlay { position:absolute; pointer-events:none; z-index:9998; display:none; top:0; left:0; }
+#scaffold-overlay.active { display:block; }
+
+/* Toggle */
+.toggle-btn {
+  position:fixed; bottom:2rem; right:2rem; z-index:9999;
+  display:flex; align-items:center; gap:8px;
+  background:var(--bamboo-2); color:var(--forest);
+  font-family:var(--mono); font-size:11px; font-weight:500;
+  padding:10px 18px; border-radius:0; border:none;
+  cursor:pointer; letter-spacing:0.08em; text-transform:uppercase;
+  transition:all 0.15s;
+}
+.toggle-btn:hover { background:var(--bamboo-3); }
+.toggle-btn.active { background:var(--cream); color:var(--bamboo-2); }
+.toggle-dot { width:6px; height:6px; border-radius:50%; background:currentColor; animation:pulse 2s infinite; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:200;
+  height:52px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  background:var(--cream);
+  border-bottom:1px solid var(--rule);
+}
+
+.nav-logo {
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none; padding:0 2rem;
+  height:100%;
+}
+
+.nav-mark { width:22px; height:22px; }
+
+.nav-wordmark {
+  font-size:14px; font-weight:800;
+  letter-spacing:-0.02em; color:var(--forest);
+  font-family:var(--font);
+}
+
+.nav-tagline { display:none; }
+
+.nav-links {
+  display:flex; align-items:center; list-style:none;
+  height:100%;
+}
+
+.nav-links li { height:100%; border-left:1px solid var(--rule); }
+
+.nav-links a {
+  font-family:var(--mono); font-size:11px;
+  color:var(--ink-4);
+  text-decoration:none; letter-spacing:0.06em;
+  text-transform:uppercase;
+  height:100%; padding:0 1.25rem;
+  display:flex; align-items:center;
+  transition:color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover { color:var(--forest); background:rgba(15,45,20,0.04); }
+
+.nav-cta {
+  color:var(--forest) !important;
+}
+
+.nav-right {
+  display:flex; justify-content:flex-end;
+  padding:0 2rem; border-left:1px solid var(--rule);
+  height:100%; align-items:center;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex;
+  border-bottom:1px solid var(--rule);
+}
+
+.hero-left {
+  width:100%;
+  padding:8rem 4rem 5rem;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  position:relative; overflow:hidden;
+}
+
+/* Subtle bamboo stalk watermark */
+.hero-left::before {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0; height:40%;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 28px,
+    rgba(122,184,48,0.04) 28px, rgba(122,184,48,0.04) 32px
+  );
+  pointer-events:none;
+}
+
+.hero-eyebrow {
+  font-family:var(--mono); font-size:10px;
+  color:var(--bamboo); letter-spacing:0.12em;
+  text-transform:uppercase;
+  display:flex; align-items:center; gap:10px;
+}
+
+.hero-eyebrow-line {
+  width:32px; height:1px; background:var(--bamboo);
+}
+
+.hero-title {
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:800; letter-spacing:-0.05em;
+  line-height:0.85;
+}
+
+.htl-1 { display:block; color:var(--forest); }
+.htl-2 { display:block; font-family:var(--serif); font-style:italic; font-weight:700; color:var(--bamboo); }
+.htl-3 { display:block; color:var(--forest-2); }
+
+.hero-bottom {}
+
+.hero-sub {
+  font-size:1rem; color:var(--ink-4);
+  line-height:1.7; max-width:44ch; margin-bottom:1rem;
+}
+
+.hero-sub strong { color:var(--forest-2); font-weight:600; }
+
+.hero-rush-quote {
+  font-family:var(--serif); font-style:italic;
+  font-size:0.9rem; color:var(--sage-2);
+  margin-bottom:2rem;
+}
+
+.hero-rush-quote em { color:var(--bamboo); font-style:normal; font-weight:600; }
+
+.hero-actions {
+  display:flex; align-items:center; gap:0; flex-wrap:wrap;
+}
+
+.btn-primary {
+  font-family:var(--mono); font-size:12px; font-weight:500;
+  padding:13px 28px; text-decoration:none; letter-spacing:0.06em;
+  text-transform:uppercase; transition:all 0.15s;
+  background:var(--bamboo-2); color:var(--forest);
+}
+
+.btn-primary:hover { background:var(--bamboo-3); }
+
+.btn-ghost {
+  font-family:var(--mono); font-size:12px; font-weight:500;
+  padding:13px 28px; text-decoration:none; letter-spacing:0.06em;
+  text-transform:uppercase; transition:all 0.15s;
+  background:transparent; color:var(--ink-4);
+  border-left:1px solid var(--rule);
+}
+
+.btn-ghost:hover { color:var(--ink); background:rgba(15,45,20,0.04); }
+
+/* Hero right */
+.hero-right {
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  padding:5rem 4rem;
+}
+
+.rush-embed {
+  display:flex; flex-direction:column; align-items:flex-start; gap:1rem;
+}
+
+.rush-frame {
+  overflow:hidden;
+  border:1px solid rgba(15,45,20,0.15);
+}
+
+.rush-frame img { width:100%; max-width:320px; display:block; }
+
+.rush-caption {
+  font-family:var(--serif); font-style:italic;
+  font-size:1rem; color:var(--forest); font-weight:600;
+}
+
+.rush-credit {
+  font-family:var(--mono); font-size:10px;
+  color:var(--ink-4); letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.hero-code {
+  background:var(--forest);
+  border:1px solid rgba(15,45,20,0.15);
+  padding:1.5rem;
+  font-family:var(--mono); font-size:12px;
+  line-height:1.8; color:rgba(255,255,255,0.6);
+}
+
+.ck { color:var(--violet); }
+.cv { color:var(--bamboo-2); }
+.ct { color:var(--sky); }
+.ca { color:rgba(255,255,255,0.3); }
+.cc { color:rgba(255,255,255,0.2); }
+
+/* ── FEATURES ── */
+.features-header {
+  padding:4rem 4rem 2rem;
+  border-bottom:1px solid var(--rule);
+  background:var(--parchment);
+  display:flex; align-items:flex-end; justify-content:space-between;
+}
+
+.features-title {
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:800; letter-spacing:-0.04em;
+  line-height:0.95; color:var(--forest);
+}
+
+.features-title em { font-family:var(--serif); font-style:italic; color:var(--bamboo-2); }
+.features-header .features-sub { color:var(--sage); }
+
+.features-sub {
+  font-family:var(--mono); font-size:11px;
+  color:var(--ink-4); letter-spacing:0.06em;
+  text-transform:uppercase; max-width:20ch; text-align:right;
+}
+
+.bento {
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto auto;
+  border-bottom:1px solid var(--rule);
+  background:var(--cream);
+}
+
+.bc {
+  padding:2.5rem;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  position:relative; overflow:hidden;
+  transition:background 0.15s;
+}
+
+.bc:hover { background:rgba(15,45,20,0.02); }
+.bc.s4a { grid-column:span 4; }
+.bc.s4b { grid-column:span 4; }
+.bc.s4c { grid-column:span 4; border-right:none; }
+.bc.s4d { grid-column:span 4; border-bottom:none; }
+.bc.s4e { grid-column:span 4; border-bottom:none; }
+.bc.s4f { grid-column:span 4; border-right:none; border-bottom:none; }
+
+.bc-tag {
+  font-family:var(--mono); font-size:10px;
+  letter-spacing:0.08em; text-transform:uppercase;
+  margin-bottom:1.25rem; display:block;
+}
+
+.bc-title {
+  font-size:1.5rem; font-weight:700;
+  letter-spacing:-0.03em; line-height:1.1;
+  margin-bottom:0.75rem; color:var(--ink);
+}
+
+.bc-title em { font-family:var(--serif); font-style:italic; }
+
+.bc-desc {
+  font-size:13px; color:var(--ink-4);
+  line-height:1.65; max-width:36ch; margin-bottom:1.5rem;
+}
+
+.bc-code {
+  font-family:var(--mono); font-size:11px;
+  color:var(--bamboo-2); padding:10px 14px;
+  background:rgba(15,45,20,0.04);
+  border-left:2px solid var(--bamboo);
+  line-height:1.5;
+}
+
+/* Bamboo stalks in large card */
+.bc-stalks {
+  display:flex; align-items:flex-end;
+  gap:6px; height:60px; margin-top:1.5rem; opacity:0.25;
+}
+
+.bc-stalk { flex:1; border-radius:2px; position:relative; overflow:hidden; background:var(--bamboo); }
+.bc-node { position:absolute; left:0; right:0; height:2px; background:rgba(0,0,0,0.3); }
+
+/* tag colors */
+.tag-forest { color:var(--bamboo-2); }
+.tag-teal   { color:var(--teal); }
+.tag-sky    { color:var(--sky); }
+.tag-violet { color:#a878f8; }
+.tag-pink   { color:var(--pink); }
+.tag-amber  { color:var(--yellow); }
+
+/* ── FACTS ── */
+.facts-header {
+  padding:4rem 4rem 2rem;
+  border-bottom:1px solid var(--rule);
+  background:var(--cream-2, #f2ead6);
+}
+
+.facts-title {
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800; letter-spacing:-0.04em;
+  color:var(--forest);
+}
+
+.facts-sub {
+  font-family:var(--serif); font-style:italic;
+  font-size:1rem; color:var(--sage); margin-top:0.5rem;
+}
+
+.facts-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  background:var(--cream);
+  border-bottom:1px solid var(--rule);
+}
+
+.fact-cell {
+  padding:2.5rem;
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  transition:background 0.15s;
+}
+
+.fact-cell:nth-child(3n) { border-right:none; }
+.fact-cell:nth-child(4),
+.fact-cell:nth-child(5),
+.fact-cell:nth-child(6) { border-bottom:none; }
+
+.fact-cell:hover { background:rgba(15,45,20,0.03); }
+
+.fact-emoji { font-size:1.75rem; display:block; margin-bottom:1rem; }
+
+.fact-title {
+  font-size:0.95rem; font-weight:700;
+  letter-spacing:-0.01em; color:var(--forest-2);
+  margin-bottom:0.5rem;
+}
+
+.fact-body {
+  font-size:13px; color:var(--ink-4);
+  line-height:1.65;
+}
+
+.fact-body em { color:var(--bamboo-3); font-style:normal; font-weight:500; }
+
+/* ── DEMO ── */
+.demo-header {
+  padding:4rem 4rem 2rem;
+  border-bottom:1px solid var(--rule);
+  background:var(--parchment);
+  display:flex; align-items:flex-end; justify-content:space-between;
+}
+
+.demo-title {
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800; letter-spacing:-0.04em; color:var(--forest);
+}
+
+.demo-title em { font-family:var(--serif); font-style:italic; color:var(--bamboo-2); }
+
+.demo-hint {
+  font-family:var(--mono); font-size:11px;
+  color:var(--sage); max-width:24ch;
+  text-align:right; line-height:1.6; letter-spacing:0.04em;
+}
+
+.demo-body { padding:2rem 4rem; border-bottom:1px solid var(--rule); background:var(--cream); }
+
+.demo-canvas {
+  display:grid; gap:6px;
+  margin-bottom:6px;
+}
+
+.demo-canvas-flex { display:flex; gap:6px; }
+
+.demo-cell {
+  min-height:52px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:9px;
+  letter-spacing:0.04em; transition:all 0.15s;
+  cursor:default; border:1px solid transparent;
+}
+
+.demo-cell:hover { opacity:0.8; }
+
+.cell-full  { grid-column:1/-1; background:rgba(122,184,48,0.1); border-color:rgba(122,184,48,0.2); color:var(--bamboo-2); }
+.cell-half  { grid-column:span 6; background:rgba(0,168,136,0.08); border-color:rgba(0,168,136,0.2); color:var(--teal); }
+.cell-third { grid-column:span 4; background:rgba(0,152,200,0.08); border-color:rgba(0,152,200,0.2); color:var(--sky); }
+.cell-2t3   { grid-column:span 8; background:rgba(104,32,192,0.07); border-color:rgba(104,32,192,0.15); color:#a878f8; }
+.cell-qtr   { grid-column:span 3; background:rgba(200,0,108,0.06); border-color:rgba(200,0,108,0.15); color:var(--pink); }
+.cell-flex  { flex:1; background:rgba(200,144,0,0.07); border-color:rgba(200,144,0,0.18); color:var(--yellow); }
+
+/* ── CTA SPLIT ── */
+.cta-outer {
+  display:grid; grid-template-columns:1fr 1fr;
+  min-height:60vh;
+  border-bottom:1px solid var(--rule);
+}
+
+.cta-left {
+  background:var(--bamboo-2);
+  padding:4rem;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  border-right:1px solid rgba(15,45,20,0.15);
+  position:relative; overflow:hidden;
+}
+
+.cta-kicker {
+  font-family:var(--mono); font-size:10px;
+  color:var(--forest-2); letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+
+.cta-title {
+  font-size:clamp(4rem,9vw,8rem);
+  font-weight:800; letter-spacing:-0.05em;
+  line-height:0.88; color:var(--forest);
+}
+
+.cta-title em { font-family:var(--serif); font-style:italic; }
+
+.cta-sub {
+  font-family:var(--mono); font-size:10px;
+  color:var(--forest-2); letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.cta-right {
+  background:var(--cream);
+  padding:4rem;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+
+.cta-right-label {
+  font-family:var(--mono); font-size:10px;
+  color:var(--sage-3); letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+
+.cta-links { display:flex; flex-direction:column; }
+
+.cta-link {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.5rem 0;
+  border-bottom:1px solid var(--rule);
+  text-decoration:none; color:var(--bamboo-2);
+  font-size:1.5rem; font-weight:700;
+  letter-spacing:-0.03em;
+  transition:color 0.15s;
+}
+
+.cta-link:first-child { border-top:1px solid var(--rule); }
+.cta-link:hover { color:var(--bamboo-3); }
+
+.cta-link-chevron {
+  font-size:1.5rem; color:var(--sage-2);
+  transition:color 0.15s; font-weight:300;
+}
+
+.cta-link:hover .cta-link-chevron { color:var(--bamboo-3); }
+
+.cta-right-built {
+  font-family:var(--mono); font-size:11px;
+  color:var(--sage-3);
+}
+
+.cta-right-built a { color:var(--bamboo-2); text-decoration:none; }
+
+
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+</style>
+</head>
+<body>
+
+<svg id="scaffold-overlay" xmlns="http://www.w3.org/2000/svg"></svg>
+
+<button class="toggle-btn" id="overlayToggle" onclick="toggleOverlay()">
+  <span class="toggle-dot"></span>
+  <span id="toggleLabel">Show layout</span>
+</button>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="nav-mark" viewBox="0 0 28 28" fill="none">
+      <rect x="2" y="4" width="4" height="20" rx="2" fill="#b8e870" opacity="0.9"/>
+      <rect x="3" y="9" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="3" y="15" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="3" y="20" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="8" y="8" width="4" height="16" rx="2" fill="#00a888" opacity="0.9"/>
+      <rect x="9" y="13" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="9" y="19" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="14" y="2" width="4" height="22" rx="2" fill="#0098c8"/>
+      <rect x="15" y="7" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="15" y="12" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="15" y="17" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="15" y="22" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="20" y="6" width="4" height="18" rx="2" fill="#c8006c" opacity="0.85"/>
+      <rect x="21" y="11" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="21" y="17" width="2" height="2" rx="1" fill="#0f2d14"/>
+      <rect x="21" y="22" width="2" height="2" rx="1" fill="#0f2d14"/>
+    </svg>
+    <span class="nav-wordmark">Scaffold CSS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#facts">Fun Facts</a></li>
+    <li><a href="docs.html">Docs</a></li>
+    <li><a href="https://github.com/naher94/scaffoldcss">GitHub</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://github.com/naher94/scaffoldcss" class="nav-cta">Get started →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      CSS Layout Library — v0.1.0
+    </p>
+    <h1 class="hero-title">
+      <span class="htl-1">Scaffold CSS.</span>
+      <span class="htl-2">Strong.</span>
+      <span class="htl-3">Flexible.</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-sub">A CSS layout library built on Grid and Flex. <strong>Zero dependencies.</strong> Utility classes and SCSS mixins. Ships in two files. Grows with your project.</p>
+      <p class="hero-rush-quote">As Lee once said — <em>"Chinese bamboo is very strong!"</em> We felt that deeply.</p>
+      <div class="hero-actions">
+        <a href="https://github.com/naher94/scaffoldcss" class="btn-primary">Get started</a>
+        <a href="docs.html" class="btn-ghost">Read the docs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+    <div class="stat-num">12</div>
+    <div class="stat-pun">deeply rooted</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">SCSS mixins</div>
+    <div class="stat-num">5</div>
+    <div class="stat-pun">joint by joint</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">Breakpoints</div>
+    <div class="stat-num">4</div>
+    <div class="stat-pun">grows with you</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-label">Dependencies</div>
+    <div class="stat-num">0</div>
+    <div class="stat-pun">stands alone</div>
+  </div>
+</div>
+
+</div>
+
+<!-- Features -->
+<div id="features">
+  <div class="features-header">
+    <h2 class="features-title">Deeply rooted.<br><em>Remarkably strong.</em></h2>
+    <p class="features-sub">Six features. Zero bloat. All bamboo.</p>
+  </div>
+
+  <div class="bento">
+    <div class="bc s4a">
+      <span class="bc-tag tag-forest">🎋 01 — Grid</span>
+      <h3 class="bc-title">Deeply <em>rooted.</em></h3>
+      <p class="bc-desc">A 12-column grid with semantic span names — full, half, third, quarter. Close to native CSS. If you know Grid, you already know most of this.</p>
+      <div class="bc-code">.scaffold-grid → grid-template-columns: repeat(12, 1fr)</div>
+    </div>
+    <div class="bc s4b">
+      <span class="bc-tag tag-teal">🌿 02 — Flex</span>
+      <h3 class="bc-title">Bends without <em>breaking.</em></h3>
+      <p class="bc-desc">Single-axis layouts, alignment helpers, direction modifiers. Grows where Grid doesn't reach.</p>
+      <div class="bc-code">.scaffold-flex → display: flex; flex-wrap: wrap</div>
+    </div>
+    <div class="bc s4c">
+      <span class="bc-tag tag-sky">☁️ 03 — Custom props</span>
+      <h3 class="bc-title">Grows where <em>you need it.</em></h3>
+      <p class="bc-desc">Every token is a CSS custom property. Override at :root or scope to one element inline.</p>
+      <div class="bc-code">--scaffold-cols: repeat(8, 1fr)</div>
+    </div>
+    <div class="bc s4b">
+      <span class="bc-tag tag-violet">🔮 04 — Mixins</span>
+      <h3 class="bc-title"><em>Joint</em> by joint.</h3>
+      <p class="bc-desc">Every class is generated from a SCSS mixin. Use classes in HTML or call mixins in your own selectors — same CSS either way.</p>
+      <div class="bc-code">@include scaffold.span(two-thirds)</div>
+    </div>
+    <div class="bc s4d">
+      <span class="bc-tag tag-pink">🌱 05 — Responsive</span>
+      <h3 class="bc-title">A meter <em>a day.</em></h3>
+      <p class="bc-desc">Every span and flex class at every breakpoint. Mobile-first. Add a prefix, move on. Fast as bamboo.</p>
+      <div class="bc-code">md:scaffold-grid-span-half</div>
+    </div>
+    <div class="bc s4f">
+      <span class="bc-tag tag-amber">🏷️ 06 — Namespaced</span>
+      <h3 class="bc-title"><em>Stands</em> alone.</h3>
+      <p class="bc-desc">Every class and custom property uses the .scaffold- prefix. Drop it next to any library. Not a single conflict. Ever.</p>
+      <div class="bc-code">.scaffold-* / --scaffold-*</div>
+    </div>
+  </div>
+</div>
+
+<!-- Fun Facts -->
+<div id="facts">
+  <div class="facts-header">
+    <h2 class="facts-title">Bamboo fun facts</h2>
+    <p class="facts-sub">because we can't stop talking about it</p>
+  </div>
+  <div class="facts-grid">
+    <div class="fact-cell">
+      <span class="fact-emoji">🏗️</span>
+      <h3 class="fact-title">Actual scaffolding</h3>
+      <p class="fact-body">Bamboo is used as real construction scaffolding for skyscrapers in Hong Kong and China. We named a CSS library after it. <em>We feel this is appropriate.</em></p>
+    </div>
+    <div class="fact-cell">
+      <span class="fact-emoji">⚡</span>
+      <h3 class="fact-title">Faster than you think</h3>
+      <p class="fact-body">Some species grow up to <em>91cm in a single day.</em> You can almost watch it happen. Our compiled CSS is also fast. Different reasons.</p>
+    </div>
+    <div class="fact-cell">
+      <span class="fact-emoji">💪</span>
+      <h3 class="fact-title">Stronger than steel</h3>
+      <p class="fact-body">Bamboo has higher tensile strength than steel and withstands compression better than concrete. <em>Lee was not wrong.</em></p>
+    </div>
+    <div class="fact-cell">
+      <span class="fact-emoji">🌸</span>
+      <h3 class="fact-title">120-year flowering</h3>
+      <p class="fact-body">Some species flower once every <em>120 years</em>, then die. All plants of the same species flower simultaneously worldwide. Nobody fully understands why.</p>
+    </div>
+    <div class="fact-cell">
+      <span class="fact-emoji">💡</span>
+      <h3 class="fact-title">Edison's secret</h3>
+      <p class="fact-body">The first Edison lightbulb filament was <em>carbonised bamboo.</em> It lasted 1,200 hours. We cannot verify our CSS lasts that long but we're hopeful.</p>
+    </div>
+    <div class="fact-cell">
+      <span class="fact-emoji">🐼</span>
+      <h3 class="fact-title">The panda problem</h3>
+      <p class="fact-body">Giant pandas eat <em>12–38kg of bamboo per day</em> and barely get any nutrition from it. They are essentially always eating. We respect the commitment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Demo -->
+<div id="grove">
+  <div class="demo-header">
+    <div>
+      <p style="font-family:var(--mono);font-size:10px;color:var(--bamboo);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem">// The grove</p>
+      <h2 class="demo-title">See it <em>growing.</em></h2>
+    </div>
+    <p class="demo-hint">Toggle "Show layout" to reveal column lines across the whole page</p>
+  </div>
+  <div class="demo-body">
+    <div class="demo-canvas scaffold-grid" style="--scaffold-cols:repeat(12,1fr);--scaffold-gap:6px;">
+      <div class="demo-cell cell-full scaffold-grid-span-full">.scaffold-grid-span-full</div>
+      <div class="demo-cell cell-half scaffold-grid-span-half">.span-half</div>
+      <div class="demo-cell cell-half scaffold-grid-span-half">.span-half</div>
+      <div class="demo-cell cell-third scaffold-grid-span-third">.span-third</div>
+      <div class="demo-cell cell-third scaffold-grid-span-third">.span-third</div>
+      <div class="demo-cell cell-third scaffold-grid-span-third">.span-third</div>
+      <div class="demo-cell cell-2t3 scaffold-grid-span-two-thirds">.span-two-thirds</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+      <div class="demo-cell cell-qtr scaffold-grid-span-quarter">.quarter</div>
+    </div>
+    <div class="demo-canvas-flex scaffold-flex" style="--scaffold-gap:6px;margin-top:6px;">
+      <div class="demo-cell cell-flex" style="min-height:44px;">.scaffold-flex</div>
+      <div class="demo-cell cell-flex" style="min-height:44px;">.scaffold-flex</div>
+      <div class="demo-cell cell-flex" style="min-height:44px;">.scaffold-flex</div>
+      <div class="demo-cell cell-flex" style="min-height:44px;">.scaffold-flex</div>
+      <div class="demo-cell cell-flex" style="min-height:44px;">.scaffold-flex</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-outer">
+  <div class="cta-left">
+    <p class="cta-kicker">Zero dependencies · Two files · Any project</p>
+    <h2 class="cta-title">Take root.<br><em>Build fast.</em></h2>
+    <p class="cta-sub">Lee said it. We built it. You ship it.</p>
+  </div>
+  <div class="cta-right">
+    <p class="cta-right-label">// quick links</p>
+    <div class="cta-links">
+      <a href="docs.html" class="cta-link">Read the Docs <span class="cta-link-chevron">›</span></a>
+      <a href="https://github.com/naher94/scaffoldcss" class="cta-link">View on GitHub <span class="cta-link-chevron">›</span></a>
+      <a href="https://github.com/naher94/scaffoldcss/releases" class="cta-link">Download v0.1.0 <span class="cta-link-chevron">›</span></a>
+    </div>
+    <div class="cta-right-built">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+        <span style="font-family:var(--font);font-size:13px;font-weight:800;letter-spacing:-0.02em;color:var(--bamboo-2);">Scaffold CSS</span>
+        <ul style="display:flex;gap:2rem;list-style:none;">
+          <li><a href="docs.html" style="font-family:var(--mono);font-size:11px;color:var(--bamboo-3);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.15s;">Docs</a></li>
+          <li><a href="https://github.com/naher94/scaffoldcss" style="font-family:var(--mono);font-size:11px;color:var(--bamboo-3);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.15s;">GitHub</a></li>
+          <li><a href="https://github.com/naher94/scaffoldcss/issues" style="font-family:var(--mono);font-size:11px;color:var(--bamboo-3);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.15s;">Issues</a></li>
+        </ul>
+      </div>
+      <p style="font-family:var(--serif);font-style:italic;font-size:12px;color:var(--sage-2);margin-top:0.75rem;">"Chinese bamboo is very strong." — Lee, Rush Hour 2 (2001)</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const GRID_COLOR = '#7ab830';
+  const FLEX_COLOR = '#6820c0';
+  const GRID_FILL = 'rgba(122,184,48,0.04)';
+  const FLEX_FILL = 'rgba(104,32,192,0.04)';
+  const FLEX_ITEM_FILL = 'rgba(104,32,192,0.07)';
+  const GAP_FILL = 'rgba(122,184,48,0.02)';
+  let overlayActive = false;
+  const overlay = document.getElementById('scaffold-overlay');
+
+  function drawOverlay() {
+    overlay.innerHTML = '';
+    const W = document.documentElement.scrollWidth;
+    const H = document.documentElement.scrollHeight;
+    overlay.setAttribute('width', W); overlay.setAttribute('height', H);
+    overlay.style.width = W+'px'; overlay.style.height = H+'px';
+    overlay.style.position = 'absolute'; overlay.style.top = '0'; overlay.style.left = '0';
+
+    document.querySelectorAll('.scaffold-grid').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const x = rect.left, y = rect.top + window.scrollY;
+      const computed = getComputedStyle(el);
+      const colSizes = computed.gridTemplateColumns.split(' ').map(parseFloat).filter(n => !isNaN(n));
+      const colGap = parseFloat(computed.columnGap) || 0;
+      overlay.appendChild(svgRect(x, y, rect.width, rect.height, GRID_FILL, GRID_COLOR, 1));
+      let colX = x;
+      colSizes.forEach((colW, i) => {
+        overlay.appendChild(svgRect(colX, y, colW, rect.height, 'rgba(122,184,48,0.05)', 'none', 0));
+        overlay.appendChild(svgLine(colX, y, colX, y+rect.height, GRID_COLOR, 0.5));
+        overlay.appendChild(svgLine(colX+colW, y, colX+colW, y+rect.height, GRID_COLOR, 0.5));
+        if (i < colSizes.length-1 && colGap > 0) overlay.appendChild(svgRect(colX+colW, y, colGap, rect.height, GAP_FILL, 'none', 0));
+        colX += colW + colGap;
+      });
+      const cls = Array.from(el.classList).filter(c => c.startsWith('scaffold')).join(' .');
+      if (cls) overlay.appendChild(svgLabel(x+2, y+2, '.'+cls, GRID_COLOR, '#000'));
+    });
+
+    document.querySelectorAll('.scaffold-flex').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const x = rect.left, y = rect.top + window.scrollY;
+      overlay.appendChild(svgRect(x, y, rect.width, rect.height, FLEX_FILL, FLEX_COLOR, 1));
+      Array.from(el.children).forEach(child => {
+        const cr = child.getBoundingClientRect();
+        overlay.appendChild(svgRect(cr.left, cr.top+window.scrollY, cr.width, cr.height, FLEX_ITEM_FILL, FLEX_COLOR, 0.5));
+      });
+      const cls = Array.from(el.classList).filter(c => c.startsWith('scaffold')).join(' .');
+      if (cls) overlay.appendChild(svgLabel(x+2, y+2, '.'+cls, FLEX_COLOR, '#000'));
+    });
+  }
+
+  function svgRect(x, y, w, h, fill, stroke, strokeW) {
+    const r = document.createElementNS(SVG_NS, 'rect');
+    r.setAttribute('x', x); r.setAttribute('y', y);
+    r.setAttribute('width', Math.max(0,w)); r.setAttribute('height', Math.max(0,h));
+    r.setAttribute('fill', fill);
+    if (stroke !== 'none') { r.setAttribute('stroke', stroke); r.setAttribute('stroke-width', strokeW); }
+    return r;
+  }
+
+  function svgLine(x1, y1, x2, y2, stroke, strokeW) {
+    const l = document.createElementNS(SVG_NS, 'line');
+    l.setAttribute('x1', x1); l.setAttribute('y1', y1);
+    l.setAttribute('x2', x2); l.setAttribute('y2', y2);
+    l.setAttribute('stroke', stroke); l.setAttribute('stroke-width', strokeW);
+    l.setAttribute('stroke-dasharray', '4 4'); return l;
+  }
+
+  function svgLabel(x, y, text, bg, fg) {
+    const g = document.createElementNS(SVG_NS, 'g');
+    const r = document.createElementNS(SVG_NS, 'rect');
+    r.setAttribute('x', x); r.setAttribute('y', y);
+    r.setAttribute('width', text.length*6+8); r.setAttribute('height', 16);
+    r.setAttribute('fill', bg); g.appendChild(r);
+    const t = document.createElementNS(SVG_NS, 'text');
+    t.setAttribute('x', x+4); t.setAttribute('y', y+11);
+    t.setAttribute('fill', fg); t.setAttribute('font-size', '10');
+    t.setAttribute('font-family', 'JetBrains Mono, monospace'); t.setAttribute('font-weight', '500');
+    t.textContent = text; g.appendChild(t); return g;
+  }
+
+  function toggleOverlay() {
+    const btn = document.getElementById('overlayToggle');
+    const label = document.getElementById('toggleLabel');
+    overlayActive = !overlayActive;
+    btn.classList.toggle('active', overlayActive);
+    label.textContent = overlayActive ? 'Hide layout' : 'Show layout';
+    overlay.classList.toggle('active', overlayActive);
+    if (overlayActive) {
+      drawOverlay();
+      window.addEventListener('resize', drawOverlay);
+      window.addEventListener('scroll', drawOverlay);
+    } else {
+      overlay.innerHTML = '';
+      window.removeEventListener('resize', drawOverlay);
+      window.removeEventListener('scroll', drawOverlay);
+    }
+  }
+</script>
+</body>
+</html>

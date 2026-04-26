@@ -1,5 +1,33 @@
-<footer>
+<footer class="scaffold-grid">
+  <div class="left scaffold-grid-span-full md:scaffold-grid-span-half scaffold-flex scaffold-flex-col scaffold-justify-between">
+    <p>{{site.product-name}}</p>
+    <h2>Take root.</h2>
+    <div class="scaffold-flex scaffold-justify-between author">
+      <p>We built it. You ship it.</p>
+      <span>© {{ 'now' | date: "%Y" }}</span>
 
-  Footer
+    </div>
+  </div>
+  <div class="right scaffold-grid-span-full md:scaffold-grid-span-half scaffold-flex scaffold-flex-col scaffold-justify-between">
+    <p>Quick links</p>
+    <div class="link-wrapper">
+      <a href="{{ '/docs' | relative_url }}" class="scaffold-flex scaffold-justify-between scaffold-items-center">
+        <span>Read the Docs</span>
+        {% include img/chevron-right.svg %}
+      </a>
+      <a href="{{site.github}}" class="scaffold-flex scaffold-justify-between scaffold-items-center">
+        <span>View on GitHub</span>
+        {% include img/chevron-right.svg %}
+      </a>
+      <!-- TODO update this link to go to github page for this not just the raw file -->
+      <a href="/dist/scaffold.css" class="scaffold-flex scaffold-justify-between scaffold-items-center">
+        <span>Download v{{site.library-version}}</span>
+        {% include img/chevron-right.svg %}
+      </a>
+    </div>
+    <div class="author">
+      <span>A personal project by <a href="https://rehanbutt.com">Rehan Butt</a></span>
+    </div>
+  </div>
 
 </footer>

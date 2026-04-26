@@ -1,0 +1,439 @@
+---
+layout: docs
+title: Documentation
+---
+
+<!-- Hero -->
+<div class="docs-hero" id="intro">
+  <div class="version-pill">v{{ site.library-version }} — draft</div>
+  <h1>Scaffold <em>CSS</em></h1>
+  <p>A lightweight CSS layout library — utility classes and SCSS mixins for Grid and Flexbox, with zero dependencies and sensible defaults.</p>
+</div>
+
+<div class="status-badge wip">Work in progress — spec draft</div>
+
+<!-- Philosophy -->
+<div class="doc-section" id="philosophy">
+  <h2>Philosophy</h2>
+  <p>Scaffold stays close to native CSS Grid rather than abstracting it away. The goal is to fill the gaps where Grid is verbose or repetitive, not to reinvent it. If you know CSS Grid, you already know most of Scaffold.</p>
+  <p>Mixins are the primitive layer. Every layout concept — grid, span, flex, container, gap — is available as a SCSS mixin first. Utility classes are generated output from those same mixins, so both approaches produce identical CSS. Use whichever fits your workflow.</p>
+  <p>Everything is customizable via CSS custom properties. Classes are the convenience layer; custom properties are the real configuration surface.</p>
+  <p>All classes are prefixed with <code>scaffold-</code> to avoid conflicts with other libraries or existing project CSS. Custom properties use the same <code>--scaffold-</code> namespace, so there's one consistent naming system throughout.</p>
+
+  <h3>Grid or flex?</h3>
+  <p>The deciding question is: <em>does the layout structure exist before the content, or does the content determine the size?</em></p>
+  <p>If you're defining the structure first — a 12-column page layout, a fixed card grid — that's Grid. If the content is driving its own size and you're just controlling how items flow and align — a nav bar, a tag list, a button group — that's Flex.</p>
+</div>
+
+<!-- Installation -->
+<div class="doc-section" id="install">
+  <h2>Installation</h2>
+
+  <h3>Using SCSS</h3>
+  <p>Copy the <code>_sass/scaffold/</code> folder into your project's <code>_sass/</code> directory, then import the entry point:</p>
+  <pre><code><span class="comment">// your main stylesheet</span>
+<span class="sel">@use</span> <span class="val">'scaffold/scaffold'</span>;</code></pre>
+
+  <h3>Using compiled CSS</h3>
+  <p>Link the compiled CSS directly if you don't need the SCSS mixins:</p>
+  <pre><code>&lt;link rel=<span class="val">"stylesheet"</span> href=<span class="val">"dist/scaffold.css"</span>&gt;</code></pre>
+
+  <h3>What's included</h3>
+  <p>Scaffold ships two artifacts: the compiled <code>dist/scaffold.css</code> for drop-in use, and the raw <code>_sass/scaffold/</code> source for projects that want to use the mixins or customize the token defaults.</p>
+  <p>If you use the SCSS route with mixins only and never reference utility classes in your HTML, the compiled output will be significantly smaller since only the mixins you actually call get included.</p>
+
+  <h3>Library file structure</h3>
+  <pre><code>_sass/
+  scaffold/
+    _variables.scss   <span class="comment">← breakpoints, gap tokens, container width/padding</span>
+    _mixins.scss      <span class="comment">← all mixin definitions</span>
+    _grid.scss        <span class="comment">← .scaffold-grid, .scaffold-grid-span-*, .scaffold-gap-* + responsive variants</span>
+    _flex.scss        <span class="comment">← .scaffold-flex, direction, alignment classes + responsive variants</span>
+    scaffold.scss     <span class="comment">← .scaffold-container, .scaffold-container-full + @forward everything</span>
+dist/
+  scaffold.css        <span class="comment">← compiled CSS for drop-in use</span></code></pre>
+</div>
+
+<!-- Grid -->
+<div class="doc-section" id="grid">
+  <h2>Grid</h2>
+  <p>The <code>.scaffold-grid</code> class sets <code>display: grid</code> and a 12-column layout in one step. The equivalent <code>grid()</code> mixin produces the same output for use inside your own SCSS rules.</p>
+
+  <div class="code-tabs">
+    <div class="code-tab-bar">
+      <button class="active">Utility class</button>
+      <button>SCSS mixin</button>
+    </div>
+    <pre id="grid-tab-class"><code>&lt;div class=<span class="val">"scaffold-grid"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-half"</span>&gt;Left&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-half"</span>&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <pre id="grid-tab-mixin" style="display:none"><code><span class="sel">.my-layout</span> {
+  <span class="sel">@include</span> scaffold.grid();
+}
+<span class="sel">.my-layout__item</span> {
+  <span class="sel">@include</span> scaffold.span(half);
+}</code></pre>
+  </div>
+
+  <div class="preview">
+    <div class="preview-label">Preview — two halves</div>
+    <div class="grid-demo">
+      <div class="cell span-half"></div>
+      <div class="cell span-half"></div>
+    </div>
+  </div>
+
+  <h3>Overriding column count</h3>
+  <p>The <code>--scaffold-cols</code> custom property lets you change the column structure on a per-instance basis.</p>
+  <pre><code><span class="comment">&lt;!-- Via custom property on the element --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-cols: repeat(8, 1fr)"</span>&gt;...&lt;/div&gt;
+
+<span class="comment">// Via mixin argument</span>
+<span class="sel">.my-layout</span> {
+  <span class="sel">@include</span> scaffold.grid(<span class="val">$cols</span>: repeat(8, 1fr));
+}</code></pre>
+  <p>Every <code>.scaffold-grid</code> declares <code>--scaffold-cols</code> locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.</p>
+</div>
+
+<!-- Spans -->
+<div class="doc-section" id="spans">
+  <h2>Grid span utilities</h2>
+  <p>Grid span classes define how many of the 12 columns a child element occupies. The <code>span()</code> mixin accepts the same semantic names as the utility classes.</p>
+
+  <div class="callout">
+    <strong>Important</strong>
+    Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.
+  </div>
+
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Mixin</th><th>Columns</th><th>CSS output</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-grid-span-full</td><td>span(full)</td><td>12 of 12</td><td>grid-column: 1 / -1</td></tr>
+      <tr><td>.scaffold-grid-span-half</td><td>span(half)</td><td>6 of 12</td><td>grid-column: span 6</td></tr>
+      <tr><td>.scaffold-grid-span-third</td><td>span(third)</td><td>4 of 12</td><td>grid-column: span 4</td></tr>
+      <tr><td>.scaffold-grid-span-two-thirds</td><td>span(two-thirds)</td><td>8 of 12</td><td>grid-column: span 8</td></tr>
+      <tr><td>.scaffold-grid-span-quarter</td><td>span(quarter)</td><td>3 of 12</td><td>grid-column: span 3</td></tr>
+      <tr><td>.scaffold-grid-span-three-quarters</td><td>span(three-quarters)</td><td>9 of 12</td><td>grid-column: span 9</td></tr>
+    </tbody>
+  </table>
+
+  <div class="preview">
+    <div class="preview-label">Preview — all span variants</div>
+    <div class="grid-demo" style="gap: 4px; row-gap: 6px;">
+      <div class="cell span-full"></div>
+      <div class="cell span-half"></div>
+      <div class="cell span-half"></div>
+      <div class="cell span-third"></div>
+      <div class="cell span-third"></div>
+      <div class="cell span-third"></div>
+      <div class="cell span-quarter"></div>
+      <div class="cell span-quarter"></div>
+      <div class="cell span-quarter"></div>
+      <div class="cell span-quarter"></div>
+      <div class="cell span-two-thirds"></div>
+      <div class="cell span-third"></div>
+      <div class="cell span-three-quarters"></div>
+      <div class="cell span-quarter"></div>
+    </div>
+  </div>
+
+  <h3>When to skip span utilities</h3>
+  <p>If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.</p>
+  <pre><code><span class="comment">&lt;!-- Without: span class on every child --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="comment">&lt;!-- With: column count on the container --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-cols: repeat(3, 1fr)"</span>&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<!-- Flex -->
+<div class="doc-section" id="flex">
+  <h2>Flex</h2>
+  <p>A layout layer for single-axis layouts, component-level alignment, and inline groupings. Available as both utility classes and the <code>flex()</code> mixin.</p>
+
+  <div class="code-tabs">
+    <div class="code-tab-bar">
+      <button class="active">Utility class</button>
+      <button>SCSS mixin</button>
+    </div>
+    <pre id="flex-tab-class"><code>&lt;div class=<span class="val">"scaffold-flex scaffold-flex-col scaffold-gap-sm"</span>&gt;
+  &lt;div&gt;Item one&lt;/div&gt;
+  &lt;div&gt;Item two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <pre id="flex-tab-mixin" style="display:none"><code><span class="sel">.my-stack</span> {
+  <span class="sel">@include</span> scaffold.flex(<span class="val">$direction</span>: column);
+  <span class="prop">gap</span>: <span class="val">var(--scaffold-gap-sm)</span>;
+}</code></pre>
+  </div>
+
+  <h3>Direction modifiers</h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Mixin</th><th>CSS output</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-flex</td><td>flex()</td><td>display: flex; flex-wrap: wrap; flex-direction: row</td></tr>
+      <tr><td>.scaffold-flex-col</td><td>flex($direction: column)</td><td>flex-direction: column</td></tr>
+      <tr><td>.scaffold-flex-nowrap</td><td>flex($wrap: nowrap)</td><td>flex-wrap: nowrap</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Align items <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-items-start</td><td>align-items: flex-start</td></tr>
+      <tr><td>.scaffold-items-center</td><td>align-items: center</td></tr>
+      <tr><td>.scaffold-items-end</td><td>align-items: flex-end</td></tr>
+      <tr><td>.scaffold-items-stretch</td><td>align-items: stretch</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Justify content <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-justify-start</td><td>justify-content: flex-start</td></tr>
+      <tr><td>.scaffold-justify-center</td><td>justify-content: center</td></tr>
+      <tr><td>.scaffold-justify-end</td><td>justify-content: flex-end</td></tr>
+      <tr><td>.scaffold-justify-between</td><td>justify-content: space-between</td></tr>
+      <tr><td>.scaffold-justify-around</td><td>justify-content: space-around</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Align self <span style="font-size:11px;font-weight:400;color:var(--sage)">applies to individual children</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-self-start</td><td>align-self: flex-start</td></tr>
+      <tr><td>.scaffold-self-center</td><td>align-self: center</td></tr>
+      <tr><td>.scaffold-self-end</td><td>align-self: flex-end</td></tr>
+      <tr><td>.scaffold-self-stretch</td><td>align-self: stretch</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Proportional flex items</h3>
+  <p><code>.scaffold-flex-intrinsic</code> is a child utility for proportional side-by-side layouts. Set <code>--aspect-ratio</code> to width ÷ height on each item.</p>
+  <pre><code>&lt;div class=<span class="val">"scaffold-flex"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-flex-intrinsic"</span> style=<span class="val">"--aspect-ratio: calc(600/900)"</span>&gt;
+    &lt;img src=<span class="val">"portrait.jpg"</span>&gt;
+  &lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-flex-intrinsic"</span> style=<span class="val">"--aspect-ratio: calc(1200/800)"</span>&gt;
+    &lt;img src=<span class="val">"landscape.jpg"</span>&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<!-- Container -->
+<div class="doc-section" id="container">
+  <h2>Container</h2>
+  <p>A max-width wrapper for centering content within a page. Available as <code>.scaffold-container</code> or the <code>container()</code> mixin. Configurable via custom properties.</p>
+
+  <div class="code-tabs">
+    <div class="code-tab-bar">
+      <button class="active">Utility class</button>
+      <button>SCSS mixin</button>
+    </div>
+    <pre id="container-tab-class"><code>&lt;div class=<span class="val">"scaffold-container"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-grid"</span>&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <pre id="container-tab-mixin" style="display:none"><code><span class="sel">.page-wrapper</span> {
+  <span class="sel">@include</span> scaffold.container();
+}
+
+<span class="comment">// With a custom max-width</span>
+<span class="sel">.page-wrapper--wide</span> {
+  <span class="sel">@include</span> scaffold.container(<span class="val">$width</span>: 1440px);
+}</code></pre>
+  </div>
+
+  <h3>Full-width variant</h3>
+  <p><code>.scaffold-container-full</code> spans the entire viewport width while keeping side padding.</p>
+
+  <h3>Configuring width and padding</h3>
+  <pre><code><span class="sel">:root</span> {
+  <span class="prop">--scaffold-container-width</span>:      <span class="val">1440px</span>;
+  <span class="prop">--scaffold-container-padding-sm</span>: <span class="val">1rem</span>;
+  <span class="prop">--scaffold-container-padding</span>:    <span class="val">2rem</span>;
+}</code></pre>
+</div>
+
+<!-- Gap -->
+<div class="doc-section" id="gap">
+  <h2>Gap</h2>
+  <p>Gap utility classes map to three t-shirt sizes backed by custom properties. Works in both grid and flex contexts.</p>
+
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Default value</th><th>Custom property</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-gap-sm</td><td>0.5rem</td><td>--scaffold-gap-sm</td></tr>
+      <tr><td>.scaffold-gap-md</td><td>1rem</td><td>--scaffold-gap-md</td></tr>
+      <tr><td>.scaffold-gap-lg</td><td>2rem</td><td>--scaffold-gap-lg</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Independent row and column gap</h3>
+  <pre><code><span class="comment">&lt;!-- Tighter rows, wider columns --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-row-gap: 0.5rem; --scaffold-col-gap: 2rem"</span>&gt;
+  ...
+&lt;/div&gt;</code></pre>
+</div>
+
+<!-- Breakpoints -->
+<div class="doc-section" id="breakpoints">
+  <h2>Breakpoints</h2>
+  <p>Breakpoints are exposed as a SCSS mixin. Responsive utility classes use a mobile-first prefix convention.</p>
+
+  <h3>Default breakpoints</h3>
+  <pre><code><span class="sel">$breakpoints</span>: (
+  <span class="val">sm</span>:  <span class="val">640px</span>,
+  <span class="val">md</span>:  <span class="val">768px</span>,
+  <span class="val">lg</span>:  <span class="val">1024px</span>,
+  <span class="val">xl</span>:  <span class="val">1280px</span>,
+);</code></pre>
+
+  <h3>Responsive utility classes</h3>
+  <p>Unprefixed classes apply at all sizes; prefixed classes apply at that breakpoint and above.</p>
+  <pre><code><span class="comment">&lt;!-- Full width by default, half at md and up --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid-span-full md:scaffold-grid-span-half"</span>&gt;...&lt;/div&gt;
+
+<span class="comment">&lt;!-- Stacked on mobile, row at md and up --&gt;</span>
+&lt;div class=<span class="val">"scaffold-flex scaffold-flex-col md:scaffold-flex"</span>&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<!-- Mixins reference -->
+<div class="doc-section" id="mixin-grid">
+  <h2>Mixins</h2>
+  <p>Every utility class in Scaffold is generated from a corresponding SCSS mixin. Use mixins when you want Scaffold's layout logic inside your own semantic class names.</p>
+  <pre><code><span class="sel">@use</span> <span class="val">'scaffold/scaffold'</span> as scaffold;</code></pre>
+
+  <hr class="divider">
+
+  <h3 id="mixin-grid">grid() <span class="tag tag-mixin">mixin</span></h3>
+  <p>Sets up a 12-column grid container.</p>
+  <pre><code><span class="sel">.page-grid</span>    { <span class="sel">@include</span> scaffold.grid(); }
+<span class="sel">.sidebar-grid</span> { <span class="sel">@include</span> scaffold.grid(<span class="val">$cols</span>: repeat(4, 1fr)); }
+<span class="sel">.tight-grid</span>   { <span class="sel">@include</span> scaffold.grid(<span class="val">$gap</span>: 0.5rem); }</code></pre>
+
+  <h3 id="mixin-span">span() <span class="tag tag-mixin">mixin</span></h3>
+  <p>Sets <code>grid-column</code> on a grid child.</p>
+  <pre><code><span class="comment">// Accepted values: full | half | third | two-thirds | quarter | three-quarters</span>
+<span class="sel">.article</span>   { <span class="sel">@include</span> scaffold.span(two-thirds); }
+<span class="sel">.sidebar</span>   { <span class="sel">@include</span> scaffold.span(third); }</code></pre>
+
+  <h3 id="mixin-flex">flex() <span class="tag tag-mixin">mixin</span></h3>
+  <p>Sets up a flex container. All arguments are optional.</p>
+  <pre><code><span class="sel">.nav-bar</span>    { <span class="sel">@include</span> scaffold.flex(); }
+<span class="sel">.card-stack</span> { <span class="sel">@include</span> scaffold.flex(<span class="val">$direction</span>: column, <span class="val">$wrap</span>: nowrap); }</code></pre>
+
+  <h3 id="mixin-container">container() <span class="tag tag-mixin">mixin</span></h3>
+  <p>Creates a centered max-width wrapper. Pass <code>$full: true</code> for the full-width variant.</p>
+  <pre><code><span class="sel">.page</span>         { <span class="sel">@include</span> scaffold.container(); }
+<span class="sel">.page--narrow</span> { <span class="sel">@include</span> scaffold.container(<span class="val">$width</span>: 720px); }
+<span class="sel">.page--full</span>   { <span class="sel">@include</span> scaffold.container(<span class="val">$full</span>: true); }</code></pre>
+
+  <h3 id="mixin-breakpoint">breakpoint() <span class="tag tag-mixin">mixin</span></h3>
+  <p>Wraps content in a media query. Supports mobile-first (up, default) and desktop-first (down).</p>
+  <pre><code><span class="sel">.article</span> {
+  <span class="sel">@include</span> scaffold.span(full);
+  <span class="sel">@include</span> scaffold.breakpoint(md) { <span class="sel">@include</span> scaffold.span(two-thirds); }
+}
+<span class="sel">.sidebar</span> {
+  <span class="sel">@include</span> scaffold.breakpoint(md, down) { <span class="prop">display</span>: <span class="val">none</span>; }
+}</code></pre>
+</div>
+
+<!-- Class reference -->
+<div class="doc-section" id="class-reference">
+  <h2>Class reference</h2>
+
+  <h3>Grid <span class="tag tag-grid">grid</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Description</th><th>CSS</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-grid</td><td>12-column grid container</td><td>display: grid; grid-template-columns: repeat(12, 1fr)</td></tr>
+      <tr><td>.scaffold-grid-span-full</td><td>All 12 columns</td><td>grid-column: 1 / -1</td></tr>
+      <tr><td>.scaffold-grid-span-half</td><td>6 columns</td><td>grid-column: span 6</td></tr>
+      <tr><td>.scaffold-grid-span-third</td><td>4 columns</td><td>grid-column: span 4</td></tr>
+      <tr><td>.scaffold-grid-span-two-thirds</td><td>8 columns</td><td>grid-column: span 8</td></tr>
+      <tr><td>.scaffold-grid-span-quarter</td><td>3 columns</td><td>grid-column: span 3</td></tr>
+      <tr><td>.scaffold-grid-span-three-quarters</td><td>9 columns</td><td>grid-column: span 9</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Flex <span class="tag tag-flex">flex</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Description</th><th>CSS</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-flex</td><td>Row flex container, wrapping</td><td>display: flex; flex-wrap: wrap</td></tr>
+      <tr><td>.scaffold-flex-col</td><td>Column direction</td><td>flex-direction: column</td></tr>
+      <tr><td>.scaffold-flex-nowrap</td><td>No wrapping</td><td>flex-wrap: nowrap</td></tr>
+      <tr><td>.scaffold-flex-intrinsic</td><td>Proportional flex child</td><td>flex: var(--aspect-ratio, 1); min-width: 0</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Alignment <span class="tag tag-align">grid &amp; flex</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Description</th><th>CSS</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-items-start</td><td>Align children to start</td><td>align-items: flex-start</td></tr>
+      <tr><td>.scaffold-items-center</td><td>Align children to center</td><td>align-items: center</td></tr>
+      <tr><td>.scaffold-items-end</td><td>Align children to end</td><td>align-items: flex-end</td></tr>
+      <tr><td>.scaffold-items-stretch</td><td>Stretch children to fill</td><td>align-items: stretch</td></tr>
+      <tr><td>.scaffold-justify-start</td><td>Pack items to start</td><td>justify-content: flex-start</td></tr>
+      <tr><td>.scaffold-justify-center</td><td>Center items</td><td>justify-content: center</td></tr>
+      <tr><td>.scaffold-justify-end</td><td>Pack items to end</td><td>justify-content: flex-end</td></tr>
+      <tr><td>.scaffold-justify-between</td><td>Space between items</td><td>justify-content: space-between</td></tr>
+      <tr><td>.scaffold-justify-around</td><td>Space around items</td><td>justify-content: space-around</td></tr>
+      <tr><td>.scaffold-self-start</td><td>Align self to start</td><td>align-self: flex-start</td></tr>
+      <tr><td>.scaffold-self-center</td><td>Align self to center</td><td>align-self: center</td></tr>
+      <tr><td>.scaffold-self-end</td><td>Align self to end</td><td>align-self: flex-end</td></tr>
+      <tr><td>.scaffold-self-stretch</td><td>Stretch self to fill</td><td>align-self: stretch</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Utilities <span class="tag tag-util">util</span></h3>
+  <table class="class-table">
+    <thead><tr><th>Class</th><th>Description</th><th>CSS</th></tr></thead>
+    <tbody>
+      <tr><td>.scaffold-container</td><td>Centered max-width wrapper</td><td>max-width: var(--scaffold-container-width)</td></tr>
+      <tr><td>.scaffold-container-full</td><td>Full-width wrapper with side padding</td><td>width: 100%; padding-inline: var(--scaffold-container-padding)</td></tr>
+      <tr><td>.scaffold-gap-sm</td><td>Small gap</td><td>gap: var(--scaffold-gap-sm)</td></tr>
+      <tr><td>.scaffold-gap-md</td><td>Medium gap (default)</td><td>gap: var(--scaffold-gap-md)</td></tr>
+      <tr><td>.scaffold-gap-lg</td><td>Large gap</td><td>gap: var(--scaffold-gap-lg)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Custom properties -->
+<div class="doc-section" id="custom-properties">
+  <h2>Custom properties</h2>
+  <p>All configurable values are exposed as CSS custom properties. Override them in <code>:root</code> or scope them to a specific element.</p>
+
+  <table class="class-table">
+    <thead><tr><th>Property</th><th>Default</th><th>Controls</th></tr></thead>
+    <tbody>
+      <tr><td>--scaffold-cols</td><td>repeat(12, 1fr)</td><td>Grid column template</td></tr>
+      <tr><td>--scaffold-gap</td><td>1rem</td><td>Default grid/flex gap</td></tr>
+      <tr><td>--scaffold-gap-sm</td><td>0.5rem</td><td>.gap-sm value</td></tr>
+      <tr><td>--scaffold-gap-md</td><td>1rem</td><td>.gap-md value</td></tr>
+      <tr><td>--scaffold-gap-lg</td><td>2rem</td><td>.gap-lg value</td></tr>
+      <tr><td>--scaffold-container-width</td><td>1280px</td><td>Max container width</td></tr>
+      <tr><td>--scaffold-container-padding-sm</td><td>1rem</td><td>Container padding on mobile</td></tr>
+      <tr><td>--scaffold-container-padding</td><td>1.5rem</td><td>Container padding at md and up</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Open questions -->
+<div class="doc-section" id="open-questions">
+  <h2>Open questions</h2>
+  <p>All spec decisions have been resolved. This section will be updated as new questions arise during implementation.</p>
+</div>
