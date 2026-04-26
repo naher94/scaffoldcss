@@ -173,7 +173,7 @@ footer{
   }
   .left{
     background-color: var(--bamboo-green);
-    color: var(--bamboo-forest);
+    color: var(--bamboo-black);
     h2{
       @include syne(extrabold);
       font-size: clamp(3rem, 10vw, 8rem);
@@ -181,7 +181,7 @@ footer{
     }
   }
   .right{
-    background-color: var(--bamboo-forest);
+    background-color: var(--bamboo-black);
     color: var(--bamboo-green);
   }
 }
