@@ -23,8 +23,6 @@ body {
     font-kerning: normal;
 }
 
-
-
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -42,26 +40,6 @@ ul, ol, dl, figure,
 h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
 }
-
-
-
-/**
- * Links
- */
-a {
-    color: $brand-color;
-    text-decoration: none;
-
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-
 
 /**
  * Clearfix
