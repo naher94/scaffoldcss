@@ -78,11 +78,15 @@ $space-grotesk-weights: (
 
 .button{
   border-radius: var(--radius);
-  padding: 1em 2em;
+  padding: 0.75em 1.75em;
   text-decoration: none;
   &-primary{
     background-color: var(--bamboo-black);
     color: var(--bamboo-green);
+  }
+  &-secondary{
+    background-color: var(--dark-creme);
+    color: var(--bamboo-black);
   }
 }
 
@@ -91,4 +95,5 @@ $space-grotesk-weights: (
 body{
     background-color: var(--creme);
     @include space-grotesk();
+    color: var(--bamboo-black);
 }
