@@ -111,13 +111,22 @@ $inconsolata-weights: (
   border-radius: var(--radius);
   padding: 0.75em 1.75em;
   text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
   &-primary{
     background-color: var(--bamboo-black);
     color: var(--bamboo-green);
+    &:hover{
+      background-color: var(--bamboo-green);
+      color: var(--bamboo-black);
+    }
   }
   &-secondary{
     background-color: var(--dark-creme);
     color: var(--bamboo-black);
+    &:hover{
+      background-color: var(--bamboo-green);
+      color: var(--bamboo-black);
+    }
   }
 }
 
