@@ -106,6 +106,10 @@ $inconsolata-weights: (
   --border: 1px solid var(--border-color);
 }
 
+::selection{
+  background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
+}
+
 .button{
   display: inline-block;
   border-radius: var(--radius);
