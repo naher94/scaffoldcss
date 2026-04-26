@@ -1,7 +1,24 @@
 # Scaffold CSS
 
-Why does this repo exist?
+A lightweight CSS layout library built on Grid and Flex. Scaffold gives you a set of utility classes for building page layouts without writing boilerplate CSS.
 
-Well, [Jekyll](http://jekyllrb.com/) has added a way to modify your site's theme and appearance - by installing theme gems. This is great if you want to use a published theme or style your site without diving into code, but is annoying if you want to get your hands dirty and style your own site. For those front-end programmers who like diving into code, here is the starting template of a Jekyll site that allows you to style your own pages before gem theming arrived on the scene.
+[Site](https://naher94.github.io/scaffoldcss) · [Docs](https://naher94.github.io/scaffoldcss/docs)
 
-Simply copy any part of the folder structure into your current project and Jekyll will automatically look in the corresponding directories to build your site.  Happy programming!
+## Quick Start
+
+Add the stylesheet to your project:
+
+```html
+<link rel="stylesheet" href="https://naher94.github.io/scaffoldcss/dist/scaffold.css">
+```
+
+Or download [`scaffold.css`](https://naher94.github.io/scaffoldcss/dist/scaffold.css) and host it yourself.
+
+Then use the classes in your HTML:
+
+```html
+<div class="scaffold-grid">
+  <div class="scaffold-grid-span-two-thirds">Main content</div>
+  <div class="scaffold-grid-span-third">Sidebar</div>
+</div>
+```
