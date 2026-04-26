@@ -78,6 +78,7 @@ $space-grotesk-weights: (
   --bamboo-green: #94CE40;
 
   --radius: 8px;
+  --radius-huge: 100px;
   --edge-spacing: 3rem;
   --serif: 'Lora', Georgia, serif;
 
@@ -122,14 +123,20 @@ header{
 
 .hero{
   padding: var(--edge-spacing);
-
+  .hero-version-pill{
+    display: inline-block;
+    border-radius: var(--radius-huge);
+    background-color: var(--bamboo-green);
+    padding: 0.5em 1.5em;
+    // TODO make monospace font
+    margin-block-end: 2em;
+  }
   .hero-title {
     font-size: clamp(4rem, 10vw, 9rem);
     font-weight: 800;
     letter-spacing: -0.05em;
     line-height: 0.85;
   }
-
   .htl-1 {
     display: block; color: var(--bamboo-black);
     @include syne(extrabold)
