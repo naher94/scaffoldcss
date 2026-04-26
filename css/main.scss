@@ -199,6 +199,7 @@ footer{
       @include syne(extrabold);
       font-size: clamp(3rem, 10vw, 8rem);
       line-height: 1;
+      margin-block: 5rem;
     }
   }
   .right{
