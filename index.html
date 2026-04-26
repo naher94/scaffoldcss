@@ -21,7 +21,7 @@ overlay: true
     <h3>Remarkably strong.</h3>
   </div>
   {%- for feature in site.features -%}
-    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-third">
+    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-half lg:scaffold-grid-span-third">
       <span class="type">// {{feature.type}}</span>
       <h4>{{feature.title}}</h4>
       <div class="description">{{feature.content}}</div>
@@ -36,7 +36,7 @@ overlay: true
     <h3>It grows on you.</h3>
   </div>
   {%- for fact in site.fun-facts -%}
-    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-third">
+    <div class="content-card scaffold-grid-span-full md:scaffold-grid-span-half lg:scaffold-grid-span-third">
       <span>{{fact.icon}}</span>
       <h4>{{fact.title}}</h4>
       <div class="description">{{fact.content}}</div>
