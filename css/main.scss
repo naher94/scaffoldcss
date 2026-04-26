@@ -98,3 +98,7 @@ body{
   @include space-grotesk();
   color: var(--bamboo-black);
 }
+
+header{
+  padding: 1em;
+}
