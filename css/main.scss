@@ -3,6 +3,8 @@
 ---
 @charset "utf-8";
 
+@use 'scaffold/scaffold';
+
 // Our variables
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
@@ -15,7 +17,8 @@ $spacing-unit:     30px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
   "base",
-  "syntax-highlighting"
+  "syntax-highlighting",
+  "docs"
 ;
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
