@@ -198,6 +198,7 @@ section{
       border: var(--border);
       h4{
         @include syne(bold);
+        color: var(--bamboo-forest);
         font-size: 1.5em;
         margin: 0;
         span{
@@ -218,7 +219,8 @@ section{
         background-color: var(--dark-creme);
         border: var(--border);
         border-radius: var(--radius);
-        padding: 0.5em 1em;
+        padding: 0.5em 0.75em;
+        margin-block-start: 1em;
       }
     }
   }

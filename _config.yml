@@ -28,3 +28,4 @@ collections:
     output: false
   features:
     output: false
+    sort_by: sort
