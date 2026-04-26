@@ -154,11 +154,14 @@ section{
       border: 1px solid var(--border-color);
       h2{
         @include syne(extrabold);
+        font-size: 3em;
         margin: 0;
       }
       h3{
         @include lora(bold, italic);
         margin: 0;
+        color: var(--bamboo-green);
+        font-size: 1.5em;
       }
     }
     .content-card{
@@ -167,9 +170,14 @@ section{
       h4{
         @include syne(bold);
       }
+      p{
+        margin: 0;
+      }
       .description{
         span{
-          background-color: red;
+          border-radius: var(--radius);
+          padding: 0 0.2em;
+          background-color: var(--bamboo-green); //TODO update to low opacity
         }
       }
     }
