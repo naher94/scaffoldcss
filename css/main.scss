@@ -103,7 +103,7 @@ $inconsolata-weights: (
 
   --text-color: var(--bamboo-black);
   --border-color: rgba(0,0,0, 0.1);
-  --border: var(--border);
+  --border: 1px solid var(--border-color);
 }
 
 .button{
