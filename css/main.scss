@@ -18,6 +18,38 @@ $spacing-unit:     30px;
     "syntax-highlighting"
 ;
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Syne:wght@400..800&display=swap');
+
+$lora-weights: (
+  "regular":  400,
+  "medium":   500,
+  "semibold": 600,
+  "bold":     700
+);
+
+$syne-weights: (
+  "regular":   400,
+  "medium":    500,
+  "semibold":  600,
+  "bold":      700,
+  "extrabold": 800
+);
+
+@mixin lora($weight: "regular", $style: normal) {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: map-get($lora-weights, $weight);
+  font-style: $style;
+}
+
+@mixin syne($weight: "regular") {
+  font-family: "Syne", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: map-get($syne-weights, $weight);
+  font-style: normal;
+}
+
+
 :root{
     --creme: #FAF6EC;
     --dark-creme: #F6F0E1;
@@ -25,4 +57,8 @@ $spacing-unit:     30px;
     --bamboo-black: #0F2D14;
     --bamboo-forest: #1A4020;
     --bamboo-green: #94CE40;
+}
+
+body{
+    background-color: var(--creme);
 }
