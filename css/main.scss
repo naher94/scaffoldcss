@@ -145,7 +145,7 @@ header{
   .hero-version-pill{
     display: inline-block;
     border-radius: var(--radius-huge);
-    background-color: var(--bamboo-green);
+    background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
     padding: 0.5em 1.5em;
     @include inconsolata(bold,200);
     margin-block-end: 2em;
@@ -182,12 +182,14 @@ section{
         @include syne(extrabold);
         font-size: 3em;
         margin: 0;
+        line-height: 1.2;
       }
       h3{
-        @include lora(bold, italic);
+        @include lora(semibold, italic);
         margin: 0;
         color: var(--bamboo-green);
-        font-size: 1.5em;
+        font-size: 2.5em;
+        line-height: 1.2;
       }
     }
     .content-card{
@@ -195,6 +197,8 @@ section{
       border: 1px solid var(--border-color);
       h4{
         @include syne(bold);
+        font-size: 1.5em;
+        margin: 0;
       }
       p{
         margin: 0;
@@ -203,7 +207,7 @@ section{
         span{
           border-radius: var(--radius);
           padding: 0 0.2em;
-          background-color: var(--bamboo-green); //TODO update to low opacity
+          background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
         }
       }
     }
