@@ -168,9 +168,17 @@ footer{
   .left, .right{
     padding: var(--edge-spacing);
   }
+  p{
+    margin: 0;
+  }
   .left{
     background-color: var(--bamboo-green);
     color: var(--bamboo-forest);
+    h2{
+      @include syne(extrabold);
+      font-size: clamp(3rem, 10vw, 8rem);
+      line-height: 1;
+    }
   }
   .right{
     background-color: var(--bamboo-forest);
