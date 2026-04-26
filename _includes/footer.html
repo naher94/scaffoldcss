@@ -8,16 +8,15 @@
     <p>Quick links</p>
     <a href="/docs" class="scaffold-flex scaffold-justify-between">
       <span>Read the Docs</span>
-      <span> > </span>
+      {% include img/chevron-right.svg %}
     </a>
     <a href="{{site.github}}" class="scaffold-flex scaffold-justify-between">
       <span>View on GitHub</span>
-      <span> > </span>
+      {% include img/chevron-right.svg %}
     </a>
     <a href="/dist/scaffold.css" class="scaffold-flex scaffold-justify-between">
       <span>Download v{{site.library-version}}</span>
-      <span> > </span>
-      <!-- TODO replace these right arrow with actual SVG icons -->
+      {% include img/chevron-right.svg %}
     </a>
 
     <div class="scaffold-flex scaffold-justify-between author">
