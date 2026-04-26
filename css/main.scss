@@ -72,7 +72,21 @@ $space-grotesk-weights: (
     --bamboo-black: #0F2D14;
     --bamboo-forest: #1A4020;
     --bamboo-green: #94CE40;
+
+    --radius: 8px;
 }
+
+.button{
+  border-radius: var(--radius);
+  padding: 1em 2em;
+  text-decoration: none;
+  &-primary{
+    background-color: var(--bamboo-black);
+    color: var(--bamboo-green);
+  }
+}
+
+
 
 body{
     background-color: var(--creme);
