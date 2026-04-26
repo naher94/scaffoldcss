@@ -77,6 +77,7 @@ $space-grotesk-weights: (
   --bamboo-green: #94CE40;
 
   --radius: 8px;
+  --edge-spacing: 3rem;
 
   --text-color: var(--bamboo-black);
 }
@@ -103,7 +104,7 @@ body{
 }
 
 header{
-  padding: 3em;
+  padding: var(--edge-spacing);
   a{
     text-decoration: none;
     color: var(--text-color);
@@ -114,4 +115,9 @@ header{
   .left-side{
     gap: var(--scaffold-gap-lg);
   }
+}
+
+.hero{
+  padding: var(--edge-spacing);
+  
 }
