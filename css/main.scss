@@ -103,6 +103,7 @@ $inconsolata-weights: (
 
   --text-color: var(--bamboo-black);
   --border-color: rgba(0,0,0, 0.1);
+  --border: var(--border);
 }
 
 .button{
@@ -177,7 +178,7 @@ section{
     .section-header{
       background-color: var(--dark-creme);
       padding: var(--edge-spacing);
-      border: 1px solid var(--border-color);
+      border: var(--border);
       h2{
         @include syne(extrabold);
         font-size: 3em;
@@ -194,7 +195,7 @@ section{
     }
     .content-card{
       padding: var(--edge-spacing);
-      border: 1px solid var(--border-color);
+      border: var(--border);
       h4{
         @include syne(bold);
         font-size: 1.5em;
@@ -209,6 +210,10 @@ section{
           padding: 0 0.2em;
           background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
         }
+      }
+      .code-snippet{
+        background-color: var(--dark-creme);
+        border: var(--border);
       }
     }
   }

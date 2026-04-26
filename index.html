@@ -20,13 +20,20 @@ overlay: true
     <h2>Deeply rooted.</h2>
     <h3>Remarkably strong.</h3>
   </div>
-  <!-- TODO for loop for the features list -->
+  {%- for feature in site.features -%}
+    <div class="content-card scaffold-grid-span-third">
+      <span>// {{feature.type}}</span>
+      <h4>{{feature.title}}</h4>
+      <div class="description">{{feature.content}}</div>
+      <div class="code-snippet">{{feature.code}}</div>
+    </div>
+  {%- endfor -%}
 </section>
 
 <section class="scaffold-grid fun-facts">
   <div class="section-header scaffold-grid-span-full">
     <h2>Bamboo Fun Facts</h2>
-    <h3>What GOES HERE TODO</h3>
+    <h3>It grows on you.</h3>
   </div>
   {%- for fact in site.fun-facts -%}
     <div class="content-card scaffold-grid-span-third">
