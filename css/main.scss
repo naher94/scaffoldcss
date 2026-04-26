@@ -14,7 +14,7 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
 
 $lora-weights: (
   "regular":  400,
@@ -39,6 +39,17 @@ $space-grotesk-weights: (
   "bold":     700
 );
 
+$inconsolata-weights: (
+  "extralight": 200,
+  "light":      300,
+  "regular":    400,
+  "medium":     500,
+  "semibold":   600,
+  "bold":       700,
+  "extrabold":  800,
+  "black":      900,
+);
+
 @mixin lora($weight: "regular", $style: normal) {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
@@ -58,6 +69,14 @@ $space-grotesk-weights: (
   font-optical-sizing: auto;
   font-weight: map-get($space-grotesk-weights, $weight);
   font-style: normal;
+}
+
+@mixin inconsolata($weight: "regular", $wdth: 100) {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: map-get($inconsolata-weights, $weight);
+  font-style: normal;
+  font-variation-settings: "wdth" #{$wdth};
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`)
@@ -128,7 +147,7 @@ header{
     border-radius: var(--radius-huge);
     background-color: var(--bamboo-green);
     padding: 0.5em 1.5em;
-    // TODO make monospace font
+    @include inconsolata(bold,200);
     margin-block-end: 2em;
   }
   .hero-title {
