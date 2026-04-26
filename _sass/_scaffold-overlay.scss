@@ -1,3 +1,5 @@
+@use 'scaffold/scaffold' as scaffold;
+
 #scaffold-overlay {
   position: absolute;
   top: 0;
@@ -13,6 +15,12 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  left: auto;
+
+  @include scaffold.breakpoint(md, down) {
+    right: 50%;
+    transform: translateX(50%);
+  }
   z-index: 9999;
   display: flex;
   align-items: center;
