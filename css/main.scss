@@ -76,4 +76,5 @@ $space-grotesk-weights: (
 
 body{
     background-color: var(--creme);
+    @include space-grotesk();
 }
