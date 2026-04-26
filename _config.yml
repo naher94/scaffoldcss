@@ -18,6 +18,7 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 site-version: 1.0.0
 library-version: 0.1.0
 
+product-name: Scaffold CSS
 github: https://github.com/naher94/scaffoldcss
 
 # Build settings

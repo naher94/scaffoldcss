@@ -77,6 +77,8 @@ $space-grotesk-weights: (
   --bamboo-green: #94CE40;
 
   --radius: 8px;
+
+  --text-color: var(--bamboo-black);
 }
 
 .button{
@@ -97,9 +99,19 @@ $space-grotesk-weights: (
 body{
   background-color: var(--creme);
   @include space-grotesk();
-  color: var(--bamboo-black);
+  color: var(--text-color);
 }
 
 header{
-  padding: 1em;
+  padding: 3em;
+  a{
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  .home-link{
+    @include syne(extrabold);
+  }
+  .left-side{
+    gap: var(--scaffold-gap-lg);
+  }
 }
