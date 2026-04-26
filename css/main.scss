@@ -200,6 +200,9 @@ section{
         @include syne(bold);
         font-size: 1.5em;
         margin: 0;
+        span{
+          @include lora(bold,italic);
+        }
       }
       p{
         margin: 0;
@@ -214,6 +217,8 @@ section{
       .code-snippet{
         background-color: var(--dark-creme);
         border: var(--border);
+        border-radius: var(--radius);
+        padding: 0.5em 1em;
       }
     }
   }
