@@ -127,7 +127,6 @@ $inconsolata-weights: (
     font-weight: bold;
     scale: 1.1;
   }
-  // TODO add a hover state
   &-primary{
     background-color: var(--bamboo-black);
     color: var(--bamboo-green);
@@ -146,6 +145,12 @@ body{
 
 header{
   padding: var(--edge-spacing);
+  .nav-links{
+    gap: var(--scaffold-gap-lg);
+    @include scaffold.breakpoint(md, down){
+      display: none;
+    }
+  }
   a{
     text-decoration: none;
     color: var(--text-color);
