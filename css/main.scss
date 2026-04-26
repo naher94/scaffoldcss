@@ -14,13 +14,6 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-  "base",
-  "syntax-highlighting",
-  "docs"
-;
-
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
 
 $lora-weights: (
@@ -66,6 +59,14 @@ $space-grotesk-weights: (
   font-weight: map-get($space-grotesk-weights, $weight);
   font-style: normal;
 }
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "base",
+  "syntax-highlighting",
+  "docs",
+  "scaffold-overlay"
+;
 
 
 :root{
