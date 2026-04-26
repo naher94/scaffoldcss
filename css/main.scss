@@ -153,10 +153,27 @@ section{
       border: 1px solid var(--border-color);
       h2{
         @include syne(extrabold);
+        margin: 0;
       }
       h3{
         @include lora(bold, italic);
+        margin: 0;
       }
     }
+  }
+}
+
+footer{
+  --scaffold-gap: 0;
+  .left, .right{
+    padding: var(--edge-spacing);
+  }
+  .left{
+    background-color: var(--bamboo-green);
+    color: var(--bamboo-forest);
+  }
+  .right{
+    background-color: var(--bamboo-forest);
+    color: var(--bamboo-green);
   }
 }
