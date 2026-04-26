@@ -2,7 +2,11 @@
   <div class="left scaffold-grid-span-full md:scaffold-grid-span-half scaffold-flex scaffold-flex-col scaffold-justify-between">
     <p>{{site.product-name}}</p>
     <h2>Take root.</h2>
-    <p>We built it. You ship it.</p>
+    <div class="scaffold-flex scaffold-justify-between author">
+      <p>We built it. You ship it.</p>
+      <span>© {{ 'now' | date: "%Y" }}</span>
+
+    </div>
   </div>
   <div class="right scaffold-grid-span-full md:scaffold-grid-span-half scaffold-flex scaffold-flex-col scaffold-justify-between">
     <p>Quick links</p>
@@ -21,9 +25,8 @@
         {% include img/chevron-right.svg %}
       </a>
     </div>
-    <div class="scaffold-flex scaffold-justify-between author">
+    <div class="author">
       <span>A personal project by <a href="https://rehanbutt.com">Rehan Butt</a></span>
-      <span>© {{ 'now' | date: "%Y" }}</span>
     </div>
   </div>
 
