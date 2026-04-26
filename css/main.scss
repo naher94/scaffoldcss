@@ -183,5 +183,23 @@ footer{
   .right{
     background-color: var(--bamboo-black);
     color: var(--bamboo-green);
+    a{
+      font-size: 3em;
+      @include syne();
+      color: inherit;
+      transition: all 0.20s ease-in-out;
+      text-decoration: none;
+      &:hover{
+        @include syne(bold);
+      }
+    }
+    .author{
+      a{
+        font-size: 1em;
+        color: inherit;
+        // text-decoration: none;
+        // TODO maybe mimic designgold underline for this element
+      }
+    }
   }
 }
