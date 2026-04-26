@@ -82,6 +82,7 @@ $space-grotesk-weights: (
   --serif: 'Lora', Georgia, serif;
 
   --text-color: var(--bamboo-black);
+  --border-color: rgba(0,0,0, 0.1);
 }
 
 .button{
@@ -141,5 +142,21 @@ header{
   .htl-3 { 
     display: block; color: var(--bamboo-forest);
     @include syne(extrabold)
+  }
+}
+
+section{
+  &.features, &.fun-facts{
+    .section-header{
+      background-color: var(--dark-creme);
+      padding: var(--edge-spacing);
+      border: 1px solid var(--border-color);
+      h2{
+        @include syne(extrabold);
+      }
+      h3{
+        @include lora(bold, italic);
+      }
+    }
   }
 }
