@@ -172,6 +172,9 @@ header{
     display: block; color: var(--bamboo-forest);
     @include syne(extrabold)
   }
+  p{
+    font-size: 1.5em;
+  }
 }
 
 section{
