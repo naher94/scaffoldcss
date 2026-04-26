@@ -18,7 +18,7 @@ $spacing-unit:     30px;
     "syntax-highlighting"
 ;
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap');
 
 $lora-weights: (
   "regular":  400,
@@ -35,6 +35,14 @@ $syne-weights: (
   "extrabold": 800
 );
 
+$space-grotesk-weights: (
+  "light":    300,
+  "regular":  400,
+  "medium":   500,
+  "semibold": 600,
+  "bold":     700
+);
+
 @mixin lora($weight: "regular", $style: normal) {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
@@ -46,6 +54,13 @@ $syne-weights: (
   font-family: "Syne", sans-serif;
   font-optical-sizing: auto;
   font-weight: map-get($syne-weights, $weight);
+  font-style: normal;
+}
+
+@mixin space-grotesk($weight: "regular") {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: map-get($space-grotesk-weights, $weight);
   font-style: normal;
 }
 
