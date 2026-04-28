@@ -340,25 +340,19 @@
 
 /* ─── Callout ────────────────────────────────────────────── */
 .callout {
-  // border-left: 2px solid var(--bamboo-green);
-  background: color-mix(in srgb, var(--bamboo-green) 5%, transparent);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent);
   padding: 0.85rem 1.1rem;
   margin: 1.25rem 0;
   border-radius: var(--radius);
   border: var(--border);
-  // font-size: 13px;
-  // color: var(--bamboo-forest);
-  // font-family: var(--font-mono);
 
   strong {
     display: block;
     font-weight: 500;
-    color: var(--bamboo-green);
-    margin-bottom: 4px;
-    font-size: 11px;
+    // color: var(--bamboo-green);
+    // margin-bottom: 4px;
+    // font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
   }
 }
 
