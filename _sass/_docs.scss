@@ -203,6 +203,10 @@
   // .highlight { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
 }
 
+.preview + .code-tabs{
+  // TODO remove the margin bottom from preview & the margin top of code0tabs
+}
+
 .code-tab-bar + .code-tab-panel,
 .code-tab-bar + .code-tab-panel + .code-tab-panel {
   .highlight {
