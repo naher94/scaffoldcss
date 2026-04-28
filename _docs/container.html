@@ -5,7 +5,7 @@ nav_section: Layout
 sort: 13
 ---
 
-<h2>Container</h2>
+<h2><a href="#{{ page.anchor }}">Container</a></h2>
 <p>A max-width wrapper for centering content within a page. Available as <code>.scaffold-container</code> or the <code>container()</code> mixin. Configurable via custom properties.</p>
 
 <div class="code-tabs">
@@ -13,25 +13,36 @@ sort: 13
     <button class="active">Utility class</button>
     <button>SCSS mixin</button>
   </div>
-  <pre id="container-tab-class"><code>&lt;div class=<span class="val">"scaffold-container"</span>&gt;
-  &lt;div class=<span class="val">"scaffold-grid"</span>&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-  <pre id="container-tab-mixin" style="display:none"><code><span class="sel">.page-wrapper</span> {
-  <span class="sel">@include</span> scaffold.container();
+  <div class="code-tab-panel active">
+{% highlight html %}
+<div class="scaffold-container">
+  <div class="scaffold-grid">...</div>
+</div>
+{% endhighlight %}
+  </div>
+  <div class="code-tab-panel">
+{% highlight scss %}
+.page-wrapper {
+  @include scaffold.container();
 }
 
-<span class="comment">// With a custom max-width</span>
-<span class="sel">.page-wrapper--wide</span> {
-  <span class="sel">@include</span> scaffold.container(<span class="val">$width</span>: 1440px);
-}</code></pre>
+// With a custom max-width
+.page-wrapper--wide {
+  @include scaffold.container($width: 1440px);
+}
+{% endhighlight %}
+  </div>
 </div>
 
-<h3>Full-width variant</h3>
+<h3 id="{{ page.anchor }}-full-width"><a href="#{{ page.anchor }}-full-width">Full-width variant</a></h3>
 <p><code>.scaffold-container-full</code> spans the entire viewport width while keeping side padding.</p>
 
-<h3>Configuring width and padding</h3>
-<pre><code><span class="sel">:root</span> {
-  <span class="prop">--scaffold-container-width</span>:      <span class="val">1440px</span>;
-  <span class="prop">--scaffold-container-padding-sm</span>: <span class="val">1rem</span>;
-  <span class="prop">--scaffold-container-padding</span>:    <span class="val">2rem</span>;
-}</code></pre>
+<h3 id="{{ page.anchor }}-config"><a href="#{{ page.anchor }}-config">Configuring width and padding</a></h3>
+
+{% highlight css %}
+:root {
+  --scaffold-container-width:      1440px;
+  --scaffold-container-padding-sm: 1rem;
+  --scaffold-container-padding:    2rem;
+}
+{% endhighlight %}
