@@ -47,24 +47,31 @@
 /* ─── Sidebar ────────────────────────────────────────────── */
 .docs-nav {
   border-right: var(--border);
-  padding: 2rem 0;
+  // padding: 2rem 0;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   background: var(--dark-creme);
+  padding: var(--edge-spacing);
 
   a {
     display: block;
-    font-size: 13px;
+    // font-size: 13px;
     color: var(--bamboo-forest);
     text-decoration: none;
     padding: 4px 0;
     transition: var(--transition-ease);
     font-family: var(--font-mono);
 
-    &:hover  { color: var(--bamboo-black); }
-    &.active { color: var(--bamboo-black); font-weight: 500; }
+    &:hover  { 
+      color: var(--bamboo-black);
+      font-weight: bold;
+    }
+    &.active { 
+      color: var(--bamboo-black);
+      font-weight: 500; 
+    }
   }
 }
 
@@ -97,7 +104,7 @@
 }
 
 .nav-section {
-  padding: 0 1.5rem;
+  // padding: 0 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -106,7 +113,7 @@
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  // letter-spacing: 0.1em;
   color: var(--bamboo-forest);
   margin-bottom: 0.5rem;
 }
@@ -274,14 +281,13 @@
     // font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
     color: var(--bamboo-forest);
-    padding: 0 12px 8px 0;
+    padding: 0 16px 8px 0;
     border-bottom: var(--border);
   }
 
   td {
-    padding: 8px 12px 8px 0;
+    padding: 8px 16px 8px 0;
     border-bottom: var(--border);
     vertical-align: top;
     color: var(--bamboo-forest);
