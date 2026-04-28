@@ -118,7 +118,8 @@
 /* ─── Main content ───────────────────────────────────────── */
 .docs-main {
   // max-width: 780px; //TODO check this out
-  padding: 3.5rem 4rem;
+  // padding: 3.5rem 4rem;
+  padding: var(--edge-spacing);
 
   p {
     margin-bottom: 1rem;
