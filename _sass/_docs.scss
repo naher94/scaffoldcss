@@ -73,34 +73,6 @@
   }
 }
 
-.nav-logo {
-  padding: 0 1.5rem 1.75rem;
-  border-bottom: var(--border);
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.nav-mark { width: 24px; height: 24px; flex-shrink: 0; }
-
-.nav-logo-text {
-  h1 {
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: var(--bamboo-black);
-    @include syne(bold);
-  }
-
-  p {
-    font-size: 11px;
-    color: var(--bamboo-forest);
-    font-family: var(--font-mono);
-    margin: 0;
-  }
-}
-
 .nav-section {
   margin-bottom: 1.5rem;
 }
@@ -237,7 +209,6 @@
 
   button {
     font-family: var(--font-mono);
-    font-size: 10px;
     font-weight: 500;
     padding: 5px 12px;
     border: 1px solid var(--code-border);
@@ -247,7 +218,6 @@
     color: var(--bamboo-forest);
     cursor: pointer;
     transition: var(--transition-ease);
-    letter-spacing: 0.04em;
 
     &.active {
       background: var(--code-bg);
@@ -256,14 +226,6 @@
     }
   }
 }
-
-
-/* ─── Code syntax colors ─────────────────────────────────── */
-.comment { color: var(--bamboo-forest); }
-.prop    { color: #7ab8ff; }
-.val     { color: var(--bamboo-green); }
-.sel     { color: #d05000; }
-
 
 /* ─── Class reference table ──────────────────────────────── */
 .class-table {
@@ -316,7 +278,6 @@
     margin-bottom: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
   }
 }
 
@@ -352,9 +313,6 @@
   strong {
     display: block;
     font-weight: 500;
-    // color: var(--bamboo-green);
-    // margin-bottom: 4px;
-    // font-size: 11px;
     text-transform: uppercase;
   }
 }
