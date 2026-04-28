@@ -1,10 +1,10 @@
 <header class="scaffold-flex scaffold-justify-between scaffold-items-center">
 
   <div class="left-side scaffold-flex">
-    <a href="#" class="home-link">{{site.product-name}}</a>
+    <a href="{{ '/' | relative_url }}" class="home-link">{{site.product-name}}</a>
     <nav class="nav-links scaffold-flex">
-      <a href="#features">Features</a>
-      <a href="#fun-facts">Fun Facts</a>
+      <a href="{{ '/#features' | relative_url }}">Features</a>
+      <a href="{{ '/#fun-facts' | relative_url }}">Fun Facts</a>
       <a href="{{ '/docs' | relative_url }}">Docs</a>
       <a href="{{site.github}}">GitHub</a>
     </nav>
