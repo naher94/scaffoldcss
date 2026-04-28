@@ -127,6 +127,24 @@
     line-height: 1.7;
   }
 
+  h2, h3 {
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &::after {
+        content: ' #';
+        // font-family: var(--font-mono);
+        // font-weight: 400;
+        color: var(--bamboo-green);
+        opacity: 0;
+        transition: opacity var(--transition-ease);
+      }
+
+      &:hover::after { opacity: 1; }
+    }
+  }
+
   h2 {
     font-size: 26px;
     letter-spacing: -0.03em;
