@@ -30,9 +30,13 @@
 
   header { border-bottom: var(--border); }
 
-  ::-webkit-scrollbar       { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--creme); }
-  ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+  // ::-webkit-scrollbar       { width: 4px; }
+  // ::-webkit-scrollbar-track { background: var(--creme); }
+  // ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+
+  code{
+    @include inconsolata();
+  }
 }
 
 
@@ -162,13 +166,14 @@
   }
 
   pre {
-    background: var(--code-bg);
-    border: 1px solid var(--code-border);
-    border-radius: var(--radius);
+    // background: var(--code-bg);
+    // border: 1px solid var(--code-border);
+    // border-radius: var(--radius);
     padding: 1.25rem 1.5rem;
     font-family: var(--font-mono);
     overflow-x: auto;
-    margin: 1rem 0 1.5rem;
+    // margin: 1rem 0 1.5rem;
+    margin: 0;
     color: var(--bamboo-green);
 
     code {
@@ -176,6 +181,12 @@
       color: inherit;
       font-weight: 400;
     }
+  }
+  .highlight{
+    border-radius: var(--radius);
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+
   }
 
   p code {
