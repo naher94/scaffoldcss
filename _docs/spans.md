@@ -25,22 +25,22 @@ Grid span classes define how many of the 12 columns a child element occupies. Th
 {: .class-table}
 
 <div class="preview">
-  <div class="preview-label">Preview — all span variants</div>
+  <!-- <div class="preview-label">Preview — all span variants</div> -->
   <div class="grid-demo" style="gap: 4px; row-gap: 6px;">
-    <div class="cell span-full"></div>
-    <div class="cell span-half"></div>
-    <div class="cell span-half"></div>
-    <div class="cell span-third"></div>
-    <div class="cell span-third"></div>
-    <div class="cell span-third"></div>
-    <div class="cell span-quarter"></div>
-    <div class="cell span-quarter"></div>
-    <div class="cell span-quarter"></div>
-    <div class="cell span-quarter"></div>
-    <div class="cell span-two-thirds"></div>
-    <div class="cell span-third"></div>
-    <div class="cell span-three-quarters"></div>
-    <div class="cell span-quarter"></div>
+    <div class="cell span-full">.span-full</div>
+    <div class="cell span-half">.span-half</div>
+    <div class="cell span-half">.span-half</div>
+    <div class="cell span-third">.span-third</div>
+    <div class="cell span-third">.span-third</div>
+    <div class="cell span-third">.span-third</div>
+    <div class="cell span-quarter">.span-quarter</div>
+    <div class="cell span-quarter">.span-quarter</div>
+    <div class="cell span-quarter">.span-quarter</div>
+    <div class="cell span-quarter">.span-quarter</div>
+    <div class="cell span-two-thirds">.span-two-thirds</div>
+    <div class="cell span-third">.span-third</div>
+    <div class="cell span-three-quarters">.span-three-quarters</div>
+    <div class="cell span-quarter">.span-quarter</div>
   </div>
 </div>
 
