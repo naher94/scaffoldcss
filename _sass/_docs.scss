@@ -212,6 +212,7 @@
   background-color: var(--code-bg);
   border: var(--border);
   padding: 0.25em;
+  border-radius: var(--radius) var(--radius) 0 0;
 
   button {
     font-family: var(--font-mono);
