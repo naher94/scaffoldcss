@@ -118,7 +118,7 @@
     margin-bottom: 1rem;
     max-width: 62ch;
     line-height: 1.7;
-    font-weight: 400;
+    // font-weight: 400;
   }
 
   h2 {
@@ -219,14 +219,18 @@
   color: var(--bamboo-green);
 }
 
+// TODO this is the inline code tags
 .docs-main code {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  background: var(--code-bg);
-  border: 1px solid var(--code-border);
+  // font-family: var(--font-mono);
+  @include inconsolata(bold);
+  // font-size: 14px;
+  // background: var(--code-bg); //TODO update this to use dark creme
+  background: var(--dark-creme);
+  // border: 1px solid var(--code-border);
+  border: var(--border);
   border-radius: var(--radius);
   padding: 1px 5px;
-  color: var(--bamboo-green);
+  // color: var(--bamboo-green);
 }
 
 .docs-main pre code {
