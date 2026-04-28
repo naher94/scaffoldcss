@@ -113,8 +113,8 @@
   // background: var(--creme);
 
   p {
-    font-size: 14px;
-    color: var(--bamboo-forest);
+    // font-size: 14px;
+    // color: var(--bamboo-forest);
     margin-bottom: 1rem;
     max-width: 62ch;
     line-height: 1.7;
@@ -381,23 +381,23 @@
 
   h1 {
     font-size: 40px;
-    letter-spacing: -0.04em;
+    // letter-spacing: -0.04em;
     margin-bottom: 0.5rem;
     line-height: 1;
     color: var(--bamboo-black);
     @include syne(extrabold);
 
-    em {
-      font-style: normal;
-      color: var(--bamboo-green);
-    }
+    // em {
+    //   font-style: normal;
+    //   color: var(--bamboo-green);
+    // }
   }
 
   p {
-    font-size: 15px;
-    color: var(--bamboo-forest);
-    max-width: 52ch;
-    margin: 0.75rem 0 0;
+    // font-size: 15px;
+    // color: var(--bamboo-forest);
+    // max-width: 52ch;
+    // margin: 0.75rem 0 0;
   }
 }
 
