@@ -203,6 +203,8 @@
   // .highlight { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
 }
 
+// TODO if code-tab-panel is right after a code-tab-panel then adjust the top radius of .highlight to zero
+
 .code-tab-bar {
   display: flex;
   gap: 2px;
