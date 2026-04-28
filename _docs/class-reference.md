@@ -9,8 +9,6 @@ sort: 40
 
 <h3 id="{{ page.anchor }}-grid"><a href="#{{ page.anchor }}-grid">Grid <span class="tag tag-grid">grid</span></a></h3>
 
-<div markdown="1">
-
 | Class | Description | CSS |
 |---|---|---|
 | `.scaffold-grid` | 12-column grid container | `display: grid; grid-template-columns: repeat(12, 1fr)` |
@@ -22,11 +20,7 @@ sort: 40
 | `.scaffold-grid-span-three-quarters` | 9 columns | `grid-column: span 9` |
 {: .class-table}
 
-</div>
-
 <h3 id="{{ page.anchor }}-flex"><a href="#{{ page.anchor }}-flex">Flex <span class="tag tag-flex">flex</span></a></h3>
-
-<div markdown="1">
 
 | Class | Description | CSS |
 |---|---|---|
@@ -36,11 +30,7 @@ sort: 40
 | `.scaffold-flex-intrinsic` | Proportional flex child | `flex: var(--aspect-ratio, 1); min-width: 0` |
 {: .class-table}
 
-</div>
-
 <h3 id="{{ page.anchor }}-alignment"><a href="#{{ page.anchor }}-alignment">Alignment <span class="tag tag-align">grid &amp; flex</span></a></h3>
-
-<div markdown="1">
 
 | Class | Description | CSS |
 |---|---|---|
@@ -59,11 +49,7 @@ sort: 40
 | `.scaffold-self-stretch` | Stretch self to fill | `align-self: stretch` |
 {: .class-table}
 
-</div>
-
 <h3 id="{{ page.anchor }}-utilities"><a href="#{{ page.anchor }}-utilities">Utilities <span class="tag tag-util">util</span></a></h3>
-
-<div markdown="1">
 
 | Class | Description | CSS |
 |---|---|---|
@@ -73,5 +59,3 @@ sort: 40
 | `.scaffold-gap-md` | Medium gap (default) | `gap: var(--scaffold-gap-md)` |
 | `.scaffold-gap-lg` | Large gap | `gap: var(--scaffold-gap-lg)` |
 {: .class-table}
-
-</div>
