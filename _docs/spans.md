@@ -6,14 +6,13 @@ sort: 11
 ---
 
 <h2><a href="#{{ page.anchor }}">Grid span utilities</a></h2>
-<p>Grid span classes define how many of the 12 columns a child element occupies. The <code>span()</code> mixin accepts the same semantic names as the utility classes.</p>
+
+Grid span classes define how many of the 12 columns a child element occupies. The `span()` mixin accepts the same semantic names as the utility classes.
 
 <div class="callout">
   <strong>Important</strong>
   Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.
 </div>
-
-<!-- <div markdown="1"> -->
 
 | Class | Mixin | Columns | CSS output |
 |---|---|---|---|
@@ -24,8 +23,6 @@ sort: 11
 | `.scaffold-grid-span-quarter` | `span(quarter)` | 3 of 12 | `grid-column: span 3` |
 | `.scaffold-grid-span-three-quarters` | `span(three-quarters)` | 9 of 12 | `grid-column: span 9` |
 {: .class-table}
-
-<!-- </div> -->
 
 <div class="preview">
   <div class="preview-label">Preview — all span variants</div>
@@ -48,9 +45,10 @@ sort: 11
 </div>
 
 <h3 id="{{ page.anchor }}-skip-spans"><a href="#{{ page.anchor }}-skip-spans">When to skip span utilities</a></h3>
-<p>If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.</p>
 
-{% highlight html %}
+If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.
+
+```html
 <!-- Without: span class on every child -->
 <div class="scaffold-grid">
   <div class="scaffold-grid-span-third">...</div>
@@ -64,4 +62,4 @@ sort: 11
   <div>...</div>
   <div>...</div>
 </div>
-{% endhighlight %}
+```
