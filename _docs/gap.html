@@ -5,7 +5,7 @@ nav_section: Utilities
 sort: 20
 ---
 
-<h2>Gap</h2>
+<h2><a href="#{{ page.anchor }}">Gap</a></h2>
 <p>Gap utility classes map to three t-shirt sizes backed by custom properties. Works in both grid and flex contexts.</p>
 
 <table class="class-table">
@@ -17,8 +17,11 @@ sort: 20
   </tbody>
 </table>
 
-<h3>Independent row and column gap</h3>
-<pre><code><span class="comment">&lt;!-- Tighter rows, wider columns --&gt;</span>
-&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-row-gap: 0.5rem; --scaffold-col-gap: 2rem"</span>&gt;
+<h3 id="{{ page.anchor }}-row-col"><a href="#{{ page.anchor }}-row-col">Independent row and column gap</a></h3>
+
+{% highlight html %}
+<!-- Tighter rows, wider columns -->
+<div class="scaffold-grid" style="--scaffold-row-gap: 0.5rem; --scaffold-col-gap: 2rem">
   ...
-&lt;/div&gt;</code></pre>
+</div>
+{% endhighlight %}
