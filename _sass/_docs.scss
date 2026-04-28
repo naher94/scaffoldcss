@@ -143,39 +143,10 @@
 /* ─── Doc sections ───────────────────────────────────────── */
 .doc-section {
   margin-bottom: 4rem;
-  padding-bottom: 4rem;
-  border-bottom: var(--border);
+  // padding-bottom: 4rem;
+  // border-bottom: var(--border);
 
-  &:last-child { border-bottom: none; }
-}
-
-
-/* ─── Status badge ───────────────────────────────────────── */
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 8px;
-  border-radius: var(--radius-huge);
-  margin-bottom: 1.25rem;
-  font-family: var(--font-mono);
-
-  &.wip {
-    background: rgba(200,144,0,0.1);
-    color: #c89000;
-    border: 1px solid rgba(200,144,0,0.2);
-
-    &::before {
-      content: '';
-      display: inline-block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-  }
+  // &:last-child { border-bottom: none; }
 }
 
 
