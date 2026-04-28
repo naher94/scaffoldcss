@@ -231,13 +231,11 @@
 .class-table {
   width: 100%;
   border-collapse: collapse;
-  // font-size: 12px;
   margin: 1rem 0 1.5rem;
 
   th {
     text-align: left;
     font-family: var(--font-mono);
-    // font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
     color: var(--bamboo-forest);
@@ -332,16 +330,16 @@
 
 .version-pill {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  background: color-mix(in srgb, var(--bamboo-green) 10%, transparent);
-  color: var(--bamboo-forest);
-  border: var(--border);
-  padding: 3px 10px;
   border-radius: var(--radius-huge);
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.04em;
+  background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
+  padding: 0.5em 1.5em;
+  @include inconsolata(bold,200);
+  margin-block-end: 1em;
+  font-size: 0.75em;
+  // @include scaffold.breakpoint(md, down){
+  //   font-size: 0.6em;
+  //   margin-block-end: 1em;
+  // } 
 }
 
 
