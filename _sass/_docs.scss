@@ -24,6 +24,8 @@
 .docs-page * { box-sizing: border-box; }
 .docs-page { overflow-x: hidden; }
 
+.docs-page header { border-bottom: var(--border); }
+
 
 /* ─── Layout ─────────────────────────────────────────────── */
 .docs-layout {
