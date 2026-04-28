@@ -151,8 +151,8 @@
   }
 
   h3 {
-    font-size: 13px;
-    font-weight: 500;
+    // font-size: 13px;
+    @include syne(bold);
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     color: var(--bamboo-green);
