@@ -13,17 +13,19 @@ sort: 11
   Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.
 </div>
 
-<table class="class-table">
-  <thead><tr><th>Class</th><th>Mixin</th><th>Columns</th><th>CSS output</th></tr></thead>
-  <tbody>
-    <tr><td><code>.scaffold-grid-span-full</code></td><td>span(full)</td><td>12 of 12</td><td><code>grid-column: 1 / -1</code></td></tr>
-    <tr><td><code>.scaffold-grid-span-half</code></td><td>span(half)</td><td>6 of 12</td><td><code>grid-column: span 6</code></td></tr>
-    <tr><td><code>.scaffold-grid-span-third</code></td><td>span(third)</td><td>4 of 12</td><td><code>grid-column: span 4</code></td></tr>
-    <tr><td><code>.scaffold-grid-span-two-thirds</code></td><td>span(two-thirds)</td><td>8 of 12</td><td><code>grid-column: span 8</code></td></tr>
-    <tr><td><code>.scaffold-grid-span-quarter</code></td><td>span(quarter)</td><td>3 of 12</td><td><code>grid-column: span 3</code></td></tr>
-    <tr><td><code>.scaffold-grid-span-three-quarters</code></td><td>span(three-quarters)</td><td>9 of 12</td><td><code>grid-column: span 9</code></td></tr>
-  </tbody>
-</table>
+<!-- <div markdown="1"> -->
+
+| Class | Mixin | Columns | CSS output |
+|---|---|---|---|
+| `.scaffold-grid-span-full` | `span(full)` | 12 of 12 | `grid-column: 1 / -1` |
+| `.scaffold-grid-span-half` | `span(half)` | 6 of 12 | `grid-column: span 6` |
+| `.scaffold-grid-span-third` | `span(third)` | 4 of 12 | `grid-column: span 4` |
+| `.scaffold-grid-span-two-thirds` | `span(two-thirds)` | 8 of 12 | `grid-column: span 8` |
+| `.scaffold-grid-span-quarter` | `span(quarter)` | 3 of 12 | `grid-column: span 3` |
+| `.scaffold-grid-span-three-quarters` | `span(three-quarters)` | 9 of 12 | `grid-column: span 9` |
+{: .class-table}
+
+<!-- </div> -->
 
 <div class="preview">
   <div class="preview-label">Preview — all span variants</div>
