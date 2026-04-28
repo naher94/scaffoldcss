@@ -285,30 +285,14 @@
     border-bottom: var(--border);
     vertical-align: top;
     color: var(--bamboo-forest);
-    // font-size: 12px;
 
-    &:first-child {
+    code {
+      @include inconsolata(bold);
+      background: var(--dark-creme);
+      border: var(--border);
+      border-radius: var(--radius);
+      padding: 1px 5px;
       white-space: nowrap;
-
-      code {
-        @include inconsolata(bold);
-        background: var(--dark-creme);
-        border: var(--border);
-        border-radius: var(--radius);
-        padding: 1px 5px;
-      }
-    }
-
-    &:last-child {
-      white-space: nowrap;
-
-      code {
-        @include inconsolata(bold);
-        background: var(--dark-creme);
-        border: var(--border);
-        border-radius: var(--radius);
-        padding: 1px 5px;
-      }
     }
   }
 }
