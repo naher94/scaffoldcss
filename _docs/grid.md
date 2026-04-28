@@ -9,6 +9,14 @@ sort: 10
 
 The `.scaffold-grid` class sets `display: grid` and a 12-column layout in one step. The equivalent `grid()` mixin produces the same output for use inside your own SCSS rules.
 
+<div class="preview">
+  <!-- <div class="preview-label">Preview — two halves</div> -->
+  <div class="grid-demo">
+    <div class="cell span-half"> .span-half </div>
+    <div class="cell span-half"> .span-half </div>
+  </div>
+</div>
+
 <div class="code-tabs">
   <div class="code-tab-bar">
     <button class="active">Utility class</button>
@@ -35,14 +43,6 @@ The `.scaffold-grid` class sets `display: grid` and a 12-column layout in one st
 }
 ```
 
-  </div>
-</div>
-
-<div class="preview">
-  <div class="preview-label">Preview — two halves</div>
-  <div class="grid-demo">
-    <div class="cell span-half"></div>
-    <div class="cell span-half"></div>
   </div>
 </div>
 

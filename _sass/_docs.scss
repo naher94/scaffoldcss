@@ -306,8 +306,10 @@
   .cell {
     background: color-mix(in srgb, var(--bamboo-green) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--bamboo-green) 20%, transparent);
-    height: 28px;
-    border-radius: 3px;
+    // height: 28px;
+    // border-radius: 3px;
+    border-radius: var(--radius);
+    padding: 0.5em;
 
     &.span-half           { grid-column: span 6;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
     &.span-third          { grid-column: span 4;  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent); }
