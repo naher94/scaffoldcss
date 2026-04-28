@@ -6,7 +6,7 @@
 :root {
   --font-mono: 'Inconsolata', monospace;
 
-  --code-bg:     var(--bamboo-black);
+  --code-bg: var(--dark-creme);
   --code-border: color-mix(in srgb, var(--bamboo-green) 15%, transparent);
 
   --tag-grid-bg:   color-mix(in srgb, var(--bamboo-green) 10%, transparent);
@@ -221,22 +221,15 @@
 
 // TODO this is the inline code tags
 .docs-main p code {
-  // font-family: var(--font-mono);
   @include inconsolata(bold);
-  // font-size: 14px;
   // background: var(--code-bg); //TODO update this to use dark creme
   background: var(--dark-creme);
-  // border: 1px solid var(--code-border);
   border: var(--border);
   border-radius: var(--radius);
   padding: 1px 5px;
-  // color: var(--bamboo-green);
 }
 
 .docs-main pre code {
-  // background: none;
-  // border: none;
-  // padding: 0;
   // font-size: inherit; //TODO check this
   font-size: 14px;
   color: inherit;
