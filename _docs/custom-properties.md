@@ -6,7 +6,8 @@ sort: 41
 ---
 
 <h2><a href="#{{ page.anchor }}">Custom properties</a></h2>
-<p>All configurable values are exposed as CSS custom properties. Override them in <code>:root</code> or scope them to a specific element.</p>
+
+All configurable values are exposed as CSS custom properties. Override them in `:root` or scope them to a specific element.
 
 <div markdown="1">
 
