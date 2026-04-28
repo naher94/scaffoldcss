@@ -30,10 +30,6 @@
 
   header { border-bottom: var(--border); }
 
-  // ::-webkit-scrollbar       { width: 4px; }
-  // ::-webkit-scrollbar-track { background: var(--creme); }
-  // ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
-
   code{
     @include inconsolata();
   }
@@ -57,10 +53,6 @@
   height: 100vh;
   overflow-y: auto;
   background: var(--dark-creme);
-
-  &::-webkit-scrollbar       { width: 3px; }
-  &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
 
   a {
     display: block;
@@ -122,7 +114,7 @@
 
 /* ─── Main content ───────────────────────────────────────── */
 .docs-main {
-  max-width: 780px;
+  // max-width: 780px; //TODO check this out
   padding: 3.5rem 4rem;
 
   p {
@@ -138,8 +130,6 @@
 
       &::after {
         content: ' #';
-        // font-family: var(--font-mono);
-        // font-weight: 400;
         color: var(--bamboo-green);
         opacity: 0;
         transition: opacity var(--transition-ease);
@@ -166,13 +156,9 @@
   }
 
   pre {
-    // background: var(--code-bg);
-    // border: 1px solid var(--code-border);
-    // border-radius: var(--radius);
     padding: 1.25rem 1.5rem;
     font-family: var(--font-mono);
     overflow-x: auto;
-    // margin: 1rem 0 1.5rem;
     margin: 0;
     color: var(--bamboo-green);
 
@@ -279,13 +265,13 @@
 .class-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  // font-size: 12px;
   margin: 1rem 0 1.5rem;
 
   th {
     text-align: left;
     font-family: var(--font-mono);
-    font-size: 10px;
+    // font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -299,18 +285,23 @@
     border-bottom: var(--border);
     vertical-align: top;
     color: var(--bamboo-forest);
-    font-size: 12px;
+    // font-size: 12px;
 
     &:first-child {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--bamboo-green);
       white-space: nowrap;
+
+      code {
+        @include inconsolata(bold);
+        background: var(--dark-creme);
+        border: var(--border);
+        border-radius: var(--radius);
+        padding: 1px 5px;
+      }
     }
 
     &:last-child {
       font-family: var(--font-mono);
-      font-size: 11px;
+      // font-size: 11px;
       color: var(--bamboo-forest);
     }
   }
