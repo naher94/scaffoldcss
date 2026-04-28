@@ -5,7 +5,7 @@ nav_section: Layout
 sort: 11
 ---
 
-<h2>Grid span utilities</h2>
+<h2><a href="#{{ page.anchor }}">Grid span utilities</a></h2>
 <p>Grid span classes define how many of the 12 columns a child element occupies. The <code>span()</code> mixin accepts the same semantic names as the utility classes.</p>
 
 <div class="callout">
@@ -45,18 +45,21 @@ sort: 11
   </div>
 </div>
 
-<h3>When to skip span utilities</h3>
+<h3 id="{{ page.anchor }}-skip-spans"><a href="#{{ page.anchor }}-skip-spans">When to skip span utilities</a></h3>
 <p>If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.</p>
-<pre><code><span class="comment">&lt;!-- Without: span class on every child --&gt;</span>
-&lt;div class=<span class="val">"scaffold-grid"</span>&gt;
-  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
-  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
-  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
-&lt;/div&gt;
 
-<span class="comment">&lt;!-- With: column count on the container --&gt;</span>
-&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-cols: repeat(3, 1fr)"</span>&gt;
-  &lt;div&gt;...&lt;/div&gt;
-  &lt;div&gt;...&lt;/div&gt;
-  &lt;div&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+{% highlight html %}
+<!-- Without: span class on every child -->
+<div class="scaffold-grid">
+  <div class="scaffold-grid-span-third">...</div>
+  <div class="scaffold-grid-span-third">...</div>
+  <div class="scaffold-grid-span-third">...</div>
+</div>
+
+<!-- With: column count on the container -->
+<div class="scaffold-grid" style="--scaffold-cols: repeat(3, 1fr)">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+</div>
+{% endhighlight %}
