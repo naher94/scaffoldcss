@@ -6,22 +6,26 @@ sort: 13
 ---
 
 <h2><a href="#{{ page.anchor }}">Container</a></h2>
-<p>A max-width wrapper for centering content within a page. Available as <code>.scaffold-container</code> or the <code>container()</code> mixin. Configurable via custom properties.</p>
+
+A max-width wrapper for centering content within a page. Available as `.scaffold-container` or the `container()` mixin. Configurable via custom properties.
 
 <div class="code-tabs">
   <div class="code-tab-bar">
     <button class="active">Utility class</button>
     <button>SCSS mixin</button>
   </div>
-  <div class="code-tab-panel active">
-{% highlight html %}
+  <div class="code-tab-panel active" markdown="1">
+
+```html
 <div class="scaffold-container">
   <div class="scaffold-grid">...</div>
 </div>
-{% endhighlight %}
+```
+
   </div>
-  <div class="code-tab-panel">
-{% highlight scss %}
+  <div class="code-tab-panel" markdown="1">
+
+```scss
 .page-wrapper {
   @include scaffold.container();
 }
@@ -30,19 +34,21 @@ sort: 13
 .page-wrapper--wide {
   @include scaffold.container($width: 1440px);
 }
-{% endhighlight %}
+```
+
   </div>
 </div>
 
 <h3 id="{{ page.anchor }}-full-width"><a href="#{{ page.anchor }}-full-width">Full-width variant</a></h3>
-<p><code>.scaffold-container-full</code> spans the entire viewport width while keeping side padding.</p>
+
+`.scaffold-container-full` spans the entire viewport width while keeping side padding.
 
 <h3 id="{{ page.anchor }}-config"><a href="#{{ page.anchor }}-config">Configuring width and padding</a></h3>
 
-{% highlight css %}
+```css
 :root {
   --scaffold-container-width:      1440px;
   --scaffold-container-padding-sm: 1rem;
   --scaffold-container-padding:    2rem;
 }
-{% endhighlight %}
+```
