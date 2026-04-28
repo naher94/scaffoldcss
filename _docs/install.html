@@ -9,14 +9,17 @@ sort: 1
 
 <h3 id="{{ page.anchor }}-using-scss"><a href="#{{ page.anchor }}-using-scss">Using SCSS</a></h3>
 <p>Copy the <code>_sass/scaffold/</code> folder into your project's <code>_sass/</code> directory, then import the entry point:</p>
-<pre><code><span class="comment">// your main stylesheet</span>
-<span class="sel">@use</span> <span class="val">'scaffold/scaffold'</span>;</code></pre>
+
+{% highlight scss %}
+// your main stylesheet
+@use 'scaffold/scaffold';
+{% endhighlight %}
 
 <h3 id="{{ page.anchor }}-using-compiled-css"><a href="#{{ page.anchor }}-using-compiled-css">Using compiled CSS</a></h3>
 <p>Link the compiled CSS directly if you don't need the SCSS mixins:</p>
 
 {% highlight html %}
-  <link rel="stylesheet" href="dist/scaffold.css">
+<link rel="stylesheet" href="dist/scaffold.css">
 {% endhighlight %}
 
 <h3 id="{{ page.anchor }}-whats-included"><a href="#{{ page.anchor }}-whats-included">What's included</a></h3>
@@ -24,12 +27,15 @@ sort: 1
 <p>If you use the SCSS route with mixins only and never reference utility classes in your HTML, the compiled output will be significantly smaller since only the mixins you actually call get included.</p>
 
 <h3 id="{{ page.anchor }}-file-structure"><a href="#{{ page.anchor }}-file-structure">Library file structure</a></h3>
-<pre><code>_sass/
+
+{% highlight text %}
+_sass/
   scaffold/
-    _variables.scss   <span class="comment">← breakpoints, gap tokens, container width/padding</span>
-    _mixins.scss      <span class="comment">← all mixin definitions</span>
-    _grid.scss        <span class="comment">← .scaffold-grid, .scaffold-grid-span-*, .scaffold-gap-* + responsive variants</span>
-    _flex.scss        <span class="comment">← .scaffold-flex, direction, alignment classes + responsive variants</span>
-    scaffold.scss     <span class="comment">← .scaffold-container, .scaffold-container-full + @forward everything</span>
+    _variables.scss   ← breakpoints, gap tokens, container width/padding
+    _mixins.scss      ← all mixin definitions
+    _grid.scss        ← .scaffold-grid, .scaffold-grid-span-*, .scaffold-gap-* + responsive variants
+    _flex.scss        ← .scaffold-flex, direction, alignment classes + responsive variants
+    scaffold.scss     ← .scaffold-container, .scaffold-container-full + @forward everything
 dist/
-  scaffold.css        <span class="comment">← compiled CSS for drop-in use</span></code></pre>
+  scaffold.css        ← compiled CSS for drop-in use
+{% endhighlight %}
