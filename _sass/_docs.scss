@@ -300,9 +300,15 @@
     }
 
     &:last-child {
-      font-family: var(--font-mono);
-      // font-size: 11px;
-      color: var(--bamboo-forest);
+      white-space: nowrap;
+
+      code {
+        @include inconsolata(bold);
+        background: var(--dark-creme);
+        border: var(--border);
+        border-radius: var(--radius);
+        padding: 1px 5px;
+      }
     }
   }
 }
