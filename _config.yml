@@ -24,6 +24,9 @@ github: https://github.com/naher94/scaffoldcss
 markdown: kramdown
 
 collections:
+  docs:
+    output: false
+    sort_by: sort
   fun-facts:
     output: false
   features:

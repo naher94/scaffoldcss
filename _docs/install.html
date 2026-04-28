@@ -1,0 +1,32 @@
+---
+anchor: install
+nav_label: Installation
+nav_section: Getting started
+sort: 1
+---
+
+<h2>Installation</h2>
+
+<h3>Using SCSS</h3>
+<p>Copy the <code>_sass/scaffold/</code> folder into your project's <code>_sass/</code> directory, then import the entry point:</p>
+<pre><code><span class="comment">// your main stylesheet</span>
+<span class="sel">@use</span> <span class="val">'scaffold/scaffold'</span>;</code></pre>
+
+<h3>Using compiled CSS</h3>
+<p>Link the compiled CSS directly if you don't need the SCSS mixins:</p>
+<pre><code>&lt;link rel=<span class="val">"stylesheet"</span> href=<span class="val">"dist/scaffold.css"</span>&gt;</code></pre>
+
+<h3>What's included</h3>
+<p>Scaffold ships two artifacts: the compiled <code>dist/scaffold.css</code> for drop-in use, and the raw <code>_sass/scaffold/</code> source for projects that want to use the mixins or customize the token defaults.</p>
+<p>If you use the SCSS route with mixins only and never reference utility classes in your HTML, the compiled output will be significantly smaller since only the mixins you actually call get included.</p>
+
+<h3>Library file structure</h3>
+<pre><code>_sass/
+  scaffold/
+    _variables.scss   <span class="comment">← breakpoints, gap tokens, container width/padding</span>
+    _mixins.scss      <span class="comment">← all mixin definitions</span>
+    _grid.scss        <span class="comment">← .scaffold-grid, .scaffold-grid-span-*, .scaffold-gap-* + responsive variants</span>
+    _flex.scss        <span class="comment">← .scaffold-flex, direction, alignment classes + responsive variants</span>
+    scaffold.scss     <span class="comment">← .scaffold-container, .scaffold-container-full + @forward everything</span>
+dist/
+  scaffold.css        <span class="comment">← compiled CSS for drop-in use</span></code></pre>

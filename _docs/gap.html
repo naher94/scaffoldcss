@@ -1,0 +1,24 @@
+---
+anchor: gap
+nav_label: Gap
+nav_section: Utilities
+sort: 20
+---
+
+<h2>Gap</h2>
+<p>Gap utility classes map to three t-shirt sizes backed by custom properties. Works in both grid and flex contexts.</p>
+
+<table class="class-table">
+  <thead><tr><th>Class</th><th>Default value</th><th>Custom property</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-gap-sm</td><td>0.5rem</td><td>--scaffold-gap-sm</td></tr>
+    <tr><td>.scaffold-gap-md</td><td>1rem</td><td>--scaffold-gap-md</td></tr>
+    <tr><td>.scaffold-gap-lg</td><td>2rem</td><td>--scaffold-gap-lg</td></tr>
+  </tbody>
+</table>
+
+<h3>Independent row and column gap</h3>
+<pre><code><span class="comment">&lt;!-- Tighter rows, wider columns --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-row-gap: 0.5rem; --scaffold-col-gap: 2rem"</span>&gt;
+  ...
+&lt;/div&gt;</code></pre>

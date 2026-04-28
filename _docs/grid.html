@@ -1,0 +1,45 @@
+---
+anchor: grid
+nav_label: Grid
+nav_section: Layout
+sort: 10
+---
+
+<h2>Grid</h2>
+<p>The <code>.scaffold-grid</code> class sets <code>display: grid</code> and a 12-column layout in one step. The equivalent <code>grid()</code> mixin produces the same output for use inside your own SCSS rules.</p>
+
+<div class="code-tabs">
+  <div class="code-tab-bar">
+    <button class="active">Utility class</button>
+    <button>SCSS mixin</button>
+  </div>
+  <pre id="grid-tab-class"><code>&lt;div class=<span class="val">"scaffold-grid"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-half"</span>&gt;Left&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-half"</span>&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <pre id="grid-tab-mixin" style="display:none"><code><span class="sel">.my-layout</span> {
+  <span class="sel">@include</span> scaffold.grid();
+}
+<span class="sel">.my-layout__item</span> {
+  <span class="sel">@include</span> scaffold.span(half);
+}</code></pre>
+</div>
+
+<div class="preview">
+  <div class="preview-label">Preview — two halves</div>
+  <div class="grid-demo">
+    <div class="cell span-half"></div>
+    <div class="cell span-half"></div>
+  </div>
+</div>
+
+<h3>Overriding column count</h3>
+<p>The <code>--scaffold-cols</code> custom property lets you change the column structure on a per-instance basis.</p>
+<pre><code><span class="comment">&lt;!-- Via custom property on the element --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-cols: repeat(8, 1fr)"</span>&gt;...&lt;/div&gt;
+
+<span class="comment">// Via mixin argument</span>
+<span class="sel">.my-layout</span> {
+  <span class="sel">@include</span> scaffold.grid(<span class="val">$cols</span>: repeat(8, 1fr));
+}</code></pre>
+<p>Every <code>.scaffold-grid</code> declares <code>--scaffold-cols</code> locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.</p>

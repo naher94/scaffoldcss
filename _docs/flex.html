@@ -1,0 +1,79 @@
+---
+anchor: flex
+nav_label: Flex
+nav_section: Layout
+sort: 12
+---
+
+<h2>Flex</h2>
+<p>A layout layer for single-axis layouts, component-level alignment, and inline groupings. Available as both utility classes and the <code>flex()</code> mixin.</p>
+
+<div class="code-tabs">
+  <div class="code-tab-bar">
+    <button class="active">Utility class</button>
+    <button>SCSS mixin</button>
+  </div>
+  <pre id="flex-tab-class"><code>&lt;div class=<span class="val">"scaffold-flex scaffold-flex-col scaffold-gap-sm"</span>&gt;
+  &lt;div&gt;Item one&lt;/div&gt;
+  &lt;div&gt;Item two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <pre id="flex-tab-mixin" style="display:none"><code><span class="sel">.my-stack</span> {
+  <span class="sel">@include</span> scaffold.flex(<span class="val">$direction</span>: column);
+  <span class="prop">gap</span>: <span class="val">var(--scaffold-gap-sm)</span>;
+}</code></pre>
+</div>
+
+<h3>Direction modifiers</h3>
+<table class="class-table">
+  <thead><tr><th>Class</th><th>Mixin</th><th>CSS output</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-flex</td><td>flex()</td><td>display: flex; flex-wrap: wrap; flex-direction: row</td></tr>
+    <tr><td>.scaffold-flex-col</td><td>flex($direction: column)</td><td>flex-direction: column</td></tr>
+    <tr><td>.scaffold-flex-nowrap</td><td>flex($wrap: nowrap)</td><td>flex-wrap: nowrap</td></tr>
+  </tbody>
+</table>
+
+<h3>Align items <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></h3>
+<table class="class-table">
+  <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-items-start</td><td>align-items: flex-start</td></tr>
+    <tr><td>.scaffold-items-center</td><td>align-items: center</td></tr>
+    <tr><td>.scaffold-items-end</td><td>align-items: flex-end</td></tr>
+    <tr><td>.scaffold-items-stretch</td><td>align-items: stretch</td></tr>
+  </tbody>
+</table>
+
+<h3>Justify content <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></h3>
+<table class="class-table">
+  <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-justify-start</td><td>justify-content: flex-start</td></tr>
+    <tr><td>.scaffold-justify-center</td><td>justify-content: center</td></tr>
+    <tr><td>.scaffold-justify-end</td><td>justify-content: flex-end</td></tr>
+    <tr><td>.scaffold-justify-between</td><td>justify-content: space-between</td></tr>
+    <tr><td>.scaffold-justify-around</td><td>justify-content: space-around</td></tr>
+  </tbody>
+</table>
+
+<h3>Align self <span style="font-size:11px;font-weight:400;color:var(--sage)">applies to individual children</span></h3>
+<table class="class-table">
+  <thead><tr><th>Class</th><th>CSS output</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-self-start</td><td>align-self: flex-start</td></tr>
+    <tr><td>.scaffold-self-center</td><td>align-self: center</td></tr>
+    <tr><td>.scaffold-self-end</td><td>align-self: flex-end</td></tr>
+    <tr><td>.scaffold-self-stretch</td><td>align-self: stretch</td></tr>
+  </tbody>
+</table>
+
+<h3>Proportional flex items</h3>
+<p><code>.scaffold-flex-intrinsic</code> is a child utility for proportional side-by-side layouts. Set <code>--aspect-ratio</code> to width ÷ height on each item.</p>
+<pre><code>&lt;div class=<span class="val">"scaffold-flex"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-flex-intrinsic"</span> style=<span class="val">"--aspect-ratio: calc(600/900)"</span>&gt;
+    &lt;img src=<span class="val">"portrait.jpg"</span>&gt;
+  &lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-flex-intrinsic"</span> style=<span class="val">"--aspect-ratio: calc(1200/800)"</span>&gt;
+    &lt;img src=<span class="val">"landscape.jpg"</span>&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>

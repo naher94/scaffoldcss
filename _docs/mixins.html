@@ -1,0 +1,45 @@
+---
+anchor: mixin-grid
+nav_label: Mixins
+nav_section: Mixins
+sort: 30
+---
+
+<h2>Mixins</h2>
+<p>Every utility class in Scaffold is generated from a corresponding SCSS mixin. Use mixins when you want Scaffold's layout logic inside your own semantic class names.</p>
+<pre><code><span class="sel">@use</span> <span class="val">'scaffold/scaffold'</span> as scaffold;</code></pre>
+
+<hr class="divider">
+
+<h3 id="mixin-grid">grid() <span class="tag tag-mixin">mixin</span></h3>
+<p>Sets up a 12-column grid container.</p>
+<pre><code><span class="sel">.page-grid</span>    { <span class="sel">@include</span> scaffold.grid(); }
+<span class="sel">.sidebar-grid</span> { <span class="sel">@include</span> scaffold.grid(<span class="val">$cols</span>: repeat(4, 1fr)); }
+<span class="sel">.tight-grid</span>   { <span class="sel">@include</span> scaffold.grid(<span class="val">$gap</span>: 0.5rem); }</code></pre>
+
+<h3 id="mixin-span">span() <span class="tag tag-mixin">mixin</span></h3>
+<p>Sets <code>grid-column</code> on a grid child.</p>
+<pre><code><span class="comment">// Accepted values: full | half | third | two-thirds | quarter | three-quarters</span>
+<span class="sel">.article</span>   { <span class="sel">@include</span> scaffold.span(two-thirds); }
+<span class="sel">.sidebar</span>   { <span class="sel">@include</span> scaffold.span(third); }</code></pre>
+
+<h3 id="mixin-flex">flex() <span class="tag tag-mixin">mixin</span></h3>
+<p>Sets up a flex container. All arguments are optional.</p>
+<pre><code><span class="sel">.nav-bar</span>    { <span class="sel">@include</span> scaffold.flex(); }
+<span class="sel">.card-stack</span> { <span class="sel">@include</span> scaffold.flex(<span class="val">$direction</span>: column, <span class="val">$wrap</span>: nowrap); }</code></pre>
+
+<h3 id="mixin-container">container() <span class="tag tag-mixin">mixin</span></h3>
+<p>Creates a centered max-width wrapper. Pass <code>$full: true</code> for the full-width variant.</p>
+<pre><code><span class="sel">.page</span>         { <span class="sel">@include</span> scaffold.container(); }
+<span class="sel">.page--narrow</span> { <span class="sel">@include</span> scaffold.container(<span class="val">$width</span>: 720px); }
+<span class="sel">.page--full</span>   { <span class="sel">@include</span> scaffold.container(<span class="val">$full</span>: true); }</code></pre>
+
+<h3 id="mixin-breakpoint">breakpoint() <span class="tag tag-mixin">mixin</span></h3>
+<p>Wraps content in a media query. Supports mobile-first (up, default) and desktop-first (down).</p>
+<pre><code><span class="sel">.article</span> {
+  <span class="sel">@include</span> scaffold.span(full);
+  <span class="sel">@include</span> scaffold.breakpoint(md) { <span class="sel">@include</span> scaffold.span(two-thirds); }
+}
+<span class="sel">.sidebar</span> {
+  <span class="sel">@include</span> scaffold.breakpoint(md, down) { <span class="prop">display</span>: <span class="val">none</span>; }
+}</code></pre>

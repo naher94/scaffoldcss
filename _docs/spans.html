@@ -1,0 +1,62 @@
+---
+anchor: spans
+nav_label: Span utilities
+nav_section: Layout
+sort: 11
+---
+
+<h2>Grid span utilities</h2>
+<p>Grid span classes define how many of the 12 columns a child element occupies. The <code>span()</code> mixin accepts the same semantic names as the utility classes.</p>
+
+<div class="callout">
+  <strong>Important</strong>
+  Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.
+</div>
+
+<table class="class-table">
+  <thead><tr><th>Class</th><th>Mixin</th><th>Columns</th><th>CSS output</th></tr></thead>
+  <tbody>
+    <tr><td>.scaffold-grid-span-full</td><td>span(full)</td><td>12 of 12</td><td>grid-column: 1 / -1</td></tr>
+    <tr><td>.scaffold-grid-span-half</td><td>span(half)</td><td>6 of 12</td><td>grid-column: span 6</td></tr>
+    <tr><td>.scaffold-grid-span-third</td><td>span(third)</td><td>4 of 12</td><td>grid-column: span 4</td></tr>
+    <tr><td>.scaffold-grid-span-two-thirds</td><td>span(two-thirds)</td><td>8 of 12</td><td>grid-column: span 8</td></tr>
+    <tr><td>.scaffold-grid-span-quarter</td><td>span(quarter)</td><td>3 of 12</td><td>grid-column: span 3</td></tr>
+    <tr><td>.scaffold-grid-span-three-quarters</td><td>span(three-quarters)</td><td>9 of 12</td><td>grid-column: span 9</td></tr>
+  </tbody>
+</table>
+
+<div class="preview">
+  <div class="preview-label">Preview — all span variants</div>
+  <div class="grid-demo" style="gap: 4px; row-gap: 6px;">
+    <div class="cell span-full"></div>
+    <div class="cell span-half"></div>
+    <div class="cell span-half"></div>
+    <div class="cell span-third"></div>
+    <div class="cell span-third"></div>
+    <div class="cell span-third"></div>
+    <div class="cell span-quarter"></div>
+    <div class="cell span-quarter"></div>
+    <div class="cell span-quarter"></div>
+    <div class="cell span-quarter"></div>
+    <div class="cell span-two-thirds"></div>
+    <div class="cell span-third"></div>
+    <div class="cell span-three-quarters"></div>
+    <div class="cell span-quarter"></div>
+  </div>
+</div>
+
+<h3>When to skip span utilities</h3>
+<p>If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.</p>
+<pre><code><span class="comment">&lt;!-- Without: span class on every child --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span>&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+  &lt;div class=<span class="val">"scaffold-grid-span-third"</span>&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="comment">&lt;!-- With: column count on the container --&gt;</span>
+&lt;div class=<span class="val">"scaffold-grid"</span> style=<span class="val">"--scaffold-cols: repeat(3, 1fr)"</span>&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
