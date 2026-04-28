@@ -221,6 +221,14 @@
   pre { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
 }
 
+.code-tab-panel {
+  display: none;
+
+  &.active { display: block; }
+
+  .highlight { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
+}
+
 .code-tab-bar {
   display: flex;
   gap: 2px;
