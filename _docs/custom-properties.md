@@ -9,8 +9,6 @@ sort: 41
 
 All configurable values are exposed as CSS custom properties. Override them in `:root` or scope them to a specific element.
 
-<div markdown="1">
-
 | Property | Default | Controls |
 |---|---|---|
 | `--scaffold-cols` | `repeat(12, 1fr)` | Grid column template |
@@ -22,5 +20,3 @@ All configurable values are exposed as CSS custom properties. Override them in `
 | `--scaffold-container-padding-sm` | `1rem` | Container padding on mobile |
 | `--scaffold-container-padding` | `1.5rem` | Container padding at md and up |
 {: .class-table}
-
-</div>
