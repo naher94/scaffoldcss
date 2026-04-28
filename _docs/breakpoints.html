@@ -5,21 +5,27 @@ nav_section: Utilities
 sort: 21
 ---
 
-<h2>Breakpoints</h2>
+<h2><a href="#{{ page.anchor }}">Breakpoints</a></h2>
 <p>Breakpoints are exposed as a SCSS mixin. Responsive utility classes use a mobile-first prefix convention.</p>
 
-<h3>Default breakpoints</h3>
-<pre><code><span class="sel">$breakpoints</span>: (
-  <span class="val">sm</span>:  <span class="val">640px</span>,
-  <span class="val">md</span>:  <span class="val">768px</span>,
-  <span class="val">lg</span>:  <span class="val">1024px</span>,
-  <span class="val">xl</span>:  <span class="val">1280px</span>,
-);</code></pre>
+<h3 id="{{ page.anchor }}-defaults"><a href="#{{ page.anchor }}-defaults">Default breakpoints</a></h3>
 
-<h3>Responsive utility classes</h3>
+{% highlight scss %}
+$breakpoints: (
+  sm:  640px,
+  md:  768px,
+  lg:  1024px,
+  xl:  1280px,
+);
+{% endhighlight %}
+
+<h3 id="{{ page.anchor }}-responsive-classes"><a href="#{{ page.anchor }}-responsive-classes">Responsive utility classes</a></h3>
 <p>Unprefixed classes apply at all sizes; prefixed classes apply at that breakpoint and above.</p>
-<pre><code><span class="comment">&lt;!-- Full width by default, half at md and up --&gt;</span>
-&lt;div class=<span class="val">"scaffold-grid-span-full md:scaffold-grid-span-half"</span>&gt;...&lt;/div&gt;
 
-<span class="comment">&lt;!-- Stacked on mobile, row at md and up --&gt;</span>
-&lt;div class=<span class="val">"scaffold-flex scaffold-flex-col md:scaffold-flex"</span>&gt;...&lt;/div&gt;</code></pre>
+{% highlight html %}
+<!-- Full width by default, half at md and up -->
+<div class="scaffold-grid-span-full md:scaffold-grid-span-half">...</div>
+
+<!-- Stacked on mobile, row at md and up -->
+<div class="scaffold-flex scaffold-flex-col md:scaffold-flex">...</div>
+{% endhighlight %}
