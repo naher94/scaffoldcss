@@ -203,8 +203,18 @@
   // .highlight { margin: 0; border-radius: 0 var(--radius) var(--radius) var(--radius); }
 }
 
-.preview + .code-tabs{
-  // TODO remove the margin bottom from preview & the margin top of code0tabs
+.preview:has(+ .code-tabs) {
+  margin-bottom: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.preview + .code-tabs {
+  margin-top: 0;
+
+  .code-tab-bar {
+    border-top: none;
+    border-radius: 0;
+  }
 }
 
 .code-tab-bar + .code-tab-panel,
@@ -231,21 +241,15 @@
     border: var(--border);
     border-color: var(--dark-creme);
     background-color: inherit;
-    // border: 1px solid var(--code-border);
-    // border-bottom: none;
-    // border-radius: var(--radius) var(--radius) 0 0;
     border-radius: var(--radius);
-    // background: var(--dark-creme);
-    // color: var(--bamboo-forest);
     cursor: pointer;
     transition: var(--transition-ease);
-
+    &:hover{
+      background-color: rgba(black,0.05); //TODO this should dark dark creme I think
+    }
     &.active {
-      // background: var(--code-bg);
       border: var(--border);
       background-color: var(--creme);
-      // color: var(--bamboo-green);
-      // border-color: var(--code-border);
     }
   }
 }
@@ -286,7 +290,7 @@
 
 /* ─── Grid preview ───────────────────────────────────────── */
 .preview {
-  background: var(--dark-creme);
+  // background: var(--dark-creme);
   border: var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
