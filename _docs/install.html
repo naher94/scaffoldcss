@@ -14,7 +14,10 @@ sort: 1
 
 <h3>Using compiled CSS</h3>
 <p>Link the compiled CSS directly if you don't need the SCSS mixins:</p>
-<pre><code>&lt;link rel=<span class="val">"stylesheet"</span> href=<span class="val">"dist/scaffold.css"</span>&gt;</code></pre>
+
+{% highlight html %}
+  <link rel="stylesheet" href="dist/scaffold.css">
+{% endhighlight %}
 
 <h3>What's included</h3>
 <p>Scaffold ships two artifacts: the compiled <code>dist/scaffold.css</code> for drop-in use, and the raw <code>_sass/scaffold/</code> source for projects that want to use the mixins or customize the token defaults.</p>
