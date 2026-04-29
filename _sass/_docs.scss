@@ -92,6 +92,7 @@
   // max-width: 780px; //TODO check this out
   // padding: 3.5rem 4rem;
   padding: var(--edge-spacing);
+  min-width: 0;
 
   p {
     margin-bottom: 1rem;
@@ -270,15 +271,25 @@
     font-weight: 500;
     text-transform: uppercase;
     color: var(--bamboo-forest);
-    padding: 0 16px 8px 0;
+    padding: 0 2rem 0.5rem 0;
     border-bottom: var(--border);
+    width: 1%;
+    white-space: nowrap;
+
+    &:last-child { width: auto; }
   }
 
   td {
-    padding: 8px 16px 8px 0;
+    padding: 8px 2rem 0.5rem 0;
     border-bottom: var(--border);
     vertical-align: top;
     color: var(--bamboo-forest);
+    width: 1%; //Cheat for column width to match content width
+    white-space: nowrap;
+
+    &:last-child { 
+      width: auto; white-space: normal;
+    }
 
     code {
       @include inconsolata(bold);
