@@ -78,9 +78,9 @@
     display: block;
     color: var(--bamboo-forest);
     text-decoration: none;
-    padding: 4px 0;
+    padding: 0.15em 0;
     transition: var(--transition-ease);
-    font-family: var(--font-mono);
+    // font-family: var(--font-mono);
 
     &:hover  { 
       color: var(--bamboo-black);
@@ -94,13 +94,14 @@
 }
 
 .nav-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2em;
 }
 
 .nav-section-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
+  // font-family: var(--font-mono);
+  // font-size: 10px;
+  font-size: 0.75em;
+  font-weight: 300;
   text-transform: uppercase;
   color: var(--bamboo-forest);
   margin-bottom: 0.5rem;
