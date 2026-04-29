@@ -36,7 +36,7 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
   </div>
 </div>
 
-<h3 id="{{ page.anchor }}-direction"><a href="#{{ page.anchor }}-direction">Direction modifiers</a></h3>
+<h3 id="{{ page.anchor }}-direction"><a href="#{{ page.anchor }}-direction">Direction modifiers <span class="tag tag-flex">flex</span></a></h3>
 
 <div markdown="1">
 
