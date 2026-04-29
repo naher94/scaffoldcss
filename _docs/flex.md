@@ -78,7 +78,9 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self <span style="font-size:11px;font-weight:400;color:var(--sage)">applies to individual children</span></a></h3>
+<h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self</a></h3>
+
+These utility classes applies to individual children.
 
 <div markdown="1">
 
