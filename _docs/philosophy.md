@@ -7,6 +7,19 @@ sort: 1
 
 <h2><a href="#{{ page.anchor }}">Philosophy</a></h2>
 
+For years, the 12-column grid was a flex hack — a clever workaround built before CSS Grid existed. It worked, but it was never what flex was for.
+
+Scaffold CSS is a step back toward the platform. Grid for layout. Flex for flow. Each doing what it was actually designed to do. Scaffold just smooths the transition with a small set of utility classes and mixins — enough structure to feel familiar, not so much that it gets in the way.
+
+-
+-
+
+TODO
+
+-
+-
+
+
 Scaffold stays close to native CSS Grid rather than abstracting it away. The goal is to fill the gaps where Grid is verbose or repetitive, not to reinvent it. If you know CSS Grid, you already know most of Scaffold.
 
 Mixins are the primitive layer. Every layout concept — grid, span, flex, container, gap — is available as a SCSS mixin first. Utility classes are generated output from those same mixins, so both approaches produce identical CSS. Use whichever fits your workflow.
