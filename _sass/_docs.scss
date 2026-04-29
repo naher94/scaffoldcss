@@ -210,11 +210,6 @@
 /* ─── Code tabs ──────────────────────────────────────────── */
 .code-tabs {
   margin: 1rem 0 1.5rem;
-
-  pre { //TODO here is this code used???
-    margin: 0;
-    border-radius: 0 var(--radius) var(--radius) var(--radius); 
-  }
 }
 
 .code-tab-panel {
