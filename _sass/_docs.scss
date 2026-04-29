@@ -29,7 +29,6 @@
   background: var(--bamboo-black);
   color: var(--bamboo-green);
   font-family: var(--font-mono);
-  font-size: 14px;
   text-decoration: none;
   border-radius: 0 0 var(--radius) 0;
   transform: translateY(-100%);
@@ -59,7 +58,7 @@
 /* ─── Layout ─────────────────────────────────────────────── */
 .docs-layout {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: 17em minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -80,7 +79,6 @@
     text-decoration: none;
     padding: 0.15em 0;
     transition: var(--transition-ease);
-    // font-family: var(--font-mono);
 
     &:hover  { 
       color: var(--bamboo-black);
@@ -98,12 +96,10 @@
 }
 
 .nav-section-label {
-  // font-family: var(--font-mono);
-  // font-size: 10px;
   font-size: 0.75em;
-  font-weight: 300;
+  font-weight: 300; //TODO replace with var
   text-transform: uppercase;
-  color: var(--bamboo-forest);
+  color: var(--bamboo-forest); //TODO 50%???
   margin-bottom: 0.5rem;
 }
 
@@ -137,12 +133,15 @@
         transition: opacity var(--transition-ease);
       }
 
-      &:hover::after { opacity: 1; }
+      &:hover::after { 
+        opacity: 1; 
+      }
     }
   }
 
   h2 {
-    font-size: 26px;
+    font-size: 1.625em;
+    font-size: 2em;
     margin-bottom: 0.5rem;
     color: var(--bamboo-black);
     @include syne(extrabold);
@@ -199,7 +198,6 @@
   font-size: 0.65em;
   border-radius: var(--radius-huge);
   border: var(--border);
-  margin-right: 4px;
   vertical-align: middle;
 
   &-grid  { background: var(--tag-grid-bg);  color: var(--tag-grid-text); }
@@ -213,7 +211,7 @@
 .code-tabs {
   margin: 1rem 0 1.5rem;
 
-  pre { 
+  pre { //TODO here is this code used???
     margin: 0;
     border-radius: 0 var(--radius) var(--radius) var(--radius); 
   }
@@ -375,7 +373,7 @@
   margin-bottom: 3.5rem;
 
   h1 {
-    font-size: 40px;
+    font-size: 3em;
     margin-bottom: 0.5rem;
     line-height: 1;
     color: var(--bamboo-black);
