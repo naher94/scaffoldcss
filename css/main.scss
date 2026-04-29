@@ -82,7 +82,7 @@ $inconsolata-weights: (
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
   "base",
-  "syntax-highlighting",
+  "syntax",
   "docs",
   "scaffold-overlay"
 ;
@@ -257,7 +257,7 @@ section{
         }
       }
       .type{
-        @include space-grotesk(bold); //TODO because this is explicitly declared with the base font is changed it will not auto take those changes, there is probs a better way to do this.
+        font-weight: map-get($space-grotesk-weights, "bold");
         color: var(--bamboo-green);
       }
       .code-snippet{

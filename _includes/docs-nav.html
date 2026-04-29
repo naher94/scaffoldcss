@@ -1,38 +1,13 @@
 <nav class="docs-nav">
-  <div class="nav-section">
-    <div class="nav-section-label">Getting started</div>
-    <a href="#intro">Overview</a>
-    <a href="#install">Installation</a>
-    <a href="#philosophy">Philosophy</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Layout</div>
-    <a href="#grid">Grid</a>
-    <a href="#spans">Span utilities</a>
-    <a href="#flex">Flex</a>
-    <a href="#container">Container</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Utilities</div>
-    <a href="#gap">Gap</a>
-    <a href="#breakpoints">Breakpoints</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Mixins</div>
-    <a href="#mixin-grid">grid()</a>
-    <a href="#mixin-span">span()</a>
-    <a href="#mixin-flex">flex()</a>
-    <a href="#mixin-container">container()</a>
-    <a href="#mixin-breakpoint">breakpoint()</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Reference</div>
-    <a href="#class-reference">Class reference</a>
-    <a href="#custom-properties">Custom properties</a>
-    <a href="#open-questions">Open questions</a>
+  {% assign current_section = "" %}
+  {% for doc in site.docs %}
+    {% if doc.nav_section != current_section %}
+      {% unless current_section == "" %}</div>{% endunless %}
+      <div class="nav-section">
+        <div class="nav-section-label">{{ doc.nav_section }}</div>
+      {% assign current_section = doc.nav_section %}
+    {% endif %}
+    <a href="#{{ doc.anchor }}">{{ doc.nav_label }}</a>
+  {% endfor %}
   </div>
 </nav>
