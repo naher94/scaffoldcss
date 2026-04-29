@@ -2,7 +2,7 @@
 anchor: install
 nav_label: Installation
 nav_section: Getting started
-sort: 2
+sort: 3
 ---
 
 <h2><a href="#{{ page.anchor }}">Installation</a></h2>
