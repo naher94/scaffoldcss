@@ -2,6 +2,8 @@ const ScaffoldOverlay = {
   active: false,
   svg: null,
 
+  BREAKPOINTS: { sm: 640, md: 768, lg: 1024, xl: 1280 },
+
   GRID_COLOR:      '#ff2d78',
   FLEX_COLOR:      '#6820c0',
   CONTAINER_COLOR: '#0098c8',
@@ -76,7 +78,7 @@ const ScaffoldOverlay = {
 
       // Highlight span children
       Array.from(el.children).forEach(child => {
-        const spanClass = Array.from(child.classList).find(c => c.startsWith('scaffold-grid-span-'));
+        const spanClass = this._activeSpanClass(child);
         if (!spanClass) return;
         const cr = child.getBoundingClientRect();
         const cx = cr.left + window.scrollX;
@@ -130,12 +132,31 @@ const ScaffoldOverlay = {
     });
   },
 
-  // Build a compact label from all scaffold-* classes on an element
+  // Returns the effective scaffold-grid-span-* class for the current viewport
+  _activeSpanClass(el) {
+    const vw = window.innerWidth;
+    const classes = Array.from(el.classList);
+    let active = classes.find(c => /^scaffold-grid-span-/.test(c));
+    ['sm', 'md', 'lg', 'xl'].forEach(bp => {
+      if (vw >= this.BREAKPOINTS[bp]) {
+        const match = classes.find(c => c.startsWith(`${bp}:scaffold-grid-span-`));
+        if (match) active = match.split(':')[1];
+      }
+    });
+    return active || null;
+  },
+
+  // Build a compact label from active scaffold-* classes for the current viewport
   _labelFor(el) {
-    const tokens = Array.from(el.classList)
-      .filter(c => c.startsWith('scaffold-'))
-      .map(c => c.replace('scaffold-', ''));
-    return tokens.length ? tokens.join(' · ') : 'scaffold';
+    const vw = window.innerWidth;
+    const classes = Array.from(el.classList);
+    const active = classes.filter(c => {
+      if (!c.includes('scaffold-')) return false;
+      const bpMatch = c.match(/^(sm|md|lg|xl):/);
+      if (!bpMatch) return true; // base class always shown
+      return vw >= this.BREAKPOINTS[bpMatch[1]];
+    }).map(c => c.replace(/^(sm|md|lg|xl):/, '').replace('scaffold-', ''));
+    return active.length ? active.join(' · ') : 'scaffold';
   },
 
   _selfLabelFor(el) {

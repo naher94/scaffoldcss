@@ -1,63 +1,13 @@
 <nav class="docs-nav">
-  <a href="/docs" class="nav-logo">
-    <svg class="nav-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="4" width="4" height="20" rx="2" fill="#7ab830" opacity="0.9"/>
-      <rect x="3" y="8" width="2" height="1" fill="#080a08"/>
-      <rect x="3" y="13" width="2" height="1" fill="#080a08"/>
-      <rect x="3" y="18" width="2" height="1" fill="#080a08"/>
-      <rect x="8" y="8" width="4" height="16" rx="2" fill="#7ab830" opacity="0.75"/>
-      <rect x="9" y="12" width="2" height="1" fill="#080a08"/>
-      <rect x="9" y="17" width="2" height="1" fill="#080a08"/>
-      <rect x="14" y="2" width="4" height="22" rx="2" fill="#7ab830"/>
-      <rect x="15" y="6" width="2" height="1" fill="#080a08"/>
-      <rect x="15" y="11" width="2" height="1" fill="#080a08"/>
-      <rect x="15" y="16" width="2" height="1" fill="#080a08"/>
-      <rect x="15" y="21" width="2" height="1" fill="#080a08"/>
-      <rect x="20" y="6" width="4" height="18" rx="2" fill="#7ab830" opacity="0.6"/>
-      <rect x="21" y="10" width="2" height="1" fill="#080a08"/>
-      <rect x="21" y="15" width="2" height="1" fill="#080a08"/>
-      <rect x="21" y="20" width="2" height="1" fill="#080a08"/>
-    </svg>
-    <div class="nav-logo-text">
-      <h1>Scaffold CSS</h1>
-      <p>v{{ site.library-version }} — CSS layout library</p>
-    </div>
-  </a>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Getting started</div>
-    <a href="#intro">Overview</a>
-    <a href="#install">Installation</a>
-    <a href="#philosophy">Philosophy</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Layout</div>
-    <a href="#grid">Grid</a>
-    <a href="#spans">Span utilities</a>
-    <a href="#flex">Flex</a>
-    <a href="#container">Container</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Utilities</div>
-    <a href="#gap">Gap</a>
-    <a href="#breakpoints">Breakpoints</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Mixins</div>
-    <a href="#mixin-grid">grid()</a>
-    <a href="#mixin-span">span()</a>
-    <a href="#mixin-flex">flex()</a>
-    <a href="#mixin-container">container()</a>
-    <a href="#mixin-breakpoint">breakpoint()</a>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-section-label">Reference</div>
-    <a href="#class-reference">Class reference</a>
-    <a href="#custom-properties">Custom properties</a>
-    <a href="#open-questions">Open questions</a>
+  {% assign current_section = "" %}
+  {% for doc in site.docs %}
+    {% if doc.nav_section != current_section %}
+      {% unless current_section == "" %}</div>{% endunless %}
+      <div class="nav-section">
+        <div class="nav-section-label">{{ doc.nav_section }}</div>
+      {% assign current_section = doc.nav_section %}
+    {% endif %}
+    <a href="#{{ doc.anchor }}">{{ doc.nav_label }}</a>
+  {% endfor %}
   </div>
 </nav>
