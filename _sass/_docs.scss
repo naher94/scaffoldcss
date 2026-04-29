@@ -179,7 +179,7 @@
     background: var(--dark-creme);
     border: var(--border);
     border-radius: var(--radius);
-    padding: 1px 5px;
+    padding: 0.0625em 0.3125em;
   }
 }
 
@@ -244,7 +244,7 @@
 
 .code-tab-bar {
   display: flex;
-  gap: 2px;
+  gap: 0.25em;
   background-color: var(--code-bg);
   border: var(--border);
   padding: 0.25em;
@@ -253,7 +253,7 @@
   button {
     font-family: var(--font-mono);
     font-weight: 500;
-    padding: 5px 12px;
+    padding: 0.4em .8em;
     border: var(--border);
     border-color: var(--dark-creme);
     background-color: inherit;
@@ -295,7 +295,7 @@
   }
 
   td {
-    padding: 8px 2rem 0.5rem 0;
+    padding: 0.5rem 2rem 0.5rem 0;
     border-bottom: var(--border);
     vertical-align: top;
     color: var(--bamboo-forest);
