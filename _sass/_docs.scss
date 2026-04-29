@@ -176,7 +176,8 @@
   }
 
   p code {
-    @include inconsolata(bold);
+    // @include inconsolata(bold);
+    @include inconsolata(regular);
     background: var(--dark-creme);
     border: var(--border);
     border-radius: var(--radius);
@@ -194,7 +195,7 @@
 /* ─── Tags ───────────────────────────────────────────────── */
 .tag {
   display: inline-block;
-  @include inconsolata(bold,100);
+  @include inconsolata(regular,100);
   padding-inline: 0.75em;
   font-size: 0.65em;
   border-radius: var(--radius-huge);
@@ -282,9 +283,7 @@
 
   th {
     text-align: left;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    text-transform: uppercase;
+    font-weight: map-get($space-grotesk-weights, "regular");
     color: var(--bamboo-forest);
     padding: 0 2rem 0.5rem 0;
     border-bottom: var(--border);
@@ -307,7 +306,8 @@
     &:last-child { width: auto; }
 
     code {
-      @include inconsolata(bold);
+      // @include inconsolata(bold);
+      @include inconsolata(regular);
       background: var(--dark-creme);
       border: var(--border);
       border-radius: var(--radius);
