@@ -80,6 +80,8 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 <h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
+Applies to individual children for one-off exceptions to the container's `align-items` value.
+
 <div markdown="1">
 
 | Class | CSS output |
