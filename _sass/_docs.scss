@@ -335,7 +335,8 @@
 
 /* ─── Callout ────────────────────────────────────────────── */
 .callout {
-  background: color-mix(in srgb, var(--bamboo-green) 20%, transparent);
+  background: color-mix(in srgb, #0098c8 10%, transparent);
+  // border-color: color-mix(in srgb, #0098c8 25%, transparent);
   padding: 0.85rem 1.1rem;
   margin: 1.25rem 0;
   border-radius: var(--radius);
@@ -344,6 +345,7 @@
   strong {
     display: block;
     font-weight: 500;
+    color: var(--tag-util-text);
     text-transform: uppercase;
   }
 }
