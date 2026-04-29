@@ -96,6 +96,20 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 `.scaffold-flex-intrinsic` is a child utility for proportional side-by-side layouts. Set `--aspect-ratio` to width ÷ height on each item.
 
+<div class="preview">
+  <div style="display: flex; flex-wrap: nowrap; gap: 4px;">
+    <div style="flex: calc(600/900); min-width: 0;">
+      <img src="https://placehold.co/600x900" style="display: block; width: 100%; border-radius: var(--radius);">
+    </div>
+    <div style="flex: calc(1200/800); min-width: 0;">
+      <img src="https://placehold.co/1200x800" style="display: block; width: 100%; border-radius: var(--radius);">
+    </div>
+    <div style="flex: calc(800/800); min-width: 0;">
+      <img src="https://placehold.co/800x800" style="display: block; width: 100%; border-radius: var(--radius);">
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="scaffold-flex">
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(600/900)">
