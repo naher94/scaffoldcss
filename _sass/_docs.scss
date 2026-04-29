@@ -309,7 +309,7 @@
       background: var(--dark-creme);
       border: var(--border);
       border-radius: var(--radius);
-      padding: 1px 5px;
+      padding: 0.0625em 0.3125em;
       white-space: nowrap;
     }
   }
@@ -327,7 +327,7 @@
 .grid-demo {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 4px;
+  gap: 0.25em;
 
   .cell {
     background: color-mix(in srgb, var(--bamboo-green) 10%, transparent);
