@@ -2,7 +2,7 @@
 anchor: philosophy
 nav_label: Philosophy
 nav_section: Getting started
-sort: 2
+sort: 1
 ---
 
 <h2><a href="#{{ page.anchor }}">Philosophy</a></h2>
