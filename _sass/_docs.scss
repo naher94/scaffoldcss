@@ -128,7 +128,7 @@
   }
 
   h3 {
-    // font-size: 13px;
+    font-size: 1.5em;
     @include syne(bold);
     margin-top: 2rem;
     margin-bottom: 0.5rem;
@@ -175,14 +175,15 @@
 /* ─── Tags ───────────────────────────────────────────────── */
 .tag {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  padding: 2px 7px;
-  border-radius: var(--radius);
+  // font-family: var(--font-mono);
+  @include inconsolata(bold,200);
+  // font-size: 10px;
+  padding: 0.25em 1em;
+  font-size: 0.65em;
+  border-radius: var(--radius-huge);
   margin-right: 4px;
   vertical-align: middle;
-  letter-spacing: 0.04em;
+  // letter-spacing: 0.04em;
 
   &-grid  { background: var(--tag-grid-bg);  color: var(--tag-grid-text); }
   &-flex  { background: var(--tag-flex-bg);  color: var(--tag-flex-text); }
@@ -382,9 +383,9 @@
   border-radius: var(--radius-huge);
   background-color: color-mix(in srgb, var(--bamboo-green) 30%, transparent);
   padding: 0.5em 1.5em;
+  font-size: 0.75em;
   @include inconsolata(bold,200);
   margin-block-end: 1em;
-  font-size: 0.75em;
   // @include scaffold.breakpoint(md, down){
   //   font-size: 0.6em;
   //   margin-block-end: 1em;
