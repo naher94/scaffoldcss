@@ -95,12 +95,13 @@
   margin-bottom: 2em;
 }
 
-.nav-section-label {
+.nav-section-label { //TODO this styling needs updated
   font-size: 0.75em;
-  font-weight: 300; //TODO replace with var
+  font-weight: map-get($space-grotesk-weights, "light");
   text-transform: uppercase;
   color: var(--bamboo-forest); //TODO 50%???
   margin-bottom: 0.5rem;
+  letter-spacing: 0.25em; 
 }
 
 
