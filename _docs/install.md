@@ -9,7 +9,7 @@ sort: 3
 
 <h3 id="{{ page.anchor }}-using-scss"><a href="#{{ page.anchor }}-using-scss">Using SCSS</a></h3>
 
-Copy the `_sass/scaffold/` folder into your project's `_sass/` directory, then import the entry point:
+Copy the [`_sass/scaffold/`](https://github.com/naher94/scaffoldcss/tree/main/_sass/scaffold) folder into your project's `_sass/` directory, then import the entry point:
 
 ```scss
 // your main stylesheet
@@ -18,10 +18,11 @@ Copy the `_sass/scaffold/` folder into your project's `_sass/` directory, then i
 
 <h3 id="{{ page.anchor }}-using-compiled-css"><a href="#{{ page.anchor }}-using-compiled-css">Using compiled CSS</a></h3>
 
-Link the compiled CSS directly if you don't need the SCSS mixins:
+<!-- TODO add the link here -->
+Copy the [compiled CSS]() directly into your project's directory if you don't need the SCSS mixins:
 
 ```html
-<link rel="stylesheet" href="dist/scaffold.css">
+<link rel="stylesheet" href="scaffold.css">
 ```
 
 <h3 id="{{ page.anchor }}-whats-included"><a href="#{{ page.anchor }}-whats-included">What's included</a></h3>
