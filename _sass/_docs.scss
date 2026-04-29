@@ -15,8 +15,6 @@
   --tag-flex-text:  #c02030;
   --tag-util-bg:    rgba(0,152,200,0.1);
   --tag-util-text:  #0098c8;
-  --tag-mixin-bg:   rgba(104,32,192,0.1);
-  --tag-mixin-text: #6820c0;
   --tag-align-bg:   rgba(104,32,192,0.1);
   --tag-align-text: #6820c0;
 }
@@ -188,7 +186,6 @@
   &-grid  { background: var(--tag-grid-bg);  color: var(--tag-grid-text); }
   &-flex  { background: var(--tag-flex-bg);  color: var(--tag-flex-text); }
   &-util  { background: var(--tag-util-bg);  color: var(--tag-util-text); }
-  &-mixin { background: var(--tag-mixin-bg); color: var(--tag-mixin-text); }
   &-align { background: var(--tag-align-bg); color: var(--tag-align-text); }
 }
 
