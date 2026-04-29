@@ -125,10 +125,9 @@
     a {
       color: inherit;
       text-decoration: none;
-      // @include scaffold-flex;
-      // display: flex;
-      // align-items: center;
-      // gap: 0.45em;
+      @include scaffold.flex();
+      align-items: center;
+      gap: 0.4em;
 
       &::after {
         content: ' #';
