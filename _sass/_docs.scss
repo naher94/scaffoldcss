@@ -167,7 +167,7 @@
     }
     &.highlight{
       border: var(--border);
-      background: var(--code-bg); //TODO
+      background: var(--code-bg);
     }
   }
   .highlight{
@@ -194,7 +194,6 @@
 .tag {
   display: inline-block;
   @include inconsolata(bold,100);
-  // padding: 0.1em 1em;
   padding-inline: 0.75em;
   font-size: 0.65em;
   border-radius: var(--radius-huge);
@@ -268,7 +267,7 @@
     cursor: pointer;
     transition: var(--transition-ease);
     &:hover{
-      background-color: rgba(black,0.05); //TODO this should dark dark creme I think
+      background-color: color-mix(in srgb, var(--bamboo-black) 5%, var(--dark-creme));
     }
     &.active {
       border: var(--border);
