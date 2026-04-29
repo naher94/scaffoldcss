@@ -49,7 +49,7 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></a></h3>
+<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
 <div markdown="1">
 
@@ -63,7 +63,7 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-justify"><a href="#{{ page.anchor }}-justify">Justify content <span style="font-size:11px;font-weight:400;color:var(--sage)">works in grid and flex</span></a></h3>
+<h3 id="{{ page.anchor }}-justify"><a href="#{{ page.anchor }}-justify">Justify content <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
 <div markdown="1">
 
@@ -78,9 +78,7 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self</a></h3>
-
-These utility classes applies to individual children.
+<h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
 <div markdown="1">
 
