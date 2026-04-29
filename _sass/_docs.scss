@@ -277,7 +277,9 @@
     width: 1%;
     white-space: nowrap;
 
-    &:last-child { width: auto; }
+    &:last-child { 
+      width: auto; 
+    }
   }
 
   td {
