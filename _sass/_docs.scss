@@ -97,6 +97,10 @@
     margin-bottom: 1rem;
     max-width: 62ch;
     line-height: 1.7;
+    text-wrap: balance;
+    @supports (text-wrap: pretty) {
+      text-wrap: pretty;
+    }
   }
 
   h2, h3 {
