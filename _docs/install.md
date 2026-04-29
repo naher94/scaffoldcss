@@ -29,8 +29,6 @@ Copy the [compiled CSS]() directly into your project's directory if you don't ne
 
 Scaffold ships two artifacts: the compiled `dist/scaffold.css` for drop-in use, and the raw `_sass/scaffold/` source for projects that want to use the mixins or customize the token defaults.
 
-If you use the SCSS route with mixins only and never reference utility classes in your HTML, the compiled output will be significantly smaller since only the mixins you actually call get included.
-
 <h3 id="{{ page.anchor }}-file-structure"><a href="#{{ page.anchor }}-file-structure">Library file structure</a></h3>
 
 ```text
