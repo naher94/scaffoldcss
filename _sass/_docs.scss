@@ -288,9 +288,7 @@
     width: 1%; //Cheat for column width to match content width
     white-space: nowrap;
 
-    &:last-child { 
-      width: auto; white-space: normal;
-    }
+    &:last-child { width: auto; }
 
     code {
       @include inconsolata(bold);
