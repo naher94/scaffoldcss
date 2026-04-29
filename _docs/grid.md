@@ -48,9 +48,7 @@ The `.scaffold-grid` class sets `display: grid` and a 12-column layout in one st
 
 <h3 id="{{ page.anchor }}-overriding-columns"><a href="#{{ page.anchor }}-overriding-columns">Overriding column count</a></h3>
 
-The `--scaffold-cols` custom property lets you change the column structure on a per-instance basis.
-
-Every `.scaffold-grid` declares `--scaffold-cols` locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.
+The `--scaffold-cols` custom property lets you change the column structure on a per-instance basis. Every `.scaffold-grid` declares `--scaffold-cols` locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.
 
 <div class="code-tabs">
   <div class="code-tab-bar">
