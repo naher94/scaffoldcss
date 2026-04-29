@@ -39,7 +39,7 @@
 /* ─── Layout ─────────────────────────────────────────────── */
 .docs-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -92,7 +92,6 @@
   // max-width: 780px; //TODO check this out
   // padding: 3.5rem 4rem;
   padding: var(--edge-spacing);
-  min-width: 0;
 
   p {
     margin-bottom: 1rem;
@@ -261,6 +260,8 @@
 
 /* ─── Class reference table ──────────────────────────────── */
 .class-table {
+  display: block;
+  overflow-x: auto;
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0 1.5rem;
