@@ -353,7 +353,9 @@
   margin: 1.25rem 0;
   border-radius: var(--radius);
   border: var(--border);
-
+  p{
+    margin-bottom: 0;
+  }
   strong {
     display: block;
     font-weight: 500;

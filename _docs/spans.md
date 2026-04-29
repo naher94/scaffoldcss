@@ -46,7 +46,10 @@ Grid span classes define how many of the 12 columns a child element occupies. Th
 
 <h3 id="{{ page.anchor }}-skip-spans"><a href="#{{ page.anchor }}-skip-spans">When to skip span utilities</a></h3>
 
-If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.
+<div class="callout" markdown="1">
+  <strong>Tip</strong>
+  If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.
+</div>
 
 ```html
 <!-- Without: span class on every child -->
