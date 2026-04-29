@@ -190,10 +190,11 @@
 /* ─── Tags ───────────────────────────────────────────────── */
 .tag {
   display: inline-block;
-  @include inconsolata(bold,200);
+  @include inconsolata(bold,100);
   padding: 0.25em 1em;
   font-size: 0.65em;
   border-radius: var(--radius-huge);
+  border: var(--border);
   margin-right: 4px;
   vertical-align: middle;
 
