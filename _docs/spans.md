@@ -11,7 +11,7 @@ Grid span classes define how many of the 12 columns a child element occupies. Th
 
 <div class="callout">
   <strong>Note</strong>
-  Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.
+  <p>Span utilities assume a 12-column grid. They output fixed <code>grid-column: span N</code> values. If you override <code>--scaffold-cols</code> on a grid, span utilities on that grid's direct children will no longer represent their named fractions — use explicit <code>grid-column</code> values instead.</p>
 </div>
 
 | Class | Mixin | Columns | CSS output |
