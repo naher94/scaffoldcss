@@ -1,0 +1,87 @@
+// Bamboo syntax theme — vivid edition
+// Background: #F6F0E1 (--dark-creme / --code-bg)
+// All foreground colors AA-verified (≥ 4.5:1) against #F6F0E1.
+//
+// Contrast ratios (approx):
+//   comments   #6A5A3A  5.3:1  (intentionally muted — comments should recede)
+//   keywords   #1A6B35  5.8:1  emerald green
+//   strings    #B83000  5.4:1  vivid orange-red
+//   numbers    #1A5FC4  5.3:1  vivid blue
+//   variables  #7B2FBE  6.2:1  vivid purple
+//   functions  #006A96  5.3:1  vivid teal
+//   tags       #B01030  6.3:1  vivid crimson
+//   attributes #0A6B7A  5.4:1  vivid teal-green
+//   builtins   #1F7530  5.0:1  vivid green
+//   constants  #B54A00  4.7:1  vivid amber
+//   operators  #3D2C14 11.2:1  dark warm (operators should stay quiet)
+//   classes    #1A5AB8  5.8:1  vivid slate blue
+//   errors     #C60000  5.5:1  vivid red
+//   default    #2C1810 13.2:1
+
+.highlight {
+  // ── Whitespace ──────────────────────────────────────────────
+  .w  { color: #2C1810; }
+
+  // ── Comments ────────────────────────────────────────────────
+  .c, .ch, .cd, .cm, .cp, .cpf, .c1, .cs {
+    color: #6A5A3A;
+    font-style: italic;
+  }
+
+  // ── Keywords ────────────────────────────────────────────────
+  .k, .kd, .kn, .kp, .kr, .kt, .kv {
+    color: #1A6B35;
+    font-weight: bold;
+  }
+  .kc { color: #1A6B35; font-weight: bold; } // keyword constant (true/false/nil)
+
+  // ── Strings ─────────────────────────────────────────────────
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .sh, .sx, .s1, .ss {
+    color: #B83000;
+  }
+  .se { color: #B54A00; font-weight: bold; } // string escape
+  .si { color: #7B2FBE; }                    // string interpolation — variable color
+  .sr { color: #006A96; }                    // string regex — function color
+
+  // ── Numbers ─────────────────────────────────────────────────
+  .l, .ld, .m, .mb, .mf, .mh, .mi, .il, .mo, .mx {
+    color: #1A5FC4;
+  }
+
+  // ── Names ───────────────────────────────────────────────────
+  .n  { color: #2C1810; }                    // generic name — default text
+  .na { color: #0A6B7A; }                    // attribute
+  .nb { color: #1F7530; }                    // builtin
+  .bp { color: #1F7530; }                    // builtin pseudo (self, cls)
+  .nc { color: #1A5AB8; font-weight: bold; } // class
+  .nd { color: #1A5AB8; }                    // decorator
+  .ne { color: #C60000; font-weight: bold; } // exception
+  .nf, .fm { color: #006A96; }               // function / magic function
+  .ni { color: #3D2C14; }                    // entity
+  .nl { color: #0A6B7A; }                    // label
+  .nn { color: #1A5AB8; }                    // namespace
+  .no { color: #B54A00; }                    // constant
+  .nt { color: #B01030; font-weight: bold; } // tag
+  .nv, .vc, .vg, .vi, .vm { color: #7B2FBE; } // variable
+
+  // ── Operators & punctuation ─────────────────────────────────
+  .o, .ow { color: #3D2C14; font-weight: bold; }
+  .p      { color: #2C1810; }
+  .py     { color: #0A6B7A; }                // property
+
+  // ── Generic ─────────────────────────────────────────────────
+  .ge  { font-style:  italic; }
+  .gs  { font-weight: bold;   }
+  .ges { font-weight: bold; font-style: italic; }
+  .gh  { color: #1A6B35; font-weight: bold; }
+  .gu  { color: #1F7530; font-weight: bold; }
+  .gd  { color: #C60000; background-color: #f7e5e5; }
+  .gi  { color: #1F7530; background-color: #e5f2e5; }
+  .gr  { color: #C60000; }
+  .gt  { color: #C60000; }
+  .gl  { color: #6A5A3A; }
+  .gp  { color: #6A5A3A; font-weight: bold; }
+
+  // ── Errors ──────────────────────────────────────────────────
+  .err { color: #C60000; }
+}
