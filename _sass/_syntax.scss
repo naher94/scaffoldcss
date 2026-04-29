@@ -19,6 +19,8 @@
 //   default    #2C1810 13.2:1
 
 .highlight {
+  color: #1A4020; // fallback for unclassed tokens — matches --bamboo-forest
+
   // ── Whitespace ──────────────────────────────────────────────
   .w  { color: #2C1810; }
 
