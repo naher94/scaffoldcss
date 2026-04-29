@@ -1,8 +1,8 @@
 ---
 anchor: mixins
 nav_label: Mixins
-nav_section: Mixins
-sort: 30
+nav_section: Reference
+sort: 43
 ---
 
 <h2><a href="#{{ page.anchor }}">Mixins</a></h2>

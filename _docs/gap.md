@@ -1,8 +1,8 @@
 ---
 anchor: gap
 nav_label: Gap
-nav_section: Utilities
-sort: 20
+nav_section: Layout
+sort: 14
 ---
 
 <h2><a href="#{{ page.anchor }}">Gap</a></h2>

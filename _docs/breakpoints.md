@@ -1,8 +1,8 @@
 ---
 anchor: breakpoints
 nav_label: Breakpoints
-nav_section: Utilities
-sort: 21
+nav_section: Reference
+sort: 42
 ---
 
 <h2><a href="#{{ page.anchor }}">Breakpoints</a></h2>
