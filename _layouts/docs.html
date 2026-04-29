@@ -10,11 +10,13 @@
 </head>
 <body class="docs-page">
 
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
   {% include header.html %}
 
   <div class="docs-layout">
     {% include docs-nav.html %}
-    <main class="docs-main">
+    <main class="docs-main" id="main-content">
       {{ content }}
     </main>
   </div>
