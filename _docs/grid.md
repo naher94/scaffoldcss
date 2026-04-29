@@ -50,6 +50,11 @@ The `.scaffold-grid` class sets `display: grid` and a 12-column layout in one st
 
 The `--scaffold-cols` custom property lets you change the column structure on a per-instance basis. Every `.scaffold-grid` declares `--scaffold-cols` locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.
 
+<div class="callout" markdown="1">
+  <strong>Tip</strong>
+  If all children in a grid are the same width, change the column count on the container — children flow into equal tracks automatically with no extra markup.
+</div>
+
 <div class="code-tabs">
   <div class="code-tab-bar">
     <button class="active">Variable override</button>
