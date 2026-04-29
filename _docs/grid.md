@@ -50,10 +50,22 @@ The `.scaffold-grid` class sets `display: grid` and a 12-column layout in one st
 
 The `--scaffold-cols` custom property lets you change the column structure on a per-instance basis.
 
+Every `.scaffold-grid` declares `--scaffold-cols` locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.
+
+<div class="code-tabs">
+  <div class="code-tab-bar">
+    <button class="active">Variable override</button>
+    <button>SCSS mixin</button>
+  </div>
+  <div class="code-tab-panel active" markdown="1">
+
 ```html
 <!-- Via custom property on the element -->
 <div class="scaffold-grid" style="--scaffold-cols: repeat(8, 1fr)">...</div>
 ```
+
+  </div>
+  <div class="code-tab-panel" markdown="1">
 
 ```scss
 // Via mixin argument
@@ -62,4 +74,5 @@ The `--scaffold-cols` custom property lets you change the column structure on a 
 }
 ```
 
-Every `.scaffold-grid` declares `--scaffold-cols` locally, so nested grids always reset to 12 columns and are unaffected by a parent's column override.
+  </div>
+</div>
