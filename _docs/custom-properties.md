@@ -13,6 +13,8 @@ All configurable values are exposed as CSS custom properties. Override them in `
 |---|---|---|
 | `--scaffold-cols` | `repeat(12, 1fr)` | Grid column template |
 | `--scaffold-gap` | `1rem` | Default grid/flex gap |
+| `--scaffold-row-gap` | `--scaffold-gap` | Row gap override (Scaffold grid only) |
+| `--scaffold-col-gap` | `--scaffold-gap` | Column gap override (Scaffold grid only) |
 | `--scaffold-gap-sm` | `0.5rem` | `.gap-sm` value |
 | `--scaffold-gap-md` | `1rem` | `.gap-md` value |
 | `--scaffold-gap-lg` | `2rem` | `.gap-lg` value |
