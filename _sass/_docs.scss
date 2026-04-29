@@ -117,7 +117,7 @@
 
   h2 {
     font-size: 26px;
-    letter-spacing: -0.03em;
+    // letter-spacing: -0.03em;
     margin-bottom: 0.5rem;
     color: var(--bamboo-black);
     @include syne(extrabold);
@@ -139,13 +139,13 @@
     color: var(--bamboo-green);
 
     code {
-      font-size: 14px;
+      // font-size: 14px;
       color: inherit;
       font-weight: 400;
     }
     &.highlight{
       border: var(--border);
-      background: var(--code-bg);
+      background: var(--code-bg); //TODO
     }
   }
   .highlight{
