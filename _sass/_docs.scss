@@ -125,6 +125,10 @@
     a {
       color: inherit;
       text-decoration: none;
+      // @include scaffold-flex;
+      // display: flex;
+      // align-items: center;
+      // gap: 0.45em;
 
       &::after {
         content: ' #';
@@ -191,7 +195,8 @@
 .tag {
   display: inline-block;
   @include inconsolata(bold,100);
-  padding: 0.25em 1em;
+  // padding: 0.1em 1em;
+  padding-inline: 0.75em;
   font-size: 0.65em;
   border-radius: var(--radius-huge);
   border: var(--border);
