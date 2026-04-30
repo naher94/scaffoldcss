@@ -302,6 +302,9 @@ footer{
       &:hover{
         @include syne(bold);
       }
+      svg{
+        width: 0.5em;
+      }
     }
     .link-wrapper{
       @include scaffold.breakpoint(md,down){
