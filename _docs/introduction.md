@@ -17,8 +17,6 @@ All classes are prefixed with `scaffold-` to avoid conflicts with other librarie
 
 <h3 id="{{ page.anchor }}-grid-or-flex"><a href="#{{ page.anchor }}-grid-or-flex">Grid or flex?</a></h3>
 
-Moving away from the traditional 12-col flex grid hack, the question becomes when should I use grid and when should I use flex?
+If you're coming from a traditional 12-column flex grid, start by asking: *does the structure come first, or does the content?*
 
-If the layout structure defines the content layout then grid is what you need, if the content determine the layout flex is what you need!
-
-If you're defining the structure first — a 12-column page layout, a fixed card grid — that's Grid. If the content is driving its own size and you're just controlling how items flow and align — a nav bar, a tag list, a button group — that's Flex.
+If you're defining the structure first — a 12-column page layout, a fixed card grid — use Grid. If content drives its own size and you're controlling how items flow and align — a nav bar, a tag list, a button group — use Flex.
