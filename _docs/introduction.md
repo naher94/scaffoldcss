@@ -9,9 +9,9 @@ sort: 2
 
 Scaffold stays close to native CSS Grid rather than abstracting it away. The goal is to fill the gaps where Grid is verbose or repetitive, not to reinvent it. If you know CSS Grid, you already know most of Scaffold.
 
-Mixins are the primitive layer. Every layout concept — grid, span, flex, container, gap — is available as a SCSS mixin first. Utility classes are generated output from those same mixins, so both approaches produce identical CSS. Use whichever fits your workflow.
+Mixins are the foundation. Every layout concept — grid, span, flex, container, gap — is available as a SCSS mixin first. Utility classes are generated from those same mixins, so both approaches produce identical CSS. Use whichever fits your workflow.
 
-Everything is customizable via CSS custom properties. Classes are the convenience layer; custom properties are the real configuration surface.
+Everything is customizable via CSS custom properties. Classes are the convenience layer; custom properties are where you actually configure things.
 
 All classes are prefixed with `scaffold-` to avoid conflicts with other libraries or existing project CSS. Custom properties use the same `--scaffold-` namespace, so there's one consistent naming system throughout.
 
