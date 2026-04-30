@@ -23,6 +23,7 @@ const ScaffoldOverlay = {
     const label = document.getElementById('scaffold-toggle-label');
 
     btn.classList.toggle('active', this.active);
+    btn.setAttribute('aria-expanded', this.active);
     label.textContent = this.active ? 'Hide layout' : 'Show layout';
     this.svg.classList.toggle('active', this.active);
 
