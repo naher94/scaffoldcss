@@ -12,15 +12,20 @@
 }
 
 .scaffold-toggle-btn {
+  --btn-translate: 0px;
+
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   left: auto;
+  transform: translateX(var(--btn-translate));
 
   @include scaffold.breakpoint(md, down) {
-    right: 50%;
-    transform: translateX(50%);
+    right: auto;
+    left: 50%;
+    --btn-translate: -50%;
   }
+
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -37,7 +42,7 @@
 
   &:hover {
     font-weight: bold;
-    scale: 1.1;
+    transform: translateX(var(--btn-translate)) scale(1.1);
   }
 
   &.active {
