@@ -27,7 +27,7 @@ Copy the [compiled CSS]() directly into your project's directory if you don't ne
 
 <h3 id="{{ page.anchor }}-whats-included"><a href="#{{ page.anchor }}-whats-included">What's included</a></h3>
 
-Scaffold ships two artifacts: the compiled `scaffold.css` for drop-in use, and the raw `_sass/scaffold/` source for projects that want to use the mixins or customize the token defaults.
+Scaffold ships two artifacts: the compiled `scaffold.css` for drop-in use, and the raw `_sass/scaffold/` source for projects that want to use the mixins or customize the defaults.
 
 <h3 id="{{ page.anchor }}-file-structure"><a href="#{{ page.anchor }}-file-structure">Library file structure</a></h3>
 

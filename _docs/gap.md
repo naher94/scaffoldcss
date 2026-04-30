@@ -7,7 +7,7 @@ sort: 14
 
 <h2><a href="#{{ page.anchor }}">Gap</a></h2>
 
-Gap utility classes map to three t-shirt sizes backed by custom properties. Works in both grid and flex contexts.
+Gap utility classes map to three t-shirt sizes backed by custom properties, and work in both grid and flex contexts.
 
 <div markdown="1">
 
