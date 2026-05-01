@@ -51,7 +51,7 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 <h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
-The `align-items` property defines the default behavior for how items are laid out along the cross axis (perpendicular to the main axis). Default direction is row as show in the previews. The axis is defined by the `flex-direction` property on the container, so the same alignment classes work for both row and column layouts.
+Controls how all children align on the cross axis, perpendicular to the flex direction. Since `scaffold-flex` defaults to row, that means vertical alignment, as shown in the previews. The same classes apply in column layouts too.
 
 <table class="class-table">
   <thead>
