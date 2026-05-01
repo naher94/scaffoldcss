@@ -92,6 +92,8 @@ Controls how all children align on the cross axis, perpendicular to the flex dir
 
 <h3 id="{{ page.anchor }}-justify"><a href="#{{ page.anchor }}-justify">Justify content <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
+Controls how children are distributed along the main axis, parallel to the flex direction. Since `scaffold-flex` defaults to row, that means horizontal distribution, as shown in the previews. The same classes apply in column layouts too.
+
 <table class="class-table">
   <thead>
     <tr>
