@@ -347,6 +347,68 @@
 }
 
 
+/* ─── Flex align preview ─────────────────────────────────── */
+.flex-align-items-mini {
+  > div {
+    flex: 1;
+    background: var(--mp-block-bg);
+    border: 1px solid var(--mp-block-border);
+  }
+}
+
+.mini-preview {
+  --mp-bg:           color-mix(in srgb, var(--bamboo-green) 20%, transparent);
+  --mp-border:       color-mix(in srgb, var(--bamboo-green) 40%, transparent);
+  --mp-block-bg:     color-mix(in srgb, var(--bamboo-green) 60%, transparent);
+  --mp-block-border: color-mix(in srgb, var(--bamboo-green) 70%, transparent);
+  --mp-muted-bg:     color-mix(in srgb, var(--bamboo-green) 30%, transparent);
+  --mp-muted-border: color-mix(in srgb, var(--bamboo-green) 45%, transparent);
+
+  display: flex;
+  gap: 0.2em;
+  width: 100px;
+  height: 36px;
+  background: var(--mp-bg);
+  border: 1px solid var(--mp-border);
+  border-radius: var(--radius);
+  padding: 0.25em;
+
+  > div {
+    border-radius: calc(var(--radius) * 0.5);
+  }
+}
+
+.flex-justify-mini {
+  align-items: stretch;
+
+  > div {
+    flex: 0 0 22%;
+    background: var(--mp-block-bg);
+    border: 1px solid var(--mp-block-border);
+  }
+}
+
+.flex-align-self-mini {
+  align-items: center;
+
+  > div {
+    flex: 1;
+  }
+
+  .fasm-side {
+    height: 45%;
+    background: var(--mp-muted-bg);
+    border: 1px solid var(--mp-muted-border);
+  }
+
+  > div:not(.fasm-side) {
+    min-height: 45%;
+    background: var(--mp-block-bg);
+    border: 1px solid var(--mp-block-border);
+  }
+}
+
+
 /* ─── Callout ────────────────────────────────────────────── */
 .callout {
   background: color-mix(in srgb, #0098c8 10%, transparent);
