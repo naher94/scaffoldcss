@@ -197,12 +197,15 @@ Applies to individual children for one-off exceptions to the container's `align-
 </div>
 
 ```html
-<div class="scaffold-flex">
+<div class="scaffold-flex scaffold-flex-nowrap">
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(600/900)">
     <img src="portrait.jpg">
   </div>
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(1200/800)">
     <img src="landscape.jpg">
+  </div>
+  <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(800/800)">
+    <img src="square.jpg">
   </div>
 </div>
 ```
