@@ -49,47 +49,6 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
-
-Controls how all children align on the cross axis, perpendicular to the flex direction. Since `scaffold-flex` defaults to row, that means vertical alignment, as shown in the previews. The same classes apply in column layouts too.
-
-<table class="class-table">
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Description</th>
-      <th>Preview</th>
-      <th>CSS output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>.scaffold-items-start</code></td>
-      <td>Align children to start</td>
-      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-start;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
-      <td><code>align-items: flex-start</code></td>
-    </tr>
-    <tr>
-      <td><code>.scaffold-items-center</code></td>
-      <td>Align children to center</td>
-      <td><div class="mini-preview flex-align-items-mini" style="align-items: center;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
-      <td><code>align-items: center</code></td>
-    </tr>
-    <tr>
-      <td><code>.scaffold-items-end</code></td>
-      <td>Align children to end</td>
-      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-end;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
-      <td><code>align-items: flex-end</code></td>
-    </tr>
-    <tr>
-      <td><code>.scaffold-items-stretch</code></td>
-      <td>Stretch children to fill</td>
-      <td><div class="mini-preview flex-align-items-mini" style="align-items: stretch;"><div></div><div></div><div></div></div></td>
-      <td><code>align-items: stretch</code></td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="{{ page.anchor }}-justify"><a href="#{{ page.anchor }}-justify">Justify content <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
 Controls how children are distributed along the main axis, parallel to the flex direction. Since `scaffold-flex` defaults to row, that means horizontal distribution, as shown in the previews. The same classes apply in column layouts too.
@@ -133,6 +92,47 @@ Controls how children are distributed along the main axis, parallel to the flex 
       <td>Space around items</td>
       <td><div class="mini-preview flex-justify-mini" style="justify-content: space-around;"><div></div><div></div><div></div></div></td>
       <td><code>justify-content: space-around</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
+
+Controls how all children align on the cross axis, perpendicular to the flex direction. Since `scaffold-flex` defaults to row, that means vertical alignment, as shown in the previews. The same classes apply in column layouts too.
+
+<table class="class-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+      <th>Preview</th>
+      <th>CSS output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.scaffold-items-start</code></td>
+      <td>Align children to start</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-start;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-center</code></td>
+      <td>Align children to center</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: center;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-end</code></td>
+      <td>Align children to end</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-end;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-stretch</code></td>
+      <td>Stretch children to fill</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: stretch;"><div></div><div></div><div></div></div></td>
+      <td><code>align-items: stretch</code></td>
     </tr>
   </tbody>
 </table>
