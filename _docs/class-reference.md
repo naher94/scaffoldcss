@@ -34,15 +34,15 @@ sort: 40
 
 | Class | Description | CSS |
 |---|---|---|
-| `.scaffold-items-start` | Align children to start | `align-items: flex-start` |
-| `.scaffold-items-center` | Align children to center | `align-items: center` |
-| `.scaffold-items-end` | Align children to end | `align-items: flex-end` |
-| `.scaffold-items-stretch` | Stretch children to fill | `align-items: stretch` |
 | `.scaffold-justify-start` | Pack items to start | `justify-content: flex-start` |
 | `.scaffold-justify-center` | Center items | `justify-content: center` |
 | `.scaffold-justify-end` | Pack items to end | `justify-content: flex-end` |
 | `.scaffold-justify-between` | Space between items | `justify-content: space-between` |
 | `.scaffold-justify-around` | Space around items | `justify-content: space-around` |
+| `.scaffold-items-start` | Align children to start | `align-items: flex-start` |
+| `.scaffold-items-center` | Align children to center | `align-items: center` |
+| `.scaffold-items-end` | Align children to end | `align-items: flex-end` |
+| `.scaffold-items-stretch` | Stretch children to fill | `align-items: stretch` |
 | `.scaffold-self-start` | Align self to start | `align-self: flex-start` |
 | `.scaffold-self-center` | Align self to center | `align-self: center` |
 | `.scaffold-self-end` | Align self to end | `align-self: flex-end` |
