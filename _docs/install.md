@@ -18,8 +18,7 @@ Copy the [`_sass/scaffold/`](https://github.com/naher94/scaffoldcss/tree/main/_s
 
 <h3 id="{{ page.anchor }}-using-compiled-css"><a href="#{{ page.anchor }}-using-compiled-css">Using compiled CSS</a></h3>
 
-<!-- TODO add the link here -->
-Copy the [compiled CSS]() directly into your project's directory if you don't need the SCSS mixins:
+Copy the [compiled CSS](https://naher94.github.io/scaffoldcss/dist/scaffold.css) directly into your project's directory if you don't need the SCSS mixins:
 
 ```html
 <link rel="stylesheet" href="scaffold.css">
