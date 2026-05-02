@@ -7,7 +7,7 @@ sort: 42
 
 <h2><a href="#{{ page.anchor }}">Breakpoints</a></h2>
 
-Breakpoints are exposed as a SCSS mixin. Responsive utility classes use a mobile-first prefix convention.
+Scaffold exposes breakpoints in two ways: a `breakpoint()` SCSS mixin for use inside your own rules, and a mobile-first prefix convention for utility classes.
 
 <h3 id="{{ page.anchor }}-defaults"><a href="#{{ page.anchor }}-defaults">Default breakpoints</a></h3>
 
@@ -18,6 +18,20 @@ $breakpoints: (
   lg:  1024px,
   xl:  1280px,
 );
+```
+
+<h3 id="{{ page.anchor }}-mixin"><a href="#{{ page.anchor }}-mixin">breakpoint() mixin</a></h3>
+
+Scopes styles to a breakpoint using a named keyword and an optional direction. Defaults to `up` — styles apply from that breakpoint and wider. Use `down` for desktop-first thinking: `breakpoint(lg, down)` reads as "apply this on everything up until large."
+
+```scss
+.article {
+  @include scaffold.span(full);
+  @include scaffold.breakpoint(md) { @include scaffold.span(two-thirds); }
+}
+.sidebar {
+  @include scaffold.breakpoint(md, down) { display: none; }
+}
 ```
 
 <h3 id="{{ page.anchor }}-responsive-classes"><a href="#{{ page.anchor }}-responsive-classes">Responsive utility classes</a></h3>
