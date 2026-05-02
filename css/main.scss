@@ -237,7 +237,6 @@ section{
     &.fun-facts{
       --col-count: 3;
       --scaffold-cols: repeat( var(--col-count), 1fr);
-      // breakpoint 2 and 1 for medium and mobile
       @include scaffold.breakpoint(lg, down) { 
         --col-count: 2;
       }
