@@ -44,6 +44,21 @@ Grid span classes define how many of the 12 columns a child element occupies. Th
   </div>
 </div>
 
+<h3 id="{{ page.anchor }}-mixin"><a href="#{{ page.anchor }}-mixin">span() mixin</a></h3>
+
+Use the `span()` mixin to apply the same named fractions inside your own SCSS rules.
+
+```scss
+.article { @include scaffold.span(two-thirds); }
+.sidebar { @include scaffold.span(third); }
+
+// Responsive: full width by default, two-thirds at md and up
+.article {
+  @include scaffold.span(full);
+  @include scaffold.breakpoint(md) { @include scaffold.span(two-thirds); }
+}
+```
+
 <h3 id="{{ page.anchor }}-skip-spans"><a href="#{{ page.anchor }}-skip-spans">When to skip span utilities</a></h3>
 
 <div class="callout" markdown="1">
