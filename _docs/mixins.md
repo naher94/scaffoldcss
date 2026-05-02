@@ -56,7 +56,7 @@ Creates a centered max-width wrapper. Pass `$full: true` for the full-width vari
 
 <h3 id="mixin-breakpoint"><a href="#mixin-breakpoint">breakpoint()</a></h3>
 
-Wraps content in a media query. Supports mobile-first (up, default) and desktop-first (down).
+Scopes styles to a breakpoint using a named keyword and an optional direction. Defaults to `up` — styles apply from that breakpoint and wider. Use `down` for desktop-first thinking: `breakpoint(lg, down)` reads as "apply this on everything up until large."
 
 ```scss
 .article {
