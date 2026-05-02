@@ -77,17 +77,23 @@ const ScaffoldOverlay = {
 
       this.svg.appendChild(this._label(x + 2, y + 2, this._labelFor(el), this.GRID_COLOR, '#fff'));
 
-      // Highlight span children
+      // Highlight grid children — span class takes priority, falls back to computed grid-column
       Array.from(el.children).forEach(child => {
         const spanClass = this._activeSpanClass(child);
-        if (!spanClass) return;
         const cr = child.getBoundingClientRect();
         const cx = cr.left + window.scrollX;
         const cy = cr.top  + window.scrollY;
         this.svg.appendChild(this._rect(cx, cy, cr.width, cr.height, this.SPAN_FILL, this.GRID_COLOR, 0.5));
-        const spanName  = spanClass.replace('scaffold-grid-span-', '');
         const selfLabel = this._selfLabelFor(child);
-        const lbl = selfLabel ? `${spanName} · ${selfLabel}` : spanName;
+        let lbl;
+        if (spanClass) {
+          const spanName = spanClass.replace('scaffold-grid-span-', '');
+          lbl = selfLabel ? `${spanName} · ${selfLabel}` : spanName;
+        } else {
+          const col = getComputedStyle(child).gridColumn;
+          const colLabel = col && col !== 'auto' ? col : 'auto';
+          lbl = selfLabel ? `${colLabel} · ${selfLabel}` : colLabel;
+        }
         this.svg.appendChild(this._label(cx + 2, cy + 2, lbl, this.GRID_COLOR, '#fff'));
       });
     });
