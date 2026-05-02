@@ -305,6 +305,23 @@ footer{
       line-height: 1;
       margin-block: 5rem;
     }
+    .author{
+      a{
+        font-size: 1em;
+        color: inherit;
+        text-underline-offset: 0.1em;
+        text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+        transition: var(--transition-spring);
+        &:hover{
+          text-decoration-thickness: 0.1em;
+          text-decoration-color: color-mix(in srgb, currentColor 100%, transparent);
+        }
+      }
+      @include scaffold.breakpoint(md,down){
+        flex-direction: column;
+        gap: 0.25em;
+      }
+    }
   }
   .right{
     background-color: var(--bamboo-black);
