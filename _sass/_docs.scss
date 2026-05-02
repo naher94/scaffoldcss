@@ -71,6 +71,8 @@
   overflow-y: auto;
   background: var(--dark-creme);
   padding: var(--edge-spacing);
+  display: flex;
+  flex-direction: column;
 
   a {
     display: block;
@@ -92,6 +94,47 @@
 
 .nav-section {
   margin-bottom: 2em;
+}
+
+.nav-contribute {
+  margin-top: auto;
+  padding-top: 1.5em;
+  border-top: var(--border);
+
+  p {
+    font-size: 0.75em;
+    color: var(--bamboo-forest);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: map-get($space-grotesk-weights, "light");
+    text-wrap: balance;
+    @supports (text-wrap: pretty) {
+      text-wrap: pretty;
+    }
+  }
+
+  a {
+    color: var(--bamboo-forest);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    svg {
+      height: 0.75em;
+      width: auto;
+      flex-shrink: 0;
+      path{
+        fill: currentColor;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      color: var(--bamboo-black);
+    }
+  }
 }
 
 .nav-section-label { //TODO this styling needs updated
