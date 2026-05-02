@@ -234,6 +234,22 @@ section{
         line-height: 1.2;
       }
     }
+    &.fun-facts{
+      --col-count: 3;
+      --scaffold-cols: repeat( var(--col-count), 1fr);
+      @include scaffold.breakpoint(lg, down) { 
+        --col-count: 2;
+      }
+      @include scaffold.breakpoint(md, down) {
+        --col-count: 1;
+      }
+      .section-header{
+        grid-column: span var(--col-count);
+      }
+      .content-card{
+        grid-column: span 1;
+      }
+    }
     .content-card{
       padding: var(--edge-spacing);
       border: var(--border);
@@ -301,6 +317,9 @@ footer{
       text-decoration: none;
       &:hover{
         @include syne(bold);
+      }
+      svg{
+        width: 0.5em;
       }
     }
     .link-wrapper{

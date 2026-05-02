@@ -1,4 +1,4 @@
-<nav class="docs-nav">
+<nav class="docs-nav" aria-label="Documentation">
   {% assign current_section = "" %}
   {% for doc in site.docs %}
     {% if doc.nav_section != current_section %}
@@ -9,5 +9,10 @@
     {% endif %}
     <a href="#{{ doc.anchor }}">{{ doc.nav_label }}</a>
   {% endfor %}
+  </div>
+
+  <div class="nav-contribute">
+    <p>Spotted a bug or have a suggestion?</p>
+    <a href="{{ site.github }}/issues" target="_blank" rel="noopener noreferrer">Open an issue on GitHub {% include img/chevron-right.svg %}</a>
   </div>
 </nav>

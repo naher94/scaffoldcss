@@ -32,22 +32,96 @@ sort: 40
 
 <h3 id="{{ page.anchor }}-alignment"><a href="#{{ page.anchor }}-alignment">Alignment <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
-| Class | Description | CSS |
-|---|---|---|
-| `.scaffold-items-start` | Align children to start | `align-items: flex-start` |
-| `.scaffold-items-center` | Align children to center | `align-items: center` |
-| `.scaffold-items-end` | Align children to end | `align-items: flex-end` |
-| `.scaffold-items-stretch` | Stretch children to fill | `align-items: stretch` |
-| `.scaffold-justify-start` | Pack items to start | `justify-content: flex-start` |
-| `.scaffold-justify-center` | Center items | `justify-content: center` |
-| `.scaffold-justify-end` | Pack items to end | `justify-content: flex-end` |
-| `.scaffold-justify-between` | Space between items | `justify-content: space-between` |
-| `.scaffold-justify-around` | Space around items | `justify-content: space-around` |
-| `.scaffold-self-start` | Align self to start | `align-self: flex-start` |
-| `.scaffold-self-center` | Align self to center | `align-self: center` |
-| `.scaffold-self-end` | Align self to end | `align-self: flex-end` |
-| `.scaffold-self-stretch` | Stretch self to fill | `align-self: stretch` |
-{: .class-table}
+<table class="class-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+      <th>Preview</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.scaffold-justify-start</code></td>
+      <td>Pack items to start</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: flex-start;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-center</code></td>
+      <td>Center items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: center;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-end</code></td>
+      <td>Pack items to end</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: flex-end;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-between</code></td>
+      <td>Space between items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: space-between;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: space-between</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-around</code></td>
+      <td>Space around items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: space-around;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: space-around</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-start</code></td>
+      <td>Align children to start</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-start;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-center</code></td>
+      <td>Align children to center</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: center;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-end</code></td>
+      <td>Align children to end</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-end;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-stretch</code></td>
+      <td>Stretch children to fill</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: stretch;"><div></div><div></div><div></div></div></td>
+      <td><code>align-items: stretch</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-start</code></td>
+      <td>Align self to start</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: flex-start;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-center</code></td>
+      <td>Align self to center</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: center;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-end</code></td>
+      <td>Align self to end</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: flex-end;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-stretch</code></td>
+      <td>Stretch self to fill</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: stretch;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: stretch</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="{{ page.anchor }}-utilities"><a href="#{{ page.anchor }}-utilities">Utilities <span class="tag tag-util">util</span></a></h3>
 

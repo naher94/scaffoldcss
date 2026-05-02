@@ -49,50 +49,134 @@ A layout layer for single-axis layouts, component-level alignment, and inline gr
 
 </div>
 
-<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
-
-<div markdown="1">
-
-| Class | CSS output |
-|---|---|
-| `.scaffold-items-start` | `align-items: flex-start` |
-| `.scaffold-items-center` | `align-items: center` |
-| `.scaffold-items-end` | `align-items: flex-end` |
-| `.scaffold-items-stretch` | `align-items: stretch` |
-{: .class-table}
-
-</div>
-
 <h3 id="{{ page.anchor }}-justify"><a href="#{{ page.anchor }}-justify">Justify content <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
-<div markdown="1">
+Controls how children are distributed along the main axis, parallel to the flex direction. Since `scaffold-flex` defaults to row, that means horizontal distribution, as shown in the previews. The same classes apply in column layouts too.
 
-| Class | CSS output |
-|---|---|
-| `.scaffold-justify-start` | `justify-content: flex-start` |
-| `.scaffold-justify-center` | `justify-content: center` |
-| `.scaffold-justify-end` | `justify-content: flex-end` |
-| `.scaffold-justify-between` | `justify-content: space-between` |
-| `.scaffold-justify-around` | `justify-content: space-around` |
-{: .class-table}
+<table class="class-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+      <th>Preview</th>
+      <th>CSS output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.scaffold-justify-start</code></td>
+      <td>Pack items to start</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: flex-start;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-center</code></td>
+      <td>Center items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: center;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-end</code></td>
+      <td>Pack items to end</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: flex-end;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-between</code></td>
+      <td>Space between items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: space-between;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: space-between</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-justify-around</code></td>
+      <td>Space around items</td>
+      <td><div class="mini-preview flex-justify-mini" style="justify-content: space-around;"><div></div><div></div><div></div></div></td>
+      <td><code>justify-content: space-around</code></td>
+    </tr>
+  </tbody>
+</table>
 
-</div>
+<h3 id="{{ page.anchor }}-align-items"><a href="#{{ page.anchor }}-align-items">Align items <span class="tag tag-align">grid &amp; flex</span></a></h3>
+
+Controls how all children align on the cross axis, perpendicular to the flex direction. Since `scaffold-flex` defaults to row, that means vertical alignment, as shown in the previews. The same classes apply in column layouts too.
+
+<table class="class-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+      <th>Preview</th>
+      <th>CSS output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.scaffold-items-start</code></td>
+      <td>Align children to start</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-start;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-center</code></td>
+      <td>Align children to center</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: center;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-end</code></td>
+      <td>Align children to end</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: flex-end;"><div style="height: 45%;"></div><div style="height: 80%;"></div><div style="height: 60%;"></div></div></td>
+      <td><code>align-items: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-items-stretch</code></td>
+      <td>Stretch children to fill</td>
+      <td><div class="mini-preview flex-align-items-mini" style="align-items: stretch;"><div></div><div></div><div></div></div></td>
+      <td><code>align-items: stretch</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="{{ page.anchor }}-align-self"><a href="#{{ page.anchor }}-align-self">Align self <span class="tag tag-align">grid &amp; flex</span></a></h3>
 
 Applies to individual children for one-off exceptions to the container's `align-items` value.
 
-<div markdown="1">
-
-| Class | CSS output |
-|---|---|
-| `.scaffold-self-start` | `align-self: flex-start` |
-| `.scaffold-self-center` | `align-self: center` |
-| `.scaffold-self-end` | `align-self: flex-end` |
-| `.scaffold-self-stretch` | `align-self: stretch` |
-{: .class-table}
-
-</div>
+<table class="class-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Description</th>
+      <th>Preview</th>
+      <th>CSS output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.scaffold-self-start</code></td>
+      <td>Align self to start</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: flex-start;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: flex-start</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-center</code></td>
+      <td>Align self to center</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: center;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: center</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-end</code></td>
+      <td>Align self to end</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: flex-end;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: flex-end</code></td>
+    </tr>
+    <tr>
+      <td><code>.scaffold-self-stretch</code></td>
+      <td>Stretch self to fill</td>
+      <td><div class="mini-preview flex-align-self-mini"><div class="fasm-side"></div><div style="align-self: stretch;"></div><div class="fasm-side"></div></div></td>
+      <td><code>align-self: stretch</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="{{ page.anchor }}-intrinsic"><a href="#{{ page.anchor }}-intrinsic">Proportional flex items</a></h3>
 
@@ -112,13 +196,40 @@ Applies to individual children for one-off exceptions to the container's `align-
   </div>
 </div>
 
+<div class="code-tabs">
+  <div class="code-tab-bar">
+    <button class="active">Utility class</button>
+    <button>SCSS</button>
+  </div>
+  <div class="code-tab-panel active" markdown="1">
+
 ```html
-<div class="scaffold-flex">
+<div class="scaffold-flex scaffold-flex-nowrap">
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(600/900)">
     <img src="portrait.jpg">
   </div>
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(1200/800)">
     <img src="landscape.jpg">
   </div>
+  <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(800/800)">
+    <img src="square.jpg">
+  </div>
 </div>
 ```
+
+  </div>
+  <div class="code-tab-panel" markdown="1">
+
+```scss
+.gallery {
+  @include scaffold.flex($wrap: nowrap);
+}
+
+.gallery__item {
+  flex: var(--aspect-ratio, 1);
+  min-width: 0;
+}
+```
+
+  </div>
+</div>

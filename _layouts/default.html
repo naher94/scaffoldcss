@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   {% include head.html %}
 
@@ -16,9 +16,9 @@
     {% include footer.html %}
 
     {% if page.overlay %}
-    <svg id="scaffold-overlay" xmlns="http://www.w3.org/2000/svg"></svg>
-    <button class="scaffold-toggle-btn" onclick="ScaffoldOverlay.toggle()">
-      <span class="scaffold-toggle-dot"></span>
+    <svg id="scaffold-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+    <button type="button" class="scaffold-toggle-btn" aria-expanded="false" aria-controls="scaffold-overlay" onclick="ScaffoldOverlay.toggle()">
+      <span class="scaffold-toggle-dot" aria-hidden="true"></span>
       <span id="scaffold-toggle-label">Show layout</span>
     </button>
     <script src="{{ '/assets/js/scaffold-overlay.js' | prepend: site.baseurl }}"></script>
