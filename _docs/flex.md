@@ -196,6 +196,13 @@ Applies to individual children for one-off exceptions to the container's `align-
   </div>
 </div>
 
+<div class="code-tabs">
+  <div class="code-tab-bar">
+    <button class="active">Utility class</button>
+    <button>SCSS</button>
+  </div>
+  <div class="code-tab-panel active" markdown="1">
+
 ```html
 <div class="scaffold-flex scaffold-flex-nowrap">
   <div class="scaffold-flex-intrinsic" style="--aspect-ratio: calc(600/900)">
@@ -209,3 +216,20 @@ Applies to individual children for one-off exceptions to the container's `align-
   </div>
 </div>
 ```
+
+  </div>
+  <div class="code-tab-panel" markdown="1">
+
+```scss
+.gallery {
+  @include scaffold.flex($wrap: nowrap);
+}
+
+.gallery__item {
+  flex: var(--aspect-ratio, 1);
+  min-width: 0;
+}
+```
+
+  </div>
+</div>
