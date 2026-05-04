@@ -2,17 +2,11 @@
 
 A lightweight CSS layout library built on Grid and Flex. Scaffold gives you a set of utility classes for building page layouts without writing boilerplate CSS.
 
-[Site](https://naher94.github.io/scaffoldcss) · [Docs](https://naher94.github.io/scaffoldcss/docs)
+[Site](https://scaffoldcss.rehanbutt.com) · [Docs](https://scaffoldcss.rehanbutt.com/docs)
 
 ## Quick Start
 
-Add the stylesheet to your project:
-
-```html
-<link rel="stylesheet" href="https://naher94.github.io/scaffoldcss/dist/scaffold.css">
-```
-
-Or download [`scaffold.css`](https://naher94.github.io/scaffoldcss/dist/scaffold.css) and host it yourself.
+Download [`scaffold.css`](https://scaffoldcss.rehanbutt.com/dist/scaffold.css) and host it in your project.
 
 Then use the classes in your HTML:
 
