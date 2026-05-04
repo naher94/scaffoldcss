@@ -10,7 +10,7 @@ title: Scaffold CSS · Layout Library
 description: > # this means to ignore newlines until "baseurl:"
   The 12-column flex grid was a hack. Scaffold CSS embraces native Grid and Flex with utility classes and mixins — just enough structure to get out of your way.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://scaffoldcss.rehanbutt.com" # the base hostname & protocol for your site
 
 site-version: 1.0.0
 library-version: 1.0.0
